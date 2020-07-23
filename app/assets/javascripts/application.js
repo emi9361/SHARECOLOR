@@ -9,8 +9,32 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+//= require audiojs
+
+$(function() {
+  var $nav   = $('#navArea');
+  var $btn   = $('.toggle_btn');
+  var $mask  = $('#mask');
+  var open   = 'open'; // class
+  // menu open close
+  $btn.on( 'click', function() {
+    if ( ! $nav.hasClass( open ) ) {
+      $nav.addClass( open );
+    } else {
+      $nav.removeClass( open );
+    }
+  });
+  // mask close
+  $mask.on('click', function() {
+    $nav.removeClass( open );
+  });
+});
+

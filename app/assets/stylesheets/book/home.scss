@@ -1,0 +1,92 @@
+body {
+}
+
+div.top-page{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+
+p{
+  font-family: Meiryo, "Hiragino Kaku Gothic Pro W3", Courier New, sans-serif;
+  line-height: 1.5;
+  font-size: 50px;
+  margin-bottom: 25px;
+  color: #333333;
+  text-align: center;
+}
+
+section.content-sound a,
+section.content-video a,
+section.content-stage a {
+  text-decoration: none;
+}
+
+section.content-sound a img {
+  border-radius: 10px;
+  height: 400px;
+  object-fit: contain;
+  opacity: 1;
+  transition: .5s;
+}
+
+section.content-sound a p.content-text {
+  position: absolute;
+  top: 23rem;
+  left: 3rem;
+}
+
+section.content-sound:hover{
+  opacity: 0.7;
+}
+
+section.content-video a img {
+  border-radius: 10px;
+  height: 400px;
+  object-fit: contain;
+  opacity: 1;
+  transition: .5s;
+}
+
+section.content-video a p.content-text {
+  position: absolute;
+  top: 0;
+  right: 11rem;
+}
+
+.content-video:hover {
+  opacity: 0.7;
+}
+
+section.content-stage a img {
+  border-radius: 10px;
+  height: 400px;
+  width: 1200px;
+  opacity: 1;
+  transition: .5s;
+}
+
+section.content-stage a p.content-text2 {
+
+}
+section.content-stage:hover {
+  opacity: 0.7;
+}
+
+.content-text{
+  font-family: Meiryo, "Hiragino Kaku Gothic Pro W3", Courier New, sans-serif;
+  font-size: 100px;
+  color: #999999;
+}
+
+.content-text2{
+  font-family: Meiryo, "Hiragino Kaku Gothic Pro W3", Courier New, sans-serif;
+  font-size: 100px;
+  color: #999999;
+  padding-right: 700px;
+}
+
+/*グラデーション*/
+/*background: linear-gradient(#05FBFF, #1D62F0 ) fixed;
+}*/

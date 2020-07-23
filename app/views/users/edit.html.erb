@@ -1,0 +1,14 @@
+<main class="user-main">
+<h1>MyPage</h1>
+	<p class = "profile-edit"><%= link_to 'Update'%></p>
+	<div class="user-list">
+		<%= form_for(@) do |f| %>
+		<div class= "user-profile">
+			<%= f.label%>Name<% label%>
+			<%= f.text_field :name %>
+			<%= f.label%>National<% label%>
+			<p>National <span class="profile-space">Chiba</span></p>
+			<p>Introduction <span class="profile-space">I'm DJ</span></p>
+		</div>
+	</div>
+</main>
