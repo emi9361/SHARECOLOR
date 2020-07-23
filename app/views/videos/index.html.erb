@@ -1,5 +1,6 @@
 <main class="video-main">
 <h1>Video#index</h1>
+<%= link_to '投稿する', new_video_path, class: 'btn btn-info', style: "text-alian:center;" %>
 	<div class="video-list">
 		<div class="video-back">
 				<p><%= video_tag("love.mp4",class:"video-sample", :autoplay =>true,:loop =>true, muted: true, :controls =>true )%>
@@ -7,3 +8,18 @@
 				<p><%= video_tag("hindu.mp4",class:"video-sample", :autoplay =>true,:loop =>true, muted: true,:controls =>true)%>
 				Hindu</p>
 	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>header</th>
+			</tr>
+		</thead>
+		<tbody>
+				<% @videos.each do |video| %>
+			<tr>
+				<td><%= video.title%></td>
+            	<td><%= video_tag video.file, :controls => true, width: "640", height: "360" %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>

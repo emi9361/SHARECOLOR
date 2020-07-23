@@ -14,13 +14,13 @@ class AudioFileUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
 end
 #mp3に変換
-  version :mp3 do
-    process :convert => [{output_format: :mp3}]
+  # version :mp3 do
+  #   process :convert => [{output_format: :mp3}]
 
-    def full_filename(for_file)
-      "#{super.chomp(File.extname(super))}".mp3
-    end
-  end
+  #   def full_filename(for_file)
+  #     "#{super.chomp(File.extname(super))}".mp3
+  #   end
+  # end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)

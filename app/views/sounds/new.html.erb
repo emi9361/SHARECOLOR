@@ -3,14 +3,24 @@
 	<div class="sound-list">
 		<div class = "sound-form">
 			<div class = "sound_form-details">
-			  <%= form_for @sound do |f| %>
-				<%= f.label :File %><br />
-				<%= f.file_field :file, class: 'sound-source' %><br />
-				<%= f.label :BPM %>
-				<%= f.select :bpm, [["60 〜 70","60~70"],["71 〜 80","71~80"],["81 〜 90","80~90"],["91 〜 100","91~100"],["101 〜 110","101~110"],["111 〜 120","111~120"],["121 〜 130","121~130"],["131 〜 140","131~140"],["141 〜 150","141~150"]],class: 'sound-source' %><br />
-				<%= f.label :Mood %>
-				<%= f.text_field :mood_id, class: 'sound-source' %><br />
-				<%= f.submit "Upload", class: 'btn btn-outline-info'%><br />
-			<% end %>
+				<%= form_for @sound do |f| %>
+					<%= f.file_field :file, class: 'sound-source' %><br />
+					<%= f.label :Title %>
+					<%= f.text_field :title, class: 'sound-source' %><br />
+					<%= f.label :BPM %>
+					<%= f.select :bpm, [["60 〜 70","60~70"],["71 〜 80","71~80"],["81 〜 90","80~90"],["91 〜 100","91~100"],["101 〜 110","101~110"],["111 〜 120","111~120"],["121 〜 130","121~130"],["131 〜 140","131~140"],["141 〜 150","141~150"]],class: 'sound-source' %><br />
+					<%= f.label :Mood %>
+					<%= f.text_field :mood, class: 'sound-source' %><br />
+					<%= f.label :Genre %>
+					<%= f.text_field :genre, class: 'sound-source' %><br />
+					<%= f.label :Hashtag %>
+					<%= f.text_field :hashtag, class: 'sound-source', placeholder: "#・・"%><br />
+					<%= f.label :Detail %>
+					<%= f.text_field :detail, class: 'sound-source'%><br />
+					<%= f.submit "Upload", class: 'btn btn-outline-info'%><br />
+				<% end %>
+			</div>
+		</div>
 	</div>
+</main>
 

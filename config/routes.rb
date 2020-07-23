@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   resource :genres, only:[:create, :destroy]
   resource :moods, only:[:create, :destroy]
   resource :hashtag, only:[:create, :destroy]
+  member do
+  get 'sound_for'
+  end
   end
 
   resources :videos do

@@ -6,9 +6,29 @@
 	<%= audio_tag 'kick.mp3'%>
 	</p>
 	<p>techno.sample
-		<%= audio_tag 'techno.mp3'%>
+		<%= audio_tag 'techno.mp3',:controls =>true%>
 	</p>
 	<p>techno2.sample
 		<%= audio_tag 'techno_sample02.mp3'%>
-	</div>
 	</p>
+<table>
+	<thead>
+		<tr>
+			<th>All Sounds</th>
+		</tr>
+	</thead>
+	<tbody>
+			<% @sounds.each do |sound|%>
+		<tr>
+			<td><%= sound.title %></td>
+			<td><%= sound.bpm %></td>
+			<td><%= audio_tag sound.file, controls: true %></td>
+			<td><%= sound.user.name %>さんの投稿</td>
+		</tr>
+			<% end %>
+	</tbody>
+</table>
+
+
+
+</div>

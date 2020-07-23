@@ -1,4 +1,29 @@
 <main class="stage-main">
 <h1>Stage#new</h1>
 	<div class="stage-list">
+		<main class="video-main">
+			<div class = "sound_form-details">
+				<%= form_for @stage do |f| %>
+					<%= f.label :Title %>
+					<%= f.text_field :title, class: 'stage-source' %><br />
+					<%= f.file_field :file, class: 'stage-source' %><br />
+					<%= f.label :Mood %>
+					<%= f.text_field :mood_id, class: 'stage-source' %><br />
+					<%= f.label :Genre %>
+					<%= f.text_field :genre_id, class: 'stage-source' %><br />
+					<%= f.label :Hashtag %>
+					<%= f.text_field :hashtag_id, class: 'stage-source', placeholder: "#・・"%><br />
+					<%= f.label :Detail %>
+					<%= f.text_field :detail, class: 'stage-source'%><br />
+					<%= f.submit "Upload", class: 'btn btn-outline-info'%><br />
+				<% end %>
+				<p><%= link_to 'Stageリスト', stages_path, class: 'btn btn-info', style: "text-alian:center;" %></p>
+			</div>
+		</div>
+	</div>
+</main>
+
+
+	</div>
+
 	</div>
