@@ -1,8 +1,8 @@
 <main class="sound-main">
-<h1>Sounds#new</h1>
-	<div class="sound-list">
-		<div class = "sound-form">
-			<div class = "sound_form-details">
+<h1>Sounds NewPost</h1>
+<a><%= link_to '戻る', sounds_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
+	<div class="sound-back">
+		<div class="sound-write">
 				<%= form_for @sound do |f| %>
 					<%= f.file_field :file, class: 'sound-source' %><br />
 					<%= f.label :Title %>
@@ -17,7 +17,7 @@
 					<%= f.text_field :hashtag, class: 'sound-source', placeholder: "#・・"%><br />
 					<%= f.label :Detail %>
 					<%= f.text_field :detail, class: 'sound-source'%><br />
-					<%= f.submit "Upload", class: 'btn btn-outline-info'%><br />
+					<%= f.submit "アップロード", class: 'btn btn-outline-info'%><br />
 				<% end %>
 			</div>
 		</div>

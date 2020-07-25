@@ -1,8 +1,39 @@
 <main class="stage-main">
-<h1>Stage#show</h1>
-	<div class="stage-list">
-			<p><%= @stage.title %>
-            <%= video_tag @stage.file,  class:"stage-sample", :controls => true %>
-		</p>
-
-	</div>
+<h1>Stage</h1>
+		<a><%= link_to '戻る', stages_path, class: 'btn btn-info newpost_buttom', style: "text-alian:center;" ,data: {"turbolinks" => false} %></a>
+		<a><%= link_to '編集', edit_stage_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
+		<div class="stage-list">
+			<div class="sound-write">
+				<table class="table table-borderless sound-table">
+					<thead>
+						<tr>
+							<th scope="col">User</th>
+							<th scope="col">Title</th>
+							<th scope="col">Mood</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><%= @stage.user.name %></td>
+							<td><%= @stage.title %></td>
+							<td><%= @stage.mood %></td>
+							<td><% if @stage.favorited_by?(current_user) %>
+									<%= link_to stage_favorites_path(@stage), method: :delete do %>
+									<i class="far fa-star" aria-hidden="true" style="color: blue;"></i>
+									<%= @stage.favorites.count %>
+									<% end %>
+								<% else %>
+									<%= link_to stage_favorites_path(@stage), method: :post do %>
+									<i class="fas fa-star" aria-hidden="true"></i>
+	    							<%= @stage.favorites.count %>
+									<% end %>
+								<% end %>
+							</td>
+						</tr>
+						<p><%= video_tag @stage.file,  class:"stage-sample", :controls => true %></p>
+						</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+		</div>

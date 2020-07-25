@@ -1,20 +1,20 @@
 <main class="user-main">
 <h1>MyPage</h1>
-<a><%= link_to 'Back', @user_path, class: 'btn btn-outline-info mypage-back_buttom', data: {"turbolinks" => false} %></a>
+<p><%= link_to 'Back', @user_path, class: 'btn btn-outline-info mypage-back_buttom', data: {"turbolinks" => false} %></p>
 	<div class="user-list">
 		<%= form_for(@user) do |f| %>
 		<div class= "user-profile">
-			<a><%= f.label :Name %>
-			<%= f.text_field :name %></a>
+			<p><%= f.label :Name %>
+			<%= f.text_field :name %></p>
 
-			<a><%= f.attachment_field :profile_image %></a>
+			<p><%= f.attachment_field :profile_image %></p>
 
-			<a><%= f.label :Location %>
-			<%= f.text_field :location %></a>
+			<p><%= f.label :Location %>
+			<%= f.text_field :location %></p>
 
-			<a><%= f.label :Introduction %>
-			<%= f.text_area :introduction %></a>
-			<a><%= f.submit 'OK', class: 'btn btn-info profile-edit'%></a>
+			<p><%= f.label :Introduction %>
+			<%= f.text_area :introduction %></p>
+			<p><%= f.submit 'OK', class: 'btn btn-info profile-edit'%></p>
 		</div>
 		<% end %>
 	</div>

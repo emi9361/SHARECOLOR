@@ -1,2 +1,23 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<main class="user-main">
+<h1>MyPage</h1>
+	<% if @user == current_user %>
+		<p><%= link_to '編集', edit_user_path(current_user), class: 'btn btn-info profile-edit', data: {"turbolinks" => false} %></p>
+	<% end %>
+		<div class="user-list">
+			<div class= "user-profile">
+				<p><%= attachment_image_tag @user, :profile_image, format: 'jpeg' %></p>
+				<p>Name : <%= @user.name %></p>
+				<p>Location : <%= @user.location %></p>
+				<p>Introduction : <%= @user.introduction %></p>
+				<p>フォロー数：<%= @user.follower.count %></p>
+        		<p>フォロワー数：<%= @user.followed.count %></p>
+				<% if current_user != @user %>
+					<% if current_user.followring?(@user) %>
+					<%= link_to 'フォロー外す',user_follows_path(@user), method: :delete, class: "btn btn-info" %>
+					<% else %>
+					<%= link_to 'フォローする',user_followses_path(@user), method: :post, class:"btn btn-outline-info" %>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+</main>

@@ -1,7 +1,7 @@
 class Favorite < ApplicationRecord
 	belongs_to :user
-	belongs_to :sound_id
-	belongs_to :video_id
-	belongs_to :stage_id
+	belongs_to :sound
+	belongs_to :video
+	belongs_to :stage
 
 end

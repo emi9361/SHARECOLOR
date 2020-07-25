@@ -38,3 +38,12 @@ $(function() {
   });
 });
 
+
+// $(function() {
+//   var mp_play = $('#mp_play')
+//   var mp3 = new Audio();
+//   var video = document.getElementById("video-sample");
+//  $mp_play.on( 'click', function() {
+//   $mp3.play();
+//   $video.play();
+//  });

@@ -1,7 +1,40 @@
 <main class="video-main">
-<h1>Videos#show</h1>
+<h1>Video</h1>
+<a><%= link_to '戻る', videos_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
+<a><%= link_to '編集', edit_video_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
 	<div class="video-list">
-		<p><%= @video.title %>
-            <%= video_tag @video.file,  class:"video-sample", :controls => true %>
-		</p>
-	</div>
+		<div class="sound-write">
+			<table class="table table-borderless sound-table">
+					<thead>
+						<tr>
+							<th scope="col">User</th>
+							<th scope="col">Title</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><%= @video.user.name %></td>
+							<td><%= @video.title %></td>
+							<td><% if @video.favorited_by?(current_user) %>
+									<%= link_to video_favorites_path(@video), method: :delete do %>
+									<i class="far fa-star" aria-hidden="true" style="color: blue;"></i>
+									<%= @video.favorites.count %>
+									<% end %>
+								<% else %>
+									<%= link_to video_favorites_path(@video), method: :post do %>
+									<i class="fas fa-star" aria-hidden="true"></i>
+	    							<%= @video.favorites.count %>
+									<% end %>
+								<% end %>
+							</td>
+						</tr>
+						<p><%= video_tag @video.file,  class:"video-show", :controls => true %></p>
+					</tbody>
+				</table>
+		</div>
+
+
+	 <input type="button" id="mp_play;" value="button" >
+	 <%= video_tag ["girl.mp4"] , id:"video-sample",:controls => true  %>
+	 <%= audio_tag ["kick.mp3"] , id:"sound-sample", :auto => true, :loop => true %>

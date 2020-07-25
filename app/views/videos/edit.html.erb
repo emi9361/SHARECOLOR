@@ -1,29 +1,31 @@
 <main class="video-main">
-<h1>Videos#edit</h1>
+<h1>Video Edit</h1>
+<a><%= link_to '戻る', videos_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
 	<div class="video-list">
-		<main class="sound-main">
-			<div class = "sound_form-details">
-				<%= video_tag @video.file, width: 100, class:"video-sample", :controls => true %>
-				<%= form_for @video do |f| %>
-					<%= f.label :Title %>
-					<%= f.file_field :file, :accept => 'video/*' %>
-					<%= f.text_field :title, class: 'video-source' %><br />
-					<%= f.label :Mood %>
-					<%= f.text_field :mood, class: 'video-source' %><br />
-					<%= f.label :Genre %>
-					<%= f.text_field :genre, class: 'video-source' %><br />
-					<%= f.label :Hashtag %>
-					<%= f.text_field :hashtag, class: 'video-source', placeholder: "#・・"%><br />
-					<%= f.label :Detail %>
-					<%= f.text_field :detail, class: 'video-source'%><br />
-					<%= f.submit "Upload", class: 'btn btn-outline-info'%><br />
-				<% end %>
-				<p><%= link_to 'VideoTop', stages_path, class: 'btn btn-info', style: "text-alian:center;" %></p>
+			<div class="sound-write">
+			<main class="sound-main">
+				<div class = "sound_form-details">
+					<%= video_tag @video.file, width: 100, class:"video-sample", :controls => true %>
+					<%= form_for @video do |f| %>
+						<%= f.file_field :file, :accept => 'video/*' %><br />
+						<%= f.label :Title %>
+						<%= f.text_field :title, class: 'video-source' %><br />
+						<%= f.label :Mood %>
+						<%= f.text_field :mood, class: 'video-source' %><br />
+						<%= f.label :Genre %>
+						<%= f.text_field :genre, class: 'video-source' %><br />
+						<%= f.label :Hashtag %>
+						<%= f.text_field :hashtag, class: 'video-source', placeholder: "#・・"%><br />
+						<%= f.label :Detail %>
+						<%= f.text_field :detail, class: 'video-source'%><br />
+						<%= f.submit "再アップロード", class: 'btn btn-outline-info'%><br />
+					<% end %>
+					<p><%= link_to 'VideoTop', stages_path, class: 'btn btn-info', style: "text-alian:center;" %></p>
+				</div>
 			</div>
 		</div>
-	</div>
-</main>
+	</main>
 
 
-	</div>
+		</div>
 
