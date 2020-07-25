@@ -67,10 +67,10 @@ ActiveRecord::Schema.define(version: 2020_07_22_085620) do
 
   create_table "stages", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "genre_id"
-    t.integer "mood_id"
-    t.integer "hashtag_id"
-    t.string "stage_source"
+    t.string "genre"
+    t.string "mood"
+    t.string "hashtag"
+    t.string "file"
     t.string "title"
     t.string "detail"
     t.datetime "created_at", null: false

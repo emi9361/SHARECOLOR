@@ -1,34 +1,26 @@
 <main class="sound-main">
-<h1>Sounds#index</h1>
-<%= link_to '投稿する', new_sound_path, class: 'btn btn-info', style: "text-alian:center;" %>
-	<div class="sound-list">
-	<p>kick.sample
-	<%= audio_tag 'kick.mp3'%>
-	</p>
-	<p>techno.sample
-		<%= audio_tag 'techno.mp3',:controls =>true%>
-	</p>
-	<p>techno2.sample
-		<%= audio_tag 'techno_sample02.mp3'%>
-	</p>
-<table>
-	<thead>
-		<tr>
-			<th>All Sounds</th>
-		</tr>
-	</thead>
-	<tbody>
-			<% @sounds.each do |sound|%>
-		<tr>
-			<td><%= sound.title %></td>
-			<td><%= sound.bpm %></td>
-			<td><%= audio_tag sound.file, controls: true %></td>
-			<td><%= sound.user.name %>さんの投稿</td>
-		</tr>
-			<% end %>
-	</tbody>
-</table>
-
-
-
-</div>
+<h1>Sounds</h1>
+<a><%= link_to '投稿', new_sound_path, class: 'btn btn-info sound-newpost', data: {"turbolinks" => false} %></a>
+	<div class="sound-back">
+		<div class="sound-write">
+			<table class="table table-borderless sound-table">
+				<thead>
+					<tr>
+						<th scope="col">User :</th>
+						<th scope="col">Title : </th>
+						<th scope="col">BPM : </th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @sounds.each do |sound|%>
+					<tr>
+						<td><%= sound.user.name %></td>
+						<td><%= link_to sound.title, sound_path(sound),data: {"turbolinks" => false}  %></td>
+						<td><%= sound.bpm %></td>
+						<td><%= audio_tag sound.file %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>

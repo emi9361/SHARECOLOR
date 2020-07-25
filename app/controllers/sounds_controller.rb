@@ -1,10 +1,12 @@
 class SoundsController < ApplicationController
   def index
   	@sounds = Sound.all
+
   end
 
   def show
   	@sound = Sound.find(params[:id])
+    @video = Video.find(params[:id])
   end
 
   def edit
@@ -23,7 +25,6 @@ class SoundsController < ApplicationController
 
   def sound_for
   @sound= Sound.find(params[:id])
-  # send_file @sound.upload_file_path
   send_data(@sound.upload_file, type: 'audio/mp3')
   end
 

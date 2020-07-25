@@ -12,7 +12,11 @@ class AudioFileUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-end
+  end
+
+  def size_range
+    0..1.megabytes
+  end
 #mp3に変換
   # version :mp3 do
   #   process :convert => [{output_format: :mp3}]
@@ -53,4 +57,5 @@ end
   # def filename
   #   "something.jpg" if original_filename
   # end
+
 end

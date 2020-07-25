@@ -1,5 +1,27 @@
 <main class="sound-main">
 <h1>Sounds#show</h1>
-	<div class="sound-list">
-		<%= @sound.title %>
-	</div>
+<a><%= link_to '編集', new_sound_path, class: 'btn btn-info sound-newpost', data: {"turbolinks" => false} %></a>
+<a><%= link_to 'Back', sounds_path, class: 'btn btn-outline-info sound-back_buttom', data: {"turbolinks" => false} %></a>
+	<div class="sound-back">
+		<div class="sound-write">
+			<table class="table table-borderless sound-table">
+				<thead>
+					<tr>
+						<th scope="col">User</th>
+						<th scope="col">Title</th>
+						<th scope="col">BPM</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= @sound.user.name %></td>
+						<td><%= @sound.title %></td>
+						<td><%= @sound.bpm %></td>
+						<td><%= audio_tag @sound.file %></td>
+					</tr>
+				</tbody>
+			</table>
+			 <p><%= video_tag @video.file,  class:"video-sample", :controls => true %></p>
+		</div>
+</div>

@@ -1,4 +1,8 @@
 <main class="stage-main">
 <h1>Stage#show</h1>
 	<div class="stage-list">
+			<p><%= @stage.title %>
+            <%= video_tag @stage.file,  class:"stage-sample", :controls => true %>
+		</p>
+
 	</div>

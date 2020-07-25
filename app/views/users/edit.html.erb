@@ -1,14 +1,21 @@
 <main class="user-main">
 <h1>MyPage</h1>
-	<p class = "profile-edit"><%= link_to 'Update'%></p>
+<a><%= link_to 'Back', @user_path, class: 'btn btn-outline-info mypage-back_buttom', data: {"turbolinks" => false} %></a>
 	<div class="user-list">
-		<%= form_for(@) do |f| %>
+		<%= form_for(@user) do |f| %>
 		<div class= "user-profile">
-			<%= f.label%>Name<% label%>
-			<%= f.text_field :name %>
-			<%= f.label%>National<% label%>
-			<p>National <span class="profile-space">Chiba</span></p>
-			<p>Introduction <span class="profile-space">I'm DJ</span></p>
+			<a><%= f.label :Name %>
+			<%= f.text_field :name %></a>
+
+			<a><%= f.attachment_field :profile_image %></a>
+
+			<a><%= f.label :Location %>
+			<%= f.text_field :location %></a>
+
+			<a><%= f.label :Introduction %>
+			<%= f.text_area :introduction %></a>
+			<a><%= f.submit 'OK', class: 'btn btn-info profile-edit'%></a>
 		</div>
+		<% end %>
 	</div>
 </main>

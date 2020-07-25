@@ -1,12 +1,12 @@
 <main class="user-main">
 <h1>MyPage</h1>
-	<p class = "profile-edit"><%= link_to 'Edit'%></p>
+<a><%= link_to '編集', edit_user_path(current_user), class: 'btn btn-info profile-edit', data: {"turbolinks" => false} %></a>
 	<div class="user-list">
 		<div class= "user-profile">
-			<%= image_tag "profile.jpg", class:"profile_image" %>
-			<p>Name <span class="profile-space"> Nao</span></p>
-			<p>National <span class="profile-space">Chiba</span></p>
-			<p>Introduction <span class="profile-space">I'm DJ</span></p>
+			<p><%= attachment_image_tag @user, :profile_image, format: 'jpeg' %></p>
+			<p>Name : <% @user.name %></p>
+			<p>Location : <% @user.location %></p>
+			<p>Introduction <% @user.introduction %></p>
 		</div>
 	</div>
 </main>
