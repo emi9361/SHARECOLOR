@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
 
   def self.guest
-	  find_or_create_by!(email: 'guest@example.com') do |user|
+	  find_or_create_by!(name: 'guest_user', email: 'guest@example.com', location: 'Tokyo', introduction: 'Guest_userです', encrypted_password: 'guest1111') do |user|
 	    user.password = SecureRandom.urlsafe_base64
 	  end
   end

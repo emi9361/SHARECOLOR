@@ -6,7 +6,7 @@ class SoundsController < ApplicationController
 
   def show
   	@sound = Sound.find(params[:id])
-    @video = Video.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def edit

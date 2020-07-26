@@ -1,45 +1,47 @@
 class FavoritesController < ApplicationController
 	def sound_create
-	sound = Sound.find(params[:sound_id])
-    favorite = current_user.favorites.new(sound_id: sound.id)
+	@sound = Sound.find(params[:sound_id])
+    favorite = @sound.favorites.new(user_id: current_user.id)
     favorite.save
-    redirect_to sound_path(sound)
 	end
 
 	def sound_destroy
-	sound = Sound.find(params[:sound_id])
+	@sound = Sound.find(params[:sound_id])
     favorite = current_user.favorites.find_by(sound_id: sound.id)
     favorite.destroy
-    redirect_to sound_path(sound)
     end
 
     def video_create
-    video = Video.find(params[:video_id])
-    favorite = current_user.favorites.new(video_id: video.id)
+    @video = Video.find(params[:video_id])
+    favorite = @video.favorites.new(user_id: current_user.id)
     favorite.save
-    redirect_to video_path(video)
     end
 
     def video_destroy
-    video = Video.find(params[:video_id])
+    @video = Video.find(params[:video_id])
     favorite = current_user.favorites.find_by(video_id: video.id)
     favorite.destroy
-    redirect_to video_path(video)
     end
 
     def stage_create
-    stage = Stage.find(params[:stage_id])
-    favorite = current_user.favorites.new(stage_id: stage.id)
+    @stage = Stage.find(params[:stage_id])
+    favorite = @stage.favorites.new(user_id: current_user.id)
     favorite.save
-    redirect_to stage_path(stage)
     end
 
     def stage_destroy
-    stage = Stage.find(params[:stage_id])
+    @stage = Stage.find(params[:stage_id])
     favorite = current_user.favorites.find_by(stage_id: stage.id)
     favorite.destroy
-    redirect_to stage_path(stage)
     end
 
-
+    private
+    def redirect
+        case params[:redirect_id].to_i
+        when 0
+            redirect_to sounds_path
+        when 1
+            redirect_to sound_path(@sound)
+        end
+    end
 end

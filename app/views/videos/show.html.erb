@@ -32,9 +32,6 @@
 						<p><%= video_tag @video.file,  class:"video-show", :controls => true %></p>
 					</tbody>
 				</table>
+				<%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%>
 		</div>
-
-
-	 <input type="button" id="mp_play;" value="button" >
-	 <%= video_tag ["girl.mp4"] , id:"video-sample",:controls => true  %>
-	 <%= audio_tag ["kick.mp3"] , id:"sound-sample", :auto => true, :loop => true %>
+	</div>
