@@ -1,0 +1,45 @@
+<div class="row">
+        <% if params[:name] == nil %>
+
+        <% else %>
+        <div class= "col-xs-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="hashtag-post-box">
+                <h3 class="search-title">#<%= @hashtag.hashtag_word %>:  <%= @sounds.count %> 件 </h3>
+                <div class="flex-box">
+                <% @sounds.each do |sound| %>
+                            <%= sound.created_at.strftime("%Y/%m/%d") %>
+                        </p>
+                        <%= link_to sound_path(sound),data: {"turbolinks" => false} %>
+                        <p class="hashtag-post-box-name">
+                            <%= link_to user_path(sound.user)%>
+                        </p>
+                        <div class="image-show-body-hash" style="padding:2%">
+                            <%= simple_format(sound.hashbody.truncate(50))%>
+                            <% if sound.hashbody.length > 50 %>
+                                <span class="text-prev"><%= link_to '続きを読む', sound_path(sound), data: {"turbolinks" => false} %>
+                                </span>
+                            <% end %>
+                        </div>
+                    </div>
+                <% end %>
+                </div>
+            </div>
+            <div class="image-index-pagination" data-turbolinks="false">
+                <%= paginate @sounds %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <div class="row">
+        <div class= "col-xs-12 col-lg-12 col-md-12 col-sm-12">
+            <div class= "hashtag-name">
+                <% @hashtags.sort.reverse.each do |count| %>
+                        <% count[1].each do |hashtag| %>
+                        <p><%= link_to  "##{hashtag.hashtag_word} (#{hashtag.sounds.count}) 件","/sound/hashtag/#{hashtag.hashtag_word}",data: {"turbolinks" => false} %>
+                        </p>
+                        <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,7 +6,6 @@ class SoundsController < ApplicationController
 
   def show
   	@sound = Sound.find(params[:id])
-    @user = User.find(params[:id])
   end
 
   def edit
@@ -29,10 +28,18 @@ class SoundsController < ApplicationController
   send_data(@sound.upload_file, type: 'audio/mp3')
   end
 
+  def hashtag
+    @user = current_user
+    @hashtag = Hashtag.find_by(hashtag_word: params[:name])
+    @sounds = @hashtag.sounds.page(params[:page]).per(20).reverse_order
+    @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.sounds.count}
+  end
+
   private
 
   def sound_params
-    params.require(:sound).permit(:file, :title, :bpm, :mood, :genre, :hashtag, :detail)
+    #複数一括で登録するからhashtag_ids: []と記載
+    params.require(:sound).permit(:file, :title, :bpm, :mood, :genre, :hashbody, :detail, hashtag_ids: [])
   end
 
 end

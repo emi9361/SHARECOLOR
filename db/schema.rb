@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_22_085620) do
+ActiveRecord::Schema.define(version: 2020_07_26_141032) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -34,10 +34,20 @@ ActiveRecord::Schema.define(version: 2020_07_22_085620) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "hashtag_sounds", force: :cascade do |t|
+    t.integer "sound_id"
+    t.integer "hashtag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hashtag_id"], name: "index_hashtag_sounds_on_hashtag_id"
+    t.index ["sound_id"], name: "index_hashtag_sounds_on_sound_id"
+  end
+
   create_table "hashtags", force: :cascade do |t|
     t.string "hashtag_word"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["hashtag_word"], name: "index_hashtags_on_hashtag_word", unique: true
   end
 
   create_table "moods", force: :cascade do |t|
@@ -50,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_07_22_085620) do
     t.integer "user_id"
     t.string "genre"
     t.string "mood"
-    t.string "hashtag"
+    t.text "hashbody"
     t.string "file"
     t.string "bpm"
     t.string "title"

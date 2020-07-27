@@ -5,6 +5,8 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @sound_sample = Sound.new
+    @sound_source = Sound.find(params[:id])
   end
 
   def edit
@@ -20,6 +22,13 @@ class VideosController < ApplicationController
   	@video.user_id = current_user.id
   	@video.save
   	redirect_to videos_path,notice:'Upできたお〜'
+  end
+
+  def update
+    @video = Video.find(params[:id])
+    @video.user_id = current_user.id
+    Video.update(video_params)
+    redirect_to videos_path,notice:'Upできたお〜'
   end
 
   private

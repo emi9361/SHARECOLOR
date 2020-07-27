@@ -1,5 +1,7 @@
 class FavoritesController < ApplicationController
-	def sound_create
+
+
+    def sound_create
 	@sound = Sound.find(params[:sound_id])
     favorite = @sound.favorites.new(user_id: current_user.id)
     favorite.save
@@ -7,7 +9,7 @@ class FavoritesController < ApplicationController
 
 	def sound_destroy
 	@sound = Sound.find(params[:sound_id])
-    favorite = current_user.favorites.find_by(sound_id: sound.id)
+    favorite = current_user.favorites.find_by(sound_id: @sound.id)
     favorite.destroy
     end
 
@@ -19,7 +21,7 @@ class FavoritesController < ApplicationController
 
     def video_destroy
     @video = Video.find(params[:video_id])
-    favorite = current_user.favorites.find_by(video_id: video.id)
+    favorite = current_user.favorites.find_by(video_id: @video.id)
     favorite.destroy
     end
 
@@ -31,17 +33,7 @@ class FavoritesController < ApplicationController
 
     def stage_destroy
     @stage = Stage.find(params[:stage_id])
-    favorite = current_user.favorites.find_by(stage_id: stage.id)
+    favorite = current_user.favorites.find_by(stage_id: @stage.id)
     favorite.destroy
-    end
-
-    private
-    def redirect
-        case params[:redirect_id].to_i
-        when 0
-            redirect_to sounds_path
-        when 1
-            redirect_to sound_path(@sound)
-        end
     end
 end

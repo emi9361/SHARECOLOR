@@ -7,28 +7,7 @@
 				<table class="table table-borderless sound-table">
 					<thead>
 						<tr>
-							<th scope="col">User</th>
-							<th scope="col">Title</th>
-							<th scope="col">Mood</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><%= @stage.user.name %></td>
-							<td><%= @stage.title %></td>
-							<td><%= @stage.mood %></td>
-							<td><% if @stage.favorited_by?(current_user) %>
-									<%= link_to stage_favorites_path(@stage), method: :delete do %>
-									<i class="far fa-star" aria-hidden="true" style="color: blue;"></i>
-									<%= @stage.favorites.count %>
-									<% end %>
-								<% else %>
-									<%= link_to stage_favorites_path(@stage), method: :post do %>
-									<i class="fas fa-star" aria-hidden="true"></i>
-	    							<%= @stage.favorites.count %>
-									<% end %>
-								<% end %>
-							</td>
+						<%= render 'stage_favorite', stage: @stage %>
 						</tr>
 						<p><%= video_tag @stage.file,  class:"stage-sample", :controls => true %></p>
 						</tbody>

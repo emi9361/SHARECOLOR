@@ -66,13 +66,12 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'pry-byebug'
-#レイアウト
+
 gem "jquery-rails"
 gem 'bootstrap', '~> 4.5.0'
-#音声再生
+#音声/映像
 gem 'audiojs-rails'
 gem 'carrierwave'
-#mp3に変換
 gem 'carrierwave-audio'
-#音声処理
-gem 'ruby-sox'
+gem 'streamio-ffmpeg'
+gem 'kaminari','~> 1.2.1'

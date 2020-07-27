@@ -46,7 +46,7 @@ Sound.create!(
 Video.create!(
   [
     {
-      user_id: 1,
+      user_id: 8,
       title: "girl",
       genre: "human",
       mood: "night",
@@ -54,7 +54,7 @@ Video.create!(
 
     },
     {
-      user_id: 2,
+      user_id: 9,
       title: "neonlight",
       genre: "neon",
       mood: "black",

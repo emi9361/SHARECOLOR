@@ -1,8 +1,3 @@
-//違うフォルダだからここれlocation.pathnameで定義,複数フォルダの指定をしたいときは↓を使うと良い
 
-if (location.pathname == '/sounds') {
-//class指定は.を使う、idは＃だね。
-//(指定先のclassにjson起動させてrenderで_books/bookで飛ぶようにする。book変数はbook_commentsコン/createの@bookを参照)
-//これはいいね機能↓
-  $(".sound-favorite").html("<%= j(render 'sounds/sound_favorite',  sound: @sound ) %>")
-}
+  $(".sound_<%= @sound.id %>").html("<%= j(render 'sounds/sound_favorite', sound: @sound ) %>")
+

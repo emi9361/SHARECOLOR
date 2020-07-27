@@ -1,5 +1,6 @@
 <main class="stage-main">
 <h1>Stages </h1>
+	<%= render 'layouts/search' %>
 		<a><%= link_to '投稿', new_stage_path, class: 'btn btn-info newpost_buttom', style: "text-alian:center;" %></a>
 		<div class="stage-list">
 			<div class="sound-write">
@@ -12,14 +13,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<% @stages.each do |stage|%>
-						<tr>
-							<td><%= stage.user.name %></td>
-							<td><%= link_to stage.title, stage_path(stage) %></td>
-							<td><%= stage.mood %></td>
-							<td><%= video_tag stage.file,  class:"stage-sample", :controls => true %></td>
-						</tr>
-						<% end %>
+						<%= render 'index', stages: @stages %>
 						</tbody>
 				</table>
 			</div>

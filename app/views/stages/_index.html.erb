@@ -1,0 +1,8 @@
+<% stages.each do |stage|%>
+	<tr>
+		<td><%= stage.user.name %></td>
+		<td><%= link_to stage.title, stage_path(stage) %></td>
+		<td><%= stage.mood %></td>
+		<td><%= video_tag stage.file,  class:"stage-sample", :controls => true %></td>
+	</tr>
+<% end %>

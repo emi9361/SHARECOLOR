@@ -6,32 +6,48 @@
 		<div class="sound-write">
 			<table class="table table-borderless sound-table">
 					<thead>
-						<tr>
-							<th scope="col">User</th>
-							<th scope="col">Title</th>
-							<th scope="col"></th>
+						<tr class= "video_<%= @video.id %>">
+							<%= render 'video_favorite', video: @video %>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
-							<td><%= @video.user.name %></td>
-							<td><%= @video.title %></td>
-							<td><% if @video.favorited_by?(current_user) %>
-									<%= link_to video_favorites_path(@video), method: :delete do %>
-									<i class="far fa-star" aria-hidden="true" style="color: blue;"></i>
-									<%= @video.favorites.count %>
-									<% end %>
-								<% else %>
-									<%= link_to video_favorites_path(@video), method: :post do %>
-									<i class="fas fa-star" aria-hidden="true"></i>
-	    							<%= @video.favorites.count %>
-									<% end %>
-								<% end %>
-							</td>
-						</tr>
-						<p><%= video_tag @video.file,  class:"video-show", :controls => true %></p>
-					</tbody>
-				</table>
-				<%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%>
+			</table>
+				<p><%= video_tag @video.file,  class:"video-show", :controls => true %></p>
+
+			<strong>Sound:</strong>
+				<%= form_for @sound_sample do |f| %>
+				<%= f.file_field :file, class: 'sound-source' %><br />
+				<%= f.submit "アップロード", class: 'btn btn-outline-info'%><br />
+				<% end %>
+
+				<%= audio_tag @sound_source.file, id: "bgm1",:loop => true  %>
+
+			<script>
+				const bgm1 = document.querySelector("#bgm1 #bgm2");       // <audio>
+				const btn  = document.querySelector("#btn-play");   // <button>
+
+				$btn.addEventListener("click", ()=>{
+				// pausedがtrue=>停止, false=>再生中
+				if( ! bgm1.paused ){
+					$btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に切り替え
+					$bgm1.pause();
+					}
+					else{
+					$btn.innerHTML = '<i class="fas fa-pause"></i>';  // 「一時停止ボタン」に切り替え
+					$bgm1.play();
+					}
+					});
+
+				/**
+				* [event] 再生終了時に実行
+				*/
+					$bgm1.addEventListener("ended", ()=>{
+					$bgm1.currentTime = 0;  // 再生位置を先頭に移動
+					$btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に変更
+					});
+			</script>
+
+			<p><%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%></p>
+
 		</div>
 	</div>
+</main>

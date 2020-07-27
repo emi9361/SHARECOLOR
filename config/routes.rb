@@ -41,5 +41,7 @@ Rails.application.routes.draw do
   end
 
   get '/search', to: 'search#search'
+  get '/sound/hashtag/:name', to: "sounds#hashtag"
+  get '/sound/hashtag', to: "sounds#hashtag"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -6,43 +6,14 @@
 		<div class="sound-write">
 			<table class="table table-borderless sound-table">
 				<thead>
-					<tr class= "sound-favorite">
+					<tr class= "sound_<%= @sound.id %>">
 						 <%= render 'sound_favorite', sound: @sound %>
+            			 <%= render_with_hashtags(@sound.hashbody) %>
 					</tr>
 				</tbody>
 			</table>
 
 			<button id="btn-play" type="button"><i class="fas fa-play"></i></button>
-			<%= audio_tag 'kick.mp3', id: "bgm2", :loop => true  %>
-			<%= audio_tag 'techno.mp3', id: "bgm2",:loop => true  %>
-			<%= video_tag 'girl.mp4', id: "bgm1",:loop => true  %>
-<!-- 再生ボタン -->
 
-<script>
-  const bgm1 = document.querySelector("#bgm1","#bgm2");       // <audio>
-  const btn  = document.querySelector("#btn-play");   // <button>
-
-  btn.addEventListener("click", ()=>{
-    // pausedがtrue=>停止, false=>再生中
-    if( ! bgm1.paused ){
-      btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に切り替え
-      bgm1.pause();
-    }
-    else{
-      btn.innerHTML = '<i class="fas fa-pause"></i>';  // 「一時停止ボタン」に切り替え
-      bgm1.play();
-    }
-  });
-
-  /**
-   * [event] 再生終了時に実行
-   */
-   bgm1.addEventListener("ended", ()=>{
-    bgm1.currentTime = 0;  // 再生位置を先頭に移動(こいつはなくても大丈夫です)
-    btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に変更
-  });
-</script>
-		</div>
-	</div>
-  <%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%>
+      <p><%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%></p>
 </main>
