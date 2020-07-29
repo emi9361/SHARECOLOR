@@ -14,7 +14,7 @@
 						</thead>
 						<tbody>
 							<%= render 'index' , videos: @videos %>
-							<p><%= video_tag asset_path("love.mp4") class:"video-show", :controls => true %></p>
+							<p><%= video_tag asset_path("love.mp4"), class:"video-show", :controls => true %></p>
 						</tbody>
 					</table>
 				</div>
