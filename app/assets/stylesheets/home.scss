@@ -1,15 +1,7 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 body {
-}
-
-.text-guest{
-  font-size: 10px;
-  position: absolute;
-  top: 7rem;
-  left: 30rem;
 }
 
 div.top-page{
@@ -44,7 +36,7 @@ section.content-sound a img {
 
 section.content-sound a p.content-text {
   position: absolute;
-  top: 0;
+  top: 23rem;
   left: 3rem;
 }
 
@@ -62,8 +54,8 @@ section.content-video a img {
 
 section.content-video a p.content-text {
   position: absolute;
-  top: 0;
-  right: 11rem;
+  top: 23rem;
+  right:18rem;
 }
 
 .content-video:hover {
@@ -79,6 +71,9 @@ section.content-stage a img {
 }
 
 section.content-stage a p.content-text2 {
+  position: absolute;
+  top: 48rem;
+  right:16rem;
 
 }
 section.content-stage:hover {
