@@ -2,6 +2,6 @@
 	<tr>
 		<td><%= stage.user.name %></td>
 		<td><%= link_to stage.title, stage_path(stage) %></td>
-		<td><%= video_tag stage.file,  class:"stage-sample", :controls => true %></td>
+		<td><%= video_tag stage.file.file,  class:"stage-sample", :controls => true %></td>
 	</tr>
 <% end %>
