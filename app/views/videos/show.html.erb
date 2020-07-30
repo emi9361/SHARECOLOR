@@ -8,6 +8,7 @@
 					<thead>
 						<tr class= "video_<%= @video.id %>">
 							<%= render 'video_favorite', video: @video %>
+							<%= render_with_hashtags(@video.hashbody) %>
 						</tr>
 					</thead>
 			</table>

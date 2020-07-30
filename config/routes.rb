@@ -43,5 +43,11 @@ Rails.application.routes.draw do
   get '/search', to: 'search#search'
   get '/sound/hashtag/:name', to: "sounds#hashtag"
   get '/sound/hashtag', to: "sounds#hashtag"
+
+  get '/video/hashtag/:name', to: "videos#hashtag"
+  get '/video/hashtag', to: "videos#hashtag"
+
+  get '/stage/hashtag/:name', to: "stages#hashtag"
+  get '/stage/hashtag', to: "stages#hashtag"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

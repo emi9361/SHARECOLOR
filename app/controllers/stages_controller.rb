@@ -22,8 +22,15 @@ class StagesController < ApplicationController
     redirect_to stages_path, notice:'Upできたお〜'
   end
 
+  def hashtag
+    @user = current_user
+    @hashtag = Hashtag.find_by(hashtag_word: params[:name])
+    @stages = @hashtag.stages.pages([:page]).per(10).reverse_order
+    @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.stages.count}
+  end
+
   private
   def stage_params
-    params.require(:stage).permit(:file, :title, :mood, :genre, :hashtag, :detail)
+    params.require(:stage).permit(:file, :title, :mood, :genre, :hashbody, :detail, hashtag_ids:[])
   end
 end

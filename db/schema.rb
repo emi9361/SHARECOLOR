@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_141032) do
+ActiveRecord::Schema.define(version: 2020_07_30_051356) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -43,6 +43,24 @@ ActiveRecord::Schema.define(version: 2020_07_26_141032) do
     t.index ["sound_id"], name: "index_hashtag_sounds_on_sound_id"
   end
 
+  create_table "hashtag_stages", force: :cascade do |t|
+    t.integer "stage_id"
+    t.integer "hashtag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hashtag_id"], name: "index_hashtag_stages_on_hashtag_id"
+    t.index ["stage_id"], name: "index_hashtag_stages_on_stage_id"
+  end
+
+  create_table "hashtag_videos", force: :cascade do |t|
+    t.integer "video_id"
+    t.integer "hashtag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hashtag_id"], name: "index_hashtag_videos_on_hashtag_id"
+    t.index ["video_id"], name: "index_hashtag_videos_on_video_id"
+  end
+
   create_table "hashtags", force: :cascade do |t|
     t.string "hashtag_word"
     t.datetime "created_at", null: false
@@ -72,8 +90,7 @@ ActiveRecord::Schema.define(version: 2020_07_26_141032) do
   create_table "stages", force: :cascade do |t|
     t.integer "user_id"
     t.string "genre"
-    t.string "mood"
-    t.string "hashtag"
+    t.text "hashbody"
     t.string "file"
     t.string "title"
     t.string "detail"
@@ -100,8 +117,7 @@ ActiveRecord::Schema.define(version: 2020_07_26_141032) do
   create_table "videos", force: :cascade do |t|
     t.integer "user_id"
     t.string "genre"
-    t.string "mood"
-    t.string "hashtag"
+    t.text "hashbody"
     t.string "file"
     t.string "title"
     t.string "detail"

@@ -8,12 +8,10 @@
 					<%= f.label :Title %>
 					<%= f.file_field :file, :accept => 'video/*' %>
 					<%= f.text_field :title, class: 'video-source' %><br />
-					<%= f.label :Mood %>
-					<%= f.text_field :mood, class: 'video-source' %><br />
 					<%= f.label :Genre %>
 					<%= f.text_field :genre, class: 'video-source' %><br />
 					<%= f.label :Hashtag %>
-					<%= f.text_field :hashtag, class: 'video-source', placeholder: "#・・"%><br />
+					<%= f.text_field :hashbody, class: 'video-source', placeholder: "#・・"%><br />
 					<%= f.label :Detail %>
 					<%= f.text_field :detail, class: 'video-source'%><br />
 					<%= f.submit "アップロード", class: 'btn btn-outline-info'%><br />

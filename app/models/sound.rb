@@ -13,7 +13,7 @@ class Sound < ApplicationRecord
 
 	after_create do
 		sound = Sound.find_by(id: id)
-		# hashtitleに入力したハッシュタグを検出
+		# hashbodyに入力したハッシュタグを検出
 		hashtags = hashbody.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
 		hashtags.uniq.map do |hashtag|
 		# ハッシュタグ先頭の#を外した上で保存
@@ -31,7 +31,7 @@ class Sound < ApplicationRecord
 		#map繰り返しで複数のhashtagがsoundに保存される
 		hashtags.uniq.map do |hashtag|
 		tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
-    	post_image.hashtags << tag
+    	sound.hashtags << tag
 		end
   	end
 
