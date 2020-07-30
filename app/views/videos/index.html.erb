@@ -1,7 +1,7 @@
 <main class="video-main">
 <h1>Videos</h1>
 	<%= render 'layouts/search' %>
-		<a><%= link_to '投稿', new_video_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
+		<p><%= link_to '投稿', new_video_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></p>
 			<div class="video-list">
 				<div class="sound-write">
 					<table class="table table-borderless sound-table">
@@ -14,7 +14,6 @@
 						</thead>
 						<tbody>
 							<%= render 'index' , videos: @videos %>
-							<p><%= asset_path("love.mp4"), class:"video-show", :controls => true %></p>
 						</tbody>
 					</table>
 				</div>

@@ -3,6 +3,6 @@
 		<td><%= video.user.name %></td>
 		<td><%= link_to video.title, video_path(video) %></td>
 		<td><%= video.mood %></td>
-		<td><%= video_tag asset_path ('video.file'),  class:"video-sample", :controls => true %></td>
+		<td><%= video_tag video.file,  class:"video-sample", :controls => true %></td>
 	</tr>
 <% end %>
