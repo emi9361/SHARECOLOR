@@ -1,0 +1,21 @@
+<main class="video-main">
+<h1>Videos</h1>
+	<%= render 'layouts/search' %>
+		<p><%= link_to '投稿', new_video_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></p>
+			<div class="video-list">
+				<div class="sound-write">
+					<table class="table table-borderless sound-table">
+						<thead>
+							<tr>
+								<th scope="col">User</th>
+								<th scope="col">Title</th>
+								<th scope="col">Mood</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%= render 'index' , videos: @videos %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</main>

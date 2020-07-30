@@ -1,0 +1,21 @@
+<main class="user-main">
+<h1>MyPage</h1>
+	<% if @user == current_user %>
+		<p><%= link_to '編集', edit_user_path(current_user), class: 'btn btn-info profile-edit', data: {"turbolinks" => false} %></p>
+	<% end %>
+		<div class="user-list">
+			<div class= "user-profile">
+				<p><%= attachment_image_tag @user, :profile_image, format: 'jpeg' , style:"width:40%;" %></p></br>
+				<p>Name : <%= @user.name %></p>
+				<p>Location : <%= @user.location %></p>
+				<p>Introduction <%= @user.introduction %></p>
+				<% if current_user != @user %>
+					<% if current_user.following?(@user) %>
+						<%= link_to 'フォロー外す',user_followses_path(@user), method: :delete, class: "btn btn-info" %>
+					<% else %>
+						<%= link_to 'フォローする',user_followses_path(@user), method: :post, class:"btn btn-outline-info" %>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+</main>

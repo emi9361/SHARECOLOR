@@ -1,0 +1,22 @@
+<main class="stage-main">
+<h1>Stages </h1>
+	<%= render 'layouts/search' %>
+		<a><%= link_to '投稿', new_stage_path, class: 'btn btn-info newpost_buttom', style: "text-alian:center;" %></a>
+		<div class="stage-list">
+			<div class="sound-write">
+				<table class="table table-borderless sound-table">
+					<thead>
+						<tr>
+							<th scope="col">User</th>
+							<th scope="col">Title</th>
+							<th scope="col">Mood</th>
+						</tr>
+					</thead>
+					<tbody>
+						<%= render 'index', stages: @stages %>
+						</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+		</div>

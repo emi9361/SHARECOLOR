@@ -1,0 +1,24 @@
+<main class="stage-main">
+<h1>Stage NewPost</h1>
+	<a><%= link_to '戻る', stages_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
+	<div class="stage-list">
+			<div class="sound-write">
+				<%= form_for @stage do |f| %>
+					<%= f.label :Title %>
+					<%= f.file_field :file, :accept => 'video/*' %>
+					<%= f.text_field :title, class: 'stage-source' %><br />
+					<%= f.label :Genre %>
+					<%= f.text_field :genre, class: 'stage-source' %><br />
+					<%= f.label :Hashtag %>
+					<%= f.text_area :hashbody, class: 'stage-source', placeholder: "#・・"%><br />
+					<%= f.label :Detail %>
+					<%= f.text_field :detail, class: 'stage-source'%><br />
+					<%= f.submit "アップロード", class: 'btn btn-outline-info'%><br />
+				<% end %>
+				<p><%= link_to 'StageTop', stages_path, class: 'btn btn-info', style: "text-alian:center;" %></p>
+			</div>
+		</div>
+	</main>
+
+
+	</div>

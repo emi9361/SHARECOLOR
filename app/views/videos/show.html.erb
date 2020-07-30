@@ -1,0 +1,54 @@
+<main class="video-main">
+<h1>Video</h1>
+<a><%= link_to '戻る', videos_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
+<a><%= link_to '編集', edit_video_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
+	<div class="video-list">
+		<div class="sound-write">
+			<table class="table table-borderless sound-table">
+					<thead>
+						<tr class= "video_<%= @video.id %>">
+							<%= render 'video_favorite', video: @video %>
+							<%= render_with_hashtags(@video.hashbody) %>
+						</tr>
+					</thead>
+			</table>
+				<p><%= video_tag @video.file,  class:"video-show", :controls => true %></p>
+
+			<strong>Sound:</strong>
+				<%= form_for @sound_sample do |f| %>
+				<%= f.file_field :file, class: 'sound-source' %><br />
+				<%= f.submit "アップロード", class: 'btn btn-outline-info'%><br />
+				<% end %>
+
+				<%= audio_tag @sound_source.file, id: "bgm1",:loop => true  %>
+
+			<script>
+				const bgm1 = document.querySelector("#bgm1 #bgm2");       // <audio>
+				const btn  = document.querySelector("#btn-play");   // <button>
+
+				$btn.addEventListener("click", ()=>{
+				// pausedがtrue=>停止, false=>再生中
+				if( ! bgm1.paused ){
+					$btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に切り替え
+					$bgm1.pause();
+					}
+					else{
+					$btn.innerHTML = '<i class="fas fa-pause"></i>';  // 「一時停止ボタン」に切り替え
+					$bgm1.play();
+					}
+					});
+
+				/**
+				* [event] 再生終了時に実行
+				*/
+					$bgm1.addEventListener("ended", ()=>{
+					$bgm1.currentTime = 0;  // 再生位置を先頭に移動
+					$btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に変更
+					});
+			</script>
+
+			<p><%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%></p>
+
+		</div>
+	</div>
+</main>

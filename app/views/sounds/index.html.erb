@@ -1,0 +1,20 @@
+<main class="sound-main">
+<h1>Sounds</h1>
+	<%= render 'layouts/search' %>
+		<a><%= link_to '投稿', new_sound_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
+		<div class="sound-back">
+			<div class="sound-write">
+				<table class="table table-borderless sound-table">
+					<thead>
+						<tr>
+							<th scope="col">User :</th>
+							<th scope="col">Title : </th>
+							<th scope="col">BPM : </th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<%= render 'index', sounds: @sounds %>
+					</tbody>
+				</table>
+			</div>

@@ -39,6 +39,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -60,3 +64,31 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'devise'
+
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+gem 'pry-byebug'
+
+gem "jquery-rails"
+gem 'bootstrap', '~> 4.5.0'
+#音声/映像
+gem 'audiojs-rails'
+gem 'carrierwave'
+gem 'carrierwave-audio'
+gem 'streamio-ffmpeg'
+gem 'kaminari','~> 1.2.1'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
+
+#S3
+gem 'aws-sdk-rails'
+gem 'aws-sdk-s3', '~> 1'
+
+#capistrano
+gem 'ed25519'
+gem 'bcrypt_pbkdf'

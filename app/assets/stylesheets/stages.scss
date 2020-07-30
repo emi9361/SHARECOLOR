@@ -1,0 +1,36 @@
+// Place all the styles related to the Stages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.stage-main {
+  opacity: 0.8;
+}
+
+.stage-list{
+	background-image: image-url("bottom_link_bg.jpg");
+    background-size: cover;
+	height: 1000px;
+	width: 1000px;
+	border-radius: 10px;
+	margin: auto;
+	text-align: center;
+	opacity: 0.8;
+}
+
+.stage-back {
+  margin: auto;
+  text-align: center;
+  width: 90%;
+  height: 100%;
+}
+
+.stage-sample{
+	width: 50%;
+	border-radius: 5px;
+}
+
+.stage-newpost{
+	position:absolute;
+	top: 10rem;
+	right: 1rem;
+}

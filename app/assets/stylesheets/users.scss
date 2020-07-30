@@ -1,0 +1,47 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the Stages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1{
+
+}
+.user-main {
+  background-color: #fff;
+  opacity: 0.8;
+}
+
+.user-list{
+	background-image: image-url("profile.jpg");
+    background-size: cover;
+	height: 1000px;
+	width: 1000px;
+	border-radius: 10px;
+	margin: auto;
+	text-align: center;
+	filter: grayscale(30%);
+}
+.profile-edit{
+	font-size: 30px;
+	text-align: right;
+	margin-right: 120px;
+}
+.user-profile p{
+	font-size:25px;
+}
+
+.profile_image{
+	width: 200px;
+	height: 250px;
+	border-radius: 5px;
+	float: left;
+	margin: 2em 1em 1em 3em;
+
+}
+
+.profile-space{
+	margin-left: 50px;
+}

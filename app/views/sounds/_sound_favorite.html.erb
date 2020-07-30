@@ -1,0 +1,22 @@
+<th scope="col">User</th>
+	<th scope="col">Title</th>
+	<th scope="col">BPM</th>
+	<th scope="col"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td><%= sound.user.name %></td>
+	<td><%= sound.title %></td>
+	<td><%= sound.bpm %></td>
+	<td><%= audio_tag sound.file %></td>
+	<td><% if sound.favorited_by?(current_user) %>
+			<%= link_to sound_favorites_path(sound, redirect_id: 0), method: :delete , remote: true do %>
+			<i class="far fa-star" aria-hidden="true"></i>
+			<% end %>
+		<% else %>
+			<%= link_to sound_favorites_path(sound, redirect_id: 0), method: :post,remote: true do %>
+			<i class="fas fa-star" aria-hidden="true" style="color: blue;"></i>
+			<% end %>
+		<% end %>
+	</td>

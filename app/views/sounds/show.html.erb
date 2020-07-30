@@ -1,0 +1,19 @@
+<main class="sound-main">
+<h1>Sound</h1>
+<a><%= link_to '編集', edit_sound_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
+<a><%= link_to 'Back', sounds_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
+	<div class="sound-back">
+		<div class="sound-write">
+			<table class="table table-borderless sound-table">
+				<thead>
+					<tr class= "sound_<%= @sound.id %>">
+						 <%= render 'sound_favorite', sound: @sound %>
+            			 <%= render_with_hashtags(@sound.hashbody) %>
+					</tr>
+				</tbody>
+			</table>
+
+			<button id="btn-play" type="button"><i class="fas fa-play"></i></button>
+
+      <p><%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%></p>
+</main>
