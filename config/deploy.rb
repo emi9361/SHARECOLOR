@@ -9,7 +9,7 @@ set :rbenv_ruby, '2.5.7'
 
 set :linked_files, %w{config/master.key .env}
 append :linked_dirs, "log", "public/system", "tmp"
-set :linked_dirs, fetch(:linked_dirs) + %w{public/uploads}
+set :linked_dirs, fetch(:linked_dirs) + %w{public/public/uploads}
 
 
 # Default branch is :master
