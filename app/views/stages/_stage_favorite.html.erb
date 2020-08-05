@@ -4,14 +4,15 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><%= stage.user.name %></td>
+			<td><%= link_to stage.user.name, user_path(stage.user) %></td>
 			<td><%= stage.title %></td>
-			<td><% if stage.favorited_by?(current_user) %>
-					<%= link_to stage_favorites_path(stage), method: :delete, remote: true do %>
+			<td>
+				<% if stage.favorited_by?(current_user) %>
+					<%= link_to stage_favorites_path(stage, redirect_id: 0), method: :delete, remote: true do %>
 					<i class="far fa-star" aria-hidden="true"></i>
 					<% end %>
 				<% else %>
-					<%= link_to stage_favorites_path(stage), method: :post, remote: true do %>
+					<%= link_to stage_favorites_path(stage, redirect_id: 0), method: :post, remote: true do %>
 					<i class="fas fa-star" aria-hidden="true" style="color: blue;" ></i>
 					<% end %>
 				<% end %>

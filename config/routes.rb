@@ -18,8 +18,10 @@ Rails.application.routes.draw do
   post '/favorites', to: 'favorites#stage_create'
   delete '/favorites', to: 'favorites#stage_destroy'
   resource :genres, only:[:create, :destroy]
-  resource :moods, only:[:create, :destroy]
   resource :hashtag, only:[:create, :destroy]
+  collection do
+    get "auto_complete"
+  end
   end
 
   resources :sounds do
@@ -28,6 +30,10 @@ Rails.application.routes.draw do
   resource :genres, only:[:create, :destroy]
   resource :moods, only:[:create, :destroy]
   resource :hashtag, only:[:create, :destroy]
+  resource :video_sources, only: [:create, :destroy]
+  collection do
+    get "auto_complete"
+  end
   member do
   get 'sound_for'
   end
@@ -36,11 +42,15 @@ Rails.application.routes.draw do
   resources :videos do
   post '/favorites', to: 'favorites#video_create'
   delete '/favorites', to: 'favorites#video_destroy'
-  resource :moods, only:[:create, :destroy]
   resource :hashtag, only:[:create, :destroy]
+  resource :sound_sources, only: [:create, :destroy]
+  collection do
+    get "auto_complete"
+  end
   end
 
   get '/search', to: 'search#search'
+  resources :notifications, only: :index
   get '/sound/hashtag/:name', to: "sounds#hashtag"
   get '/sound/hashtag', to: "sounds#hashtag"
 

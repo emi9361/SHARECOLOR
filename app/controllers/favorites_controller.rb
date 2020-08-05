@@ -5,6 +5,8 @@ class FavoritesController < ApplicationController
 	@sound = Sound.find(params[:sound_id])
     favorite = @sound.favorites.new(user_id: current_user.id)
     favorite.save
+    @sound.create_notification_like!(current_user)
+    respond_to :js
 	end
 
 	def sound_destroy

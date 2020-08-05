@@ -1,32 +1,29 @@
-<% visitor == notification.visitor %>
-<% visited == notification.visited %>
+
+<% notifications.each do |notification| %>
+
     <div class="col-md-6.mx-auto">
       <div class="form-inline">
         <span>
-          <%= link_to user_path(visitor) do %>
-          <%= image_tag avatar_url(visitor).to_s, class: "icon_mini" %>
+          <%= link_to user_path(notification.visitor) do %>
+          
           <% end %>
         </span>
 
-      <strong><%= visitor.name %></strong>さんが
+      <strong><%= notification.visitor.name %></strong>さんが
       <% case notification.action %>
-        <% when 'follow' then %><%= "あなたをフォローしました" %>
-        <% when 'like' then %><%= link_to 'あなたの投稿', notification.post, style: "font-weight: bold;" %><%= "にいいねしました" %>
+          <% when 'follow' then %>
+          <%= 'あなたをフォローしました'%>
+          <% when 'like' then %>
+          <%= link_to 'あなたの投稿', notification.sound, style: "font-weight: bold;"%>
+          <%= link_to 'あなたの投稿', notification.video, style: "font-weight: bold;"%>
+          <%= link_to 'あなたの投稿', notification.stage, style: "font-weight: bold;"%>
+          <%= 'にライクしました' %>
+      <% end %>
 
-        <%  when 'comment' then %>
-          <% if notification.post.user_id == visited.id %>
-              <%= link_to "あなたの投稿", notification.post, style: "font-weight: bold;" %>
-          <% else %>
-              <span>
-              <%=link_to post_path(notification.post) do %>
-              <%= image_tag avatar_url(notification.post.user).to_s, class: "icon_mini" %>
-              </span>
-
-      <strong><%= notification.post.user.name + 'さんの投稿' %></strong>
-      <%= "にコメントしました" %>
       <p class = "text-muted.mb-0"></p>
       <p class= "small.text-muted.text-right">
       <%= time_ago_in_words(notification.created_at).upcase%>
       </p>
       </div>
     </div>
+<% end %>

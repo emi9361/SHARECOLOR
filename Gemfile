@@ -73,11 +73,15 @@ gem 'pry-byebug'
 
 gem "jquery-rails"
 gem 'bootstrap', '~> 4.5.0'
+
 #音声/映像
 gem 'audiojs-rails'
 gem 'carrierwave'
 gem 'carrierwave-audio'
+
+#サムネイル
 gem 'streamio-ffmpeg'
+
 gem 'kaminari','~> 1.2.1'
 
 gem 'dotenv-rails'
@@ -85,10 +89,10 @@ group :production do
   gem 'mysql2'
 end
 
-#S3
-gem 'aws-sdk-rails'
-gem 'aws-sdk-s3', '~> 1'
-
 #capistrano
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+
+#suggest
+gem 'jquery-ui-rails'
+gem 'jquery-rails'
