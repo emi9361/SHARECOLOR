@@ -13,7 +13,20 @@
 				</tbody>
 			</table>
 
-			<button id="btn-play" type="button"><i class="fas fa-play"></i></button>
+			<strong>Video:</strong>
+<div class = "video-source">
+	<%= form_for [@sound, @video_source] do |f| %>
+		<%= f.file_field :file, class: 'video-source' %><br />
+	<%= f.submit "読み込む", class: 'btn btn-outline-info'%><br />
+	<% end %>
+
+<div class="video-source-play">
+	<% @sound.video_sources.each do |video_source| %>
+	<%= video_tag video_source.file, :controls => true,style:"width:30%;" %>
+	<%= link_to '削除', sound_video_sources_path(video_source.sound, video_source), class: 'btn btn-outline-info back_buttom', method: :delete,data: {"turbolinks" => false} %>
+	<% end %>
+<button id="btn-play" type="button"><i class="fas fa-play"></i></button>
 
       <p><%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%></p>
+</div>
 </main>

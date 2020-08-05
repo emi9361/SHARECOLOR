@@ -11,33 +11,21 @@ class SearchController < ApplicationController
   def search_for(model, content, method)
     if model == 'sound'
 		if method == 'perfect'
-		Sound.where(title: content)
-		elsif method == 'forward'
-		Sound.where('title LIKE ?', content+'%')
-		elsif method == 'backward'
-		Sound.where('title LIKE ?', '%'+content)
+		Sound.where(hashbody: content)
 		else
-		Sound.where('title LIKE ?', '%'+content+'%')
+		Sound.where('hashbody LIKE ?', '%'+content+'%')
 		end
     elsif model == 'video'
 		if method == 'perfect'
-		Video.where(title: content)
-		elsif method == 'forward'
-		Video.where('title LIKE ?', content+'%')
-		elsif method == 'backward'
-		Video.where('title LIKE ?', '%'+content)
+		Video.where(hashbody: content)
 		else
-		Video.where('title LIKE ?', '%'+content+'%')
+		Video.where('hashbody LIKE ?', '%'+content+'%')
 		end
 	elsif model == 'stage'
 		if method == 'perfect'
-		Stage.where(title: content)
-		elsif method == 'forward'
-		Stage.where('title LIKE ?', content+'%')
-		elsif method == 'backward'
-		Stage.where('title LIKE ?', '%'+content)
+		Stage.where(hashbody: content)
 		else
-		Stage.where('title LIKE ?', '%'+content+'%')
+		Stage.where('hashbody LIKE ?', '%'+content+'%')
 	    end
 	end
 	end

@@ -1,3 +1,4 @@
+require 'streamio-ffmpeg'
 class VideoUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -15,7 +16,7 @@ class VideoUploader < CarrierWave::Uploader::Base
 
 
   def size_range
-    1..30.megabytes
+    1..120.megabytes
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
@@ -33,11 +34,7 @@ class VideoUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
-
-=begin  version :screenshot do
+  version :screenshot do
     process :screenshot
     def full_filename (for_file = model.logo.file)
       "screenshot.jpg"
@@ -55,7 +52,11 @@ class VideoUploader < CarrierWave::Uploader::Base
 
     File.delete(tmpfile)
   end
-=end
+
+  # version :thumb do
+  #   process resize_to_fit: [50, 50]
+  # end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_whitelist

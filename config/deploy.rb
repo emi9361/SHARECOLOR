@@ -6,8 +6,11 @@ set :repo_url, "git@github.com:emi9361/SHARECOLOR.git"
 
 set :deploy_to, "/home/ec2-user/SHARECOLOR"
 set :rbenv_ruby, '2.5.7'
+
 set :linked_files, %w{config/master.key .env}
-append :linked_dirs, "log", "public/system", "tmp"
+#upload.fileに関してデプロイする場合は中身のファイルをコピーする工程が必要になる
+append :linked_dirs, "log", "public/system", "tmp", "public/public/uploads"
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

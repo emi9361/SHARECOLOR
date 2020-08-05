@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_30_051356) do
+ActiveRecord::Schema.define(version: 2020_08_03_015048) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -74,6 +74,31 @@ ActiveRecord::Schema.define(version: 2020_07_30_051356) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "sound_id"
+    t.integer "video_id"
+    t.integer "stage_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sound_id"], name: "index_notifications_on_sound_id"
+    t.index ["stage_id"], name: "index_notifications_on_stage_id"
+    t.index ["video_id"], name: "index_notifications_on_video_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
+  end
+
+  create_table "sound_sources", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "video_id"
+    t.string "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sounds", force: :cascade do |t|
     t.integer "user_id"
     t.string "genre"
@@ -112,6 +137,14 @@ ActiveRecord::Schema.define(version: 2020_07_30_051356) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "video_sources", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "sound_id"
+    t.string "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "videos", force: :cascade do |t|

@@ -18,6 +18,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require audiojs
+//= require jquery-ui
 
 $(function() {
   var $nav   = $('#navArea');
@@ -37,6 +38,7 @@ $(function() {
     $nav.removeClass( open );
   });
 });
+
 
 
 

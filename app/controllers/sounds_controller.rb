@@ -1,11 +1,24 @@
 class SoundsController < ApplicationController
   def index
   	@sounds = Sound.all
+    videos = Video.all
+    stages = Stage.all
 
+    sounds_suggest = @sounds.map(&:hashbody).to_json.html_safe
+    videos_suggest = videos.map(&:hashbody).to_json.html_safe
+    stages_suggest = stages.map(&:hashbody).to_json.html_safe
+
+    @total_suggest = sounds_suggest + videos_suggest + stages_suggest
+
+    #videoとstageoの情報をmapで配列後k結合させる
+    #オートコンプリートのリストに出したいもの,配列
   end
 
   def show
   	@sound = Sound.find(params[:id])
+    @video_source = VideoSource.new
+    @video_sources = current_user.video_sources.all
+
   end
 
   def edit
@@ -20,8 +33,16 @@ class SoundsController < ApplicationController
   	@sound = Sound.new(sound_params)
   	@sound.user_id = current_user.id
   	@sound.save
-  	redirect_to sounds_path,notice:'Upできたお〜'
+  	redirect_to sounds_path,notice:'SoundUpできたお〜'
   end
+
+  def update
+    @sound = Sound.find(params[:id])
+    @sound.user_id = current_user.id
+    Sound.update(sound_params)
+    redirect_to sounds_path,notice:'VideoUpdateできたお〜'
+  end
+
 
   def sound_for
   @sound= Sound.find(params[:id])
@@ -34,6 +55,15 @@ class SoundsController < ApplicationController
     @sounds = @hashtag.sounds.page(params[:page]).per(10).reverse_order
     @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.sounds.count}
   end
+
+  def auto_complete
+  #入力された値( params[:term])をもとにhashtagから探す処理を追加
+  #一致したデータを先ほど同様mapメソッドで配列で取得してjsonファイル形式にしている流れ
+  sounds = Sound.select(:hashbody).where("hashbody like '%" + params[:term] + "%'").order(:hashbody)
+  sounds = sounds.map(&:hashbody)
+  render json: videos.to_json
+  end
+
 
   private
 

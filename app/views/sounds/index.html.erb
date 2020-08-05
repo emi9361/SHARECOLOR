@@ -18,3 +18,13 @@
 					</tbody>
 				</table>
 			</div>
+
+<script>
+	$( function() {
+  $( '#suggest' ).autocomplete({
+    autoFocus: true, //テキストフィールドの値をフォーカスされたアイテムの値で置き換える
+    source: <%= @total_suggest %>,//サジェストのデータを呼び出す
+    minLength: 1  //オートコンプリートが動作する文字数を指定
+  });
+});
+</script>

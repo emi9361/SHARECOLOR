@@ -20,6 +20,7 @@
               <ul>
                 <p>Hi!<%= current_user.name %></p>
                 <li><%= link_to 'Top',root_path, data: {"turbolinks" => false} %></li>
+                <li><%= link_to 'News',notifications_path, data: {"turbolinks" => false} %></li>
                 <li><%= link_to 'Sound',sounds_path, data: {"turbolinks" => false} %></li>
                 <li><%= link_to 'Video', videos_path, data: {"turbolinks" => false} %></li>
                 <li><%= link_to 'Stage', stages_path, data: {"turbolinks" => false} %></li>
