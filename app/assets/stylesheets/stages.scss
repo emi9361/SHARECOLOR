@@ -34,3 +34,27 @@
 	top: 10rem;
 	right: 1rem;
 }
+
+@media screen and (max-width:768px) {
+.stage-list{
+	background-image: image-url("bottom_link_bg.jpg");
+    background-size: cover;
+	height: 1500px;
+	width: auto;
+	border-radius: 10px;
+	margin: auto;
+	opacity: 0.8;
+	}
+}
+
+@media screen and (max-width:425px) {
+.stage-list{
+	background-image: image-url("bottom_link_bg.jpg");
+    background-size: cover;
+	height: 1500px;
+	width: 650px;
+	border-radius: 10px;
+	margin: auto;
+	opacity: 0.8;
+	}
+}

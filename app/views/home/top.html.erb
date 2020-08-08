@@ -6,10 +6,6 @@
     <script src="./application.js" charset="UTF-8"></script>
   </head>
    <body>
-  	<% if flash[:notice] %>
-    <p class="text-guest"><%= flash[:notice] %></p>
-    <% end %>
-
 		<div class="top-page">
 				<a href="sounds">
 			<section class="content-sound" >
@@ -17,6 +13,7 @@
 					<%= image_tag asset_path("left_top_link_bg.jpg")%>
 					<p class="content-text">Sound</p>
 				</a>
+		<div class="top-middle-page">
 			</section>
 			<section class="content-video">
 				<a href="videos">
@@ -25,7 +22,7 @@
 				</a>
 			</section>
 		</div>
-		<div class="top-middle-page">
+		<div class="top-third-page">
 			<section class="content-stage">
 				<a href="stages">
 					<%= image_tag asset_path("bottom_link_bg.jpg")%>

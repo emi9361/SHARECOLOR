@@ -1,4 +1,7 @@
 <main class="video-main">
+	<% if flash[:notice] %>
+    <p class="text-guest"><%= flash[:notice] %></p>
+    <% end %>
 <h1>Videos</h1>
 	<%= render 'layouts/search' %>
 	<% @hashtags.each do |hashtag| %>
