@@ -1,6 +1,7 @@
 class Video < ApplicationRecord
 	belongs_to :user
 	has_many :favorites, dependent: :destroy
+	attachment :image
 	mount_uploader :file, VideoUploader
 	validates :title, presence: true
 	validates :file, presence: true

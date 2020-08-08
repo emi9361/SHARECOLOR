@@ -50,6 +50,6 @@ class StagesController < ApplicationController
 
   private
   def stage_params
-    params.require(:stage).permit(:file, :title, :genre, :hashbody, :detail, hashtag_ids:[])
+    params.require(:stage).permit(:file, :title, :image, :genre, :hashbody, :detail, hashtag_ids:[])
   end
 end

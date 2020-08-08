@@ -1,9 +1,14 @@
 <div class="row">
+
+<!--同じハッシュタグのものを出したい-->
+<%= @stages.eash do |stage| %>
+<%= stage.hashbody %>
+<% end %>
+
         <% if params[:name] == nil %>
 
         <% else %>
         <div class= "col-xs-12 col-lg-12 col-md-12 col-sm-12">
-            <div class="hashtag-post-box">
                 <h3 class="search-title">#<%= @hashtag.hashtag_word %>:  <%= @stages.count %> 件 </h3>
                 <div class="flex-box">
                 <% @stages.each do |stage| %>

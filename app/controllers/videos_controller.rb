@@ -3,12 +3,10 @@ class VideosController < ApplicationController
   	@videos = Video.all
     sounds = Sound.all
     stages = Stage.all
+    users = User.all
 
-    sounds_suggest = sounds.map(&:hashbody).to_json.html_safe
-    videos_suggest = @videos.map(&:hashbody).to_json.html_safe
-    stages_suggest = stages.map(&:hashbody).to_json.html_safe
-
-    @total_suggest = sounds_suggest + videos_suggest + stages_suggest
+    @total_suggest = sounds.map(&:title).concat(@videos.map(&:title)).concat(stages.map(&:title)).concat(users.map(&:name)).to_json.html_safe
+    @hashtags = Hashtag.all
   end
 
   def show
@@ -35,7 +33,7 @@ class VideosController < ApplicationController
   def update
     @video = Video.find(params[:id])
     @video.user_id = current_user.id
-    Video.update(video_params)
+    Video.update(video_params)&& @video.file.recreate_versions!
     redirect_to videos_path,notice:'VideoUpdateできたお〜'
   end
 
@@ -56,7 +54,7 @@ class VideosController < ApplicationController
 
   private
   def video_params
-    params.require(:video).permit(:file, :title, :genre, :hashbody, :detail,hashtag_ids: [])
+    params.require(:video).permit(:file, :title, :genre, :hashbody, :image, :detail,hashtag_ids: [])
   end
 
 end

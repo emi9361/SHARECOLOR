@@ -79,9 +79,7 @@ gem 'audiojs-rails'
 gem 'carrierwave'
 gem 'carrierwave-audio'
 
-#サムネイル
-gem 'streamio-ffmpeg'
-
+#pagenation
 gem 'kaminari','~> 1.2.1'
 
 gem 'dotenv-rails'

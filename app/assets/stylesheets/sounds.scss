@@ -10,7 +10,7 @@
 
 .sound-back{
 	background-image: image-url("left_top_link_bg.jpg");
-    background-size: cover;
+	background-size: cover;
 	height: 1000px;
 	width: 1000px;
 	border-radius: 10px;
@@ -20,22 +20,22 @@
 }
 
 .sound-write {
-  background-color: rgba(255,255,255,0.8);
-  margin: auto;
-  text-align: center;
-  width: 90%;
-  height: 100%;
+	background-color: rgba(255,255,255,0.8);
+	margin: auto;
+	text-align: center;
+	width: 90%;
+	height: 100%;
 }
 
 .sound-newpost{
 	position:absolute;
 	top: 10rem;
 	right: 1rem;
-}
-.audiojs {
+	}
+	.audiojs {
 	margin: 0 auto;
- }
+}
 
- .sound-table{
- 	margin: auto;
- }
+.sound-table{
+		margin: auto;
+}
