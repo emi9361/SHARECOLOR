@@ -4,12 +4,12 @@
 
 
 .video-main {
-  background-color: #fff;
+	background-color: #fff;
 }
 
 .video-list{
 	background-image: image-url("right_top_link_bg.jpg");
-    background-size: cover;
+	background-size: cover;
 	height: 1000px;
 	width: 1000px;
 	border-radius: 10px;
@@ -19,11 +19,11 @@
 }
 
 .video-back {
-  background-color: #fff;
-  margin: auto;
-  text-align: center;
-  width: 90%;
-  height: 100%;
+	background-color: #fff;
+	margin: auto;
+	text-align: center;
+	width: 90%;
+	height: 100%;
 }
 
 .video-sample{
@@ -35,7 +35,7 @@
 	position:absolute;
 	top: 10rem;
 	right: 1rem;
-}
-.video-show{
+	}
+	.video-show{
 	width: 70%;
 }

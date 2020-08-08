@@ -1,6 +1,9 @@
 <main class="video-main">
 <h1>Videos</h1>
 	<%= render 'layouts/search' %>
+	<% @hashtags.each do |hashtag| %>
+	#<%= hashtag.hashtag_word %>
+	<% end %>
 		<p><%= link_to '投稿', new_video_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></p>
 			<div class="video-list">
 				<div class="sound-write">

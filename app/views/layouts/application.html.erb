@@ -50,11 +50,12 @@
         </div>
 
         <main>
-          <div class="logo">
+          <div class= "logo">
             <%= link_to root_path , data: {"turbolinks" => false} do %>
             <%= image_tag asset_path ("logo.jpeg") %>
             <% end %>
           </div>
+          <p class= "user-name">Hi!<%= current_user.name %></p>
         </main>
         <%= yield %>
       </body>

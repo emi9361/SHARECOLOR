@@ -2,6 +2,7 @@ class Stage < ApplicationRecord
 	belongs_to :user
 	has_many :favorites, dependent: :destroy
 	mount_uploader :file, VideoUploader
+	attachment :image
 	validates :title, presence: true
 	validates :file, presence: true
 	has_many :hashtag_stages, dependent: :destroy

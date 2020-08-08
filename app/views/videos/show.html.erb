@@ -12,7 +12,7 @@
 						</tr>
 					</thead>
 			</table>
-				<p><%= video_tag @video.file,  class: "video-show", :controls => true ,:mute => true %></p>
+				<p><%= video_tag @video.file,  id: "video-show", :controls => true ,:muted => true %></p>
 
 			<strong>Sound:</strong>
 			<div class = "sound-source">
@@ -23,7 +23,7 @@
 
 				<div class="sound-source-play">
 				<% @video.sound_sources.each do |sound_source| %>
-				<%= audio_tag sound_source.file, class: "bgm1" %>
+				<%= audio_tag sound_source.file, id: 'bgm1' %>
 				<%= link_to '削除', video_sound_sources_path(sound_source.video, sound_source), class: 'btn btn-outline-info back_buttom', method: :delete, data: {"turbolinks" => false} %>
 				<% end %>
 
@@ -39,22 +39,22 @@
 				btn.addEventListener("click", ()=>{
 				// pausedがtrue=>停止, false=>再生中
 				if( ! bgm1.paused ){
-					$btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に切り替え
-					$bgm1.pause();
-					$bgm2.pause();
+					  btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に切り替え
+					  bgm1.pause();
+					  bgm2.pause();
 					}
 					else{
-					$btn.innerHTML = '<i class="fas fa-pause"></i>';  // 「一時停止ボタン」に切り替え
-					$bgm1.play();
-					$bgm2.play();
+					  btn.innerHTML = '<i class="fas fa-pause"></i>';  // 「一時停止ボタン」に切り替え
+					  bgm1.play();
+					  bgm2.play();
 					}
 					});
 				/**
 				* [event] 再生終了時に実行
 				*/
 					bgm1.addEventListener("ended", ()=>{
-					$bgm1.currentTime = 0;  // 再生位置を先頭に移動
-					$btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に変更
+					  bgm1.currentTime = 0;  // 再生位置を先頭に移動
+					  btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に変更
 					});
 			</script>
 
@@ -62,3 +62,4 @@
 		</div>
 	</div>
 </main>
+
