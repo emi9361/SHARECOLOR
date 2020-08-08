@@ -16,20 +16,10 @@
  */
 @import "bootstrap";
 
-.logo {
-
-    margin-left: 70px;
-    width: 200px;
-    height: 200px;
-    }
-    .devise_format{
-    text-align: center;
-
-}
-
 .field{
     margin: 2%;
 }
+
 /*============
 nav
 =============*/
@@ -248,11 +238,50 @@ main h1 {
     text-align: center;
 }
 
-.user-name {
+main strong {
+font-weight: bolder;
     position: absolute;
-    top: 23rem;
-    left: 3rem;
+    left: 78%;
+    top: 15%;
+    font-size: 2rem;
+    color: #999999;
 }
+
+@media screen and (max-width:1024px) {
+  main strong {
+    color: green;
+  }
+}
+
+@media screen and (max-width:768px) {
+  main strong {
+    color: red;
+    position: absolute;
+    top: 7rem;
+    left: 30rem;
+  }
+}
+
+@media screen and (max-width:425px) {
+  main strong {
+    color: blue;
+    position: absolute;
+    top: 7rem;
+    left: 27rem;
+  }
+}
+
+.logo {
+
+    margin-left: 70px;
+    width: 200px;
+    height: 200px;
+    }
+    .devise_format{
+    text-align: center;
+
+}
+
 
 /*============
 body
@@ -261,3 +290,6 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
+
+
+

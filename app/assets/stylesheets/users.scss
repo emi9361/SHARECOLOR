@@ -18,7 +18,7 @@ h1{
 	background-image:
 	image-url("left_top_link_bg2.jpg");
 	background-size: cover;
-	height: 1000px;
+	height: 1500px;
 	width: 1000px;
 	border-radius: 10px;
 	margin: auto;
@@ -46,3 +46,24 @@ h1{
 .profile-space{
 	margin-left: 50px;
 }
+
+@media screen and (max-width:768px) {
+.user-list{
+	width: auto;
+	}
+
+.profile-edit{
+	position:absolute;
+	top: 13rem;
+	right: 1rem;
+	}
+}
+
+@media screen and (max-width:425px) {
+.user-list{
+	width: 650px;
+	margin: auto;
+	}
+}
+
+

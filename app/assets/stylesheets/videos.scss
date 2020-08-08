@@ -2,30 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.video-main {
-	background-color: #fff;
-}
-
-.video-list{
-	background-image: image-url("right_top_link_bg.jpg");
-	background-size: cover;
-	height: 1000px;
-	width: 1000px;
-	border-radius: 10px;
-	margin: auto;
-	text-align: center;
-	opacity: 0.8;
-}
-
-.video-back {
-	background-color: #fff;
-	margin: auto;
-	text-align: center;
-	width: 90%;
-	height: 100%;
-}
-
 .video-sample{
 	width: 50%;
 	border-radius: 5px;
@@ -38,4 +14,51 @@
 	}
 	.video-show{
 	width: 70%;
+}
+
+@media screen and (max-width:1080px) {
+
+.video-list{
+	background-image: image-url("right_top_link_bg.jpg");
+	background-size: cover;
+	height: 1500px;
+	width: 1000px;
+	border-radius: 10px;
+	margin: auto;
+	text-align: center;
+	opacity: 0.8;
+	}
+.video-back {
+	background-color: #fff;
+	margin: auto;
+	text-align: center;
+	width: 90%;
+	height: 100%;
+}
+
+}
+
+@media screen and (max-width:768px) {
+.video-list{
+	background-image: image-url("right_top_link_bg.jpg");
+	background-size: cover;
+	height: 1500px;
+	width: auto;
+	border-radius: 10px;
+	margin: auto;
+	opacity: 0.8;
+	}
+}
+
+@media screen and (max-width:425px) {
+
+.video-list{
+	background-image: image-url("right_top_link_bg.jpg");
+	background-size: cover;
+	height: 1500px;
+	width: 650px;
+	border-radius: 10px;
+	margin: auto;
+	opacity: 0.8;
+	}
 }

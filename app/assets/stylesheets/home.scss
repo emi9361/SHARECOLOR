@@ -20,18 +20,15 @@ p{
     text-align: center;
 }
 
-section.content-sound a,
-section.content-video a,
-section.content-stage a {
-    text-decoration: none;
+.content-text,
+.content-text2{
+    font-family: Meiryo, "Hiragino Kaku Gothic Pro W3", Courier New, sans-serif;
+    font-size: 100px;
+    color: #999999;
 }
 
-section.content-sound a img {
-    border-radius: 10px;
-    height: 400px;
-    object-fit: contain;
-    opacity: 1;
-    transition: .5s;
+.content-text2{
+    padding-right: 700px;
 }
 
 section.content-sound a p.content-text {
@@ -40,34 +37,10 @@ section.content-sound a p.content-text {
     left: 3rem;
   }
 
-section.content-sound:hover{
-    opacity: 0.7;
-}
-
-section.content-video a img {
-    border-radius: 10px;
-    height: 400px;
-    object-fit: contain;
-    opacity: 1;
-    transition: .5s;
-}
-
 section.content-video a p.content-text {
     position: absolute;
     top: 23rem;
     right:18rem;
-}
-
-.content-video:hover {
-    opacity: 0.7;
-}
-
-section.content-stage a img {
-    border-radius: 10px;
-    height: 400px;
-    width: 1200px;
-    opacity: 1;
-    transition: .5s;
 }
 
 section.content-stage a p.content-text2 {
@@ -76,21 +49,145 @@ section.content-stage a p.content-text2 {
     right:16rem;
 
 }
+
+section.content-sound:hover,
+section.content-video:hover,
 section.content-stage:hover {
     opacity: 0.7;
 }
 
-.content-text{
-    font-family: Meiryo, "Hiragino Kaku Gothic Pro W3", Courier New, sans-serif;
-    font-size: 100px;
-    color: #999999;
+section.content-sound a,
+section.content-video a,
+section.content-stage a {
+    text-decoration: none;
 }
 
-.content-text2{
-    font-family: Meiryo, "Hiragino Kaku Gothic Pro W3", Courier New, sans-serif;
-    font-size: 100px;
-    color: #999999;
-    padding-right: 700px;
+@media screen and (max-width:1024px) {
+
+    section.content-sound a img {
+    border-radius: 10px;
+    height: 400px;
+    object-fit: contain;
+    opacity: 1;
+    transition: .5s;
+    }
+
+    section.content-video a img {
+    border-radius: 10px;
+    height: 400px;
+    object-fit: contain;
+    opacity: 1;
+    transition: .5s;
+    }
+
+    section.content-stage a img {
+    border-radius: 10px;
+    height: 400px;
+    width: 100%;
+    opacity: 1;
+    transition: .5s;
+    }
+
+}
+
+@media screen and (max-width:768px) {
+
+    section.content-sound a img {
+    border-radius: 10px;
+    height: 250px;
+    object-fit: contain;
+    opacity: 1;
+    transition: .5s;
+    margin-left: 10px;
+
+    }
+
+    section.content-video a img {
+    border-radius: 10px;
+    height: 250px;
+    object-fit: contain;
+    opacity: 1;
+    transition: .5s;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    }
+
+    section.content-stage a img {
+    border-radius: 25px;
+    height: 300px;
+    width: 98%;
+    opacity: 1;
+    transition: .5s;
+    padding-top: 25px;
+    margin: 10px;
+    }
+
+    section.content-sound a p.content-text,
+    section.content-video a p.content-text,
+    section.content-stage a p.content-text2 {
+        font-size: 80px;
+    }
+
+    section.content-sound a p.content-text {
+    position: absolute;
+    top: 21rem;
+    left: 2rem;
+  }
+    section.content-video a p.content-text {
+    position: absolute;
+    top: 21rem;
+    left: 26rem;
+  }
+    section.content-stage a p.content-text2 {
+    position: absolute;
+    top: 38rem;
+    left:2rem;
+    }
+
+}
+
+
+@media screen and (max-width:425px) {
+    section.content-sound a img {
+    border-radius: 10px;
+    height: 230px;
+    object-fit: contain;
+    opacity: 1;
+    transition: .5s;
+    }
+
+    section.content-video a img {
+    border-radius: 10px;
+    height: 230px;
+    object-fit: contain;
+    opacity: 1;
+    transition: .5s;
+    }
+    section.content-stage a img {
+    border-radius: 10px;
+    height: 260px;
+    width: 700px;
+    opacity: 1;
+    transition: .5s;
+    }
+
+    section.content-sound a p.content-text {
+    position: absolute;
+    top: 20rem;
+    left: 1rem;
+  }
+    section.content-video a p.content-text {
+    position: absolute;
+    top: 20rem;
+    left: 25rem;
+  }
+    section.content-stage a p.content-text2 {
+    position: absolute;
+    top: 36rem;
+    left:1rem;
+    }
+
 }
 
 /*グラデーション*/

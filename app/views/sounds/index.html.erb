@@ -1,4 +1,7 @@
 <main class="sound-main">
+	<% if flash[:notice] %>
+    <p class="text-guest"><%= flash[:notice] %></p>
+    <% end %>
 <h1>Sounds</h1>
 	<%= render 'layouts/search' %>
 		<a><%= link_to '投稿', new_sound_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
