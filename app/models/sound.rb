@@ -55,4 +55,8 @@ class Sound < ApplicationRecord
     end
   end
 
+   def Sound.search(search)
+       Sound.where(['title LIKE ?', "%#{search}%"])
+  end
+
  end

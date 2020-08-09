@@ -49,7 +49,9 @@ Rails.application.routes.draw do
   end
   end
 
-  get '/search', to: 'search#search'
+  get '/search/sound', to: 'sounds#search'
+  get '/search/video', to: 'videos#search'
+  get '/search/stage', to: 'stages#search'
 
   resources :notifications, only: :index
   get '/sound/hashtag/:name', to: "sounds#hashtag",as: "sounds_hashtag_name"

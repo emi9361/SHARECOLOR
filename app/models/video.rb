@@ -56,4 +56,8 @@ class Video < ApplicationRecord
     end
   end
 
+  def Video.search(search)
+       Video.where(['title LIKE ?', "%#{search}%"])
+  end
+
 end

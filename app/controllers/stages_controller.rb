@@ -1,12 +1,11 @@
 class StagesController < ApplicationController
   def index
   	@stages = Stage.all
-    videos = Video.all
-    sounds = Sound.all
     users = User.all
 
-    @total_suggest = sounds.map(&:title).concat(videos.map(&:title)).concat(@stages.map(&:title)).concat(users.map(&:name)).to_json.html_safe
+    @stage_suggest = @stages.map(&:title).concat(users.map(&:name)).to_json.html_safe
     @hashtags = Hashtag.all
+    @stage_search = Stage.search(params[:search])
     #:hashbodyを取り出し、戻り値として配列で作成
     #stages.to_json #jsonファイルとして受け渡す
   end
@@ -43,6 +42,10 @@ class StagesController < ApplicationController
   stages = Stage.select(:hashbody).where("hashbody like '%" + params[:term] + "%'").order(:hashbody)
   stages = stages.map(&:hashbody)
   render json: stages.to_json
+  end
+
+  def search
+    @stages = Stage.all
   end
 
   private

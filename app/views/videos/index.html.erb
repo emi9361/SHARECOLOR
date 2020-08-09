@@ -3,7 +3,7 @@
     <p class="text-guest"><%= flash[:notice] %></p>
     <% end %>
 <h1>Videos</h1>
-	<%= render 'layouts/search' %>
+	<%= render 'search' %>
 	<% @hashtags.each do |hashtag| %>
 	#<%= hashtag.hashtag_word %>
 	<% end %>
@@ -30,7 +30,7 @@
 	$( function() {
   $( '#suggest' ).autocomplete({
     autoFocus: true, //テキストフィールドの値をフォーカスされたアイテムの値で置き換える
-    source: <%= @total_suggest %>,//サジェストのデータを呼び出す
+    source: <%= @video_suggest %>,//サジェストのデータを呼び出す
     minLength: 1  //オートコンプリートが動作する文字数を指定
   });
 });

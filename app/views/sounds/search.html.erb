@@ -1,0 +1,9 @@
+
+<% @sounds.each do |sound|%>
+	<tr>
+		<td><%= link_to sound.user.name, user_path(sound.user) %></td>
+		<td><%= link_to sound.title, sound_path(sound),data: {"turbolinks" => false}  %></td>
+		<td><%= sound.bpm %></td>
+		<td><%= audio_tag asset_path sound.file %></td>
+</tr>
+<% end %>

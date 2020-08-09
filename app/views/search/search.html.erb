@@ -1,9 +1,0 @@
-<% if @model == 'sound' %>
-  <h3>Sound '<%= @content %>'</h3>
-  <%= render 'sounds/index', sounds: @records %>
-<% elsif @model == 'video' %>
-  <h3>Video '<%= @content %>'</h3>
-    <%= render 'videos/index', videos: @records %>
-<% elsif @model == 'stage' %>
-	<%= render 'stages/index', stages: @records %>
-<% end %>
