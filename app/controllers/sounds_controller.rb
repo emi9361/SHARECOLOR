@@ -3,13 +3,10 @@ class SoundsController < ApplicationController
   	@sounds = Sound.all
     videos = Video.all
     stages = Stage.all
+    users = User.all
 
-    sounds_suggest = @sounds.map(&:hashbody).to_json.html_safe
-    videos_suggest = videos.map(&:hashbody).to_json.html_safe
-    stages_suggest = stages.map(&:hashbody).to_json.html_safe
-
-    @total_suggest = sounds_suggest + videos_suggest + stages_suggest
-
+    @total_suggest = @sounds.map(&:title).concat(videos.map(&:title)).concat(stages.map(&:title)).concat(users.map(&:name)).to_json.html_safe
+    @hashtags = Hashtag.all
     #videoとstageoの情報をmapで配列後k結合させる
     #オートコンプリートのリストに出したいもの,配列
   end
@@ -45,8 +42,8 @@ class SoundsController < ApplicationController
 
 
   def sound_for
-  @sound= Sound.find(params[:id])
-  send_data(@sound.upload_file, type: 'audio/mp3')
+    @sound= Sound.find(params[:id])
+    send_data(@sound.upload_file, type: 'audio/mp3')
   end
 
   def hashtag

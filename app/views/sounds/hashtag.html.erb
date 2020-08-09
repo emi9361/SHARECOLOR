@@ -2,7 +2,6 @@
         <% if params[:name] == nil %>
 
         <% else %>
-        <div class= "col-xs-12 col-lg-12 col-md-12 col-sm-12">
             <div class="hashtag-post-box">
                 <h3 class="search-title">#<%= @hashtag.hashtag_word %>:  <%= @sounds.count %> 件 </h3>
                 <div class="flex-box">
@@ -13,7 +12,7 @@
                         <p class="hashtag-post-box-name">
                             <%= link_to user_path(sound.user)%>
                         </p>
-                        <div class="image-show-body-hash" style="padding:2%">
+                        <div class="image-show-body-hash">
                             <%= simple_format(sound.hashbody.truncate(50))%>
                             <% if sound.hashbody.length > 50 %>
                                 <span class="text-prev"><%= link_to '続きを読む', sound_path(sound), data: {"turbolinks" => false} %>

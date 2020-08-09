@@ -4,6 +4,9 @@
     <% end %>
 <h1>Stages </h1>
 	<%= render 'layouts/search' %>
+	<% @hashtags.each do |hashtag| %>
+	#<%= hashtag.hashtag_word %>
+	<% end %>
 		<a><%= link_to '投稿', new_stage_path, class: 'btn btn-info newpost_buttom', style: "text-alian:center;" %></a>
 		<div class="stage-list">
 			<div class="sound-write">
