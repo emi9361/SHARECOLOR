@@ -1,15 +1,11 @@
 class SoundsController < ApplicationController
   def index
   	@sounds = Sound.all
-    videos = Video.all
-    stages = Stage.all
+    users = User.all
 
-    sounds_suggest = @sounds.map(&:hashbody).to_json.html_safe
-    videos_suggest = videos.map(&:hashbody).to_json.html_safe
-    stages_suggest = stages.map(&:hashbody).to_json.html_safe
-
-    @total_suggest = sounds_suggest + videos_suggest + stages_suggest
-
+    @sound_suggest = @sounds.map(&:title).concat(users.map(&:name)).to_json.html_safe
+    @hashtags = Hashtag.all
+    @sound_search = Sound.search(params[:search])
     #videoとstageoの情報をmapで配列後k結合させる
     #オートコンプリートのリストに出したいもの,配列
   end
@@ -45,8 +41,8 @@ class SoundsController < ApplicationController
 
 
   def sound_for
-  @sound= Sound.find(params[:id])
-  send_data(@sound.upload_file, type: 'audio/mp3')
+    @sound= Sound.find(params[:id])
+    send_data(@sound.upload_file, type: 'audio/mp3')
   end
 
   def hashtag
@@ -54,6 +50,11 @@ class SoundsController < ApplicationController
     @hashtag = Hashtag.find_by(hashtag_word: params[:name])
     @sounds = @hashtag.sounds.page(params[:page]).per(10).reverse_order
     @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.sounds.count}
+  end
+
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @sounds = Sound.all
   end
 
   def auto_complete

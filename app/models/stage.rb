@@ -52,4 +52,9 @@ end
       notification.save if notification.valid?
     end
   end
+
+  def Stage.search(search)
+       Stage.where(['title LIKE ?', "%#{search}%"])
+  end
+
 end

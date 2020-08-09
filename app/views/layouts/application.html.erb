@@ -56,7 +56,9 @@
             <%= image_tag asset_path ("logo.jpeg") %>
             <% end %>
           </div>
+          <% if user_signed_in? %>
           <strong>Hi!<%= current_user.name %></strong>
+          <% end %>
         </main>
         <%= yield %>
       </body>

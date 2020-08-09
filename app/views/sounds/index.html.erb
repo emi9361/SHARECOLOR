@@ -3,7 +3,10 @@
     <p class="text-guest"><%= flash[:notice] %></p>
     <% end %>
 <h1>Sounds</h1>
-	<%= render 'layouts/search' %>
+	<%= render 'search' %>
+	<% @hashtags.each do |hashtag| %>
+	<%= link_to "##{hashtag.hashtag_word}",sounds_hashtag_name_path(hashtag) %>
+	<% end %>
 		<a><%= link_to '投稿', new_sound_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
 		<div class="sound-back">
 			<div class="sound-write">
@@ -22,11 +25,12 @@
 				</table>
 			</div>
 
+
 <script>
 	$( function() {
   $( '#suggest' ).autocomplete({
     autoFocus: true, //テキストフィールドの値をフォーカスされたアイテムの値で置き換える
-    source: <%= @total_suggest %>,//サジェストのデータを呼び出す
+    source: <%= @sound_suggest %>,//サジェストのデータを呼び出す
     minLength: 1  //オートコンプリートが動作する文字数を指定
   });
 });

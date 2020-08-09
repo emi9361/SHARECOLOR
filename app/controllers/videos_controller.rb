@@ -1,12 +1,11 @@
 class VideosController < ApplicationController
   def index
   	@videos = Video.all
-    sounds = Sound.all
-    stages = Stage.all
     users = User.all
 
-    @total_suggest = sounds.map(&:title).concat(@videos.map(&:title)).concat(stages.map(&:title)).concat(users.map(&:name)).to_json.html_safe
+    @video_suggest = @videos.map(&:title).concat(users.map(&:name)).to_json.html_safe
     @hashtags = Hashtag.all
+    @video_search = Video.search(params[:search])
   end
 
   def show
@@ -50,6 +49,10 @@ class VideosController < ApplicationController
   videos = Video.select(:hashbody).where("hashbody like '%" + params[:term] + "%'").order(:hashbody)
   videos = videos.map(&:hashbody)
   render json: videos.to_json
+  end
+
+  def search
+    @videos = Video.all
   end
 
   private
