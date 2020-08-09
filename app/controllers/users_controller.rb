@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_locale
+
 
   def index
     @user = current_user
@@ -37,10 +37,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :location, :profile_image, :introduction)
-  end
-
-  def set_locale
-    I18n.locale = :ja
   end
 
 end

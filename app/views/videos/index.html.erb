@@ -4,8 +4,8 @@
     <% end %>
 <h1>Videos</h1>
 	<%= render 'search' %>
-	<% @hashtags.each do |hashtag| %>
-	#<%= hashtag.hashtag_word %>
+	<% @videos.each do |video| %>
+	<%= link_to "#{video.hashbody}",videos_hashtag_name_path(video) %>
 	<% end %>
 		<p><%= link_to '投稿', new_video_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></p>
 			<div class="video-list">

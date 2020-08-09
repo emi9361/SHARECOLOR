@@ -4,7 +4,6 @@ class StagesController < ApplicationController
     users = User.all
 
     @stage_suggest = @stages.map(&:title).concat(users.map(&:name)).to_json.html_safe
-    @hashtags = Hashtag.all
     @stage_search = Stage.search(params[:search])
     #:hashbodyを取り出し、戻り値として配列で作成
     #stages.to_json #jsonファイルとして受け渡す

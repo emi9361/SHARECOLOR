@@ -4,7 +4,6 @@ class VideosController < ApplicationController
     users = User.all
 
     @video_suggest = @videos.map(&:title).concat(users.map(&:name)).to_json.html_safe
-    @hashtags = Hashtag.all
     @video_search = Video.search(params[:search])
   end
 
