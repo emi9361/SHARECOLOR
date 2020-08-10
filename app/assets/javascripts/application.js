@@ -20,6 +20,7 @@
 //= require audiojs
 //= require jquery-ui
 
+//nav//
 $(function() {
     var $nav   = $('#navArea');
     var $btn   = $('.toggle_btn');
@@ -27,19 +28,18 @@ $(function() {
     var open   = 'open'; // class
     // menu open close
     $btn.on( 'click', function() {
-      if ( ! $nav.hasClass( open ) ) {
+        if ( ! $nav.hasClass( open ) ) {
         $nav.addClass( open );
-      } else {
+        } else {
         $nav.removeClass( open );
-      }
+        }
     });
     // mask close
     $mask.on('click', function() {
-      $nav.removeClass( open );
+        $nav.removeClass( open );
     });
 });
-
-
+//nav//
 
 
 

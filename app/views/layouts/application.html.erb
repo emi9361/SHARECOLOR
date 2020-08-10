@@ -57,7 +57,7 @@
             <% end %>
           </div>
           <% if user_signed_in? %>
-          <strong>Hi!<%= current_user.name %></strong>
+          <p class= "current_user_name">Hi!<%= current_user.name %></p>
           <% end %>
         </main>
         <%= yield %>

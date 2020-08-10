@@ -8,7 +8,7 @@
 					<thead>
 						<tr>
 						<%= render 'stage_favorite', stage: @stage %>
-						<%= render_with_hashtags(@stage.hashbody) %>
+						<%= render_stage_hashtags(@stage.hashbody) %>
 						</tr>
 						<p><%= video_tag @stage.file,  class:"stage-sample", :controls => true %></p>
 						</tbody>

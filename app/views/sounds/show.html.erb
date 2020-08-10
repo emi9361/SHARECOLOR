@@ -4,29 +4,55 @@
 <a><%= link_to 'Back', sounds_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
 	<div class="sound-back">
 		<div class="sound-write">
-			<table class="table table-borderless sound-table">
-				<thead>
-					<tr class= "sound_<%= @sound.id %>">
-						 <%= render 'sound_favorite', sound: @sound %>
-            			 <%= render_with_hashtags(@sound.hashbody) %>
-					</tr>
-				</tbody>
-			</table>
+			<p class= 'btn btn-outline-info newpost_buttom' >
+			<%= render_sound_hashtags(@sound.hashbody) %></p>
+			<%= render 'sound_favorite', sound: @sound, user: current_user %>
 
-			<strong>Video:</strong>
-<div class = "video-source">
-	<%= form_for [@sound, @video_source] do |f| %>
-		<%= f.file_field :file, class: 'video-source' %><br />
-	<%= f.submit "読み込む", class: 'btn btn-outline-info'%><br />
-	<% end %>
+			<div class="alert alert-info" role="alert">
+			<strong>組み合わせたいVideoをアップしよう！</strong>
 
-<div class="video-source-play">
-	<% @sound.video_sources.each do |video_source| %>
-	<%= video_tag video_source.file, :controls => true,style:"width:30%;" %>
-	<%= link_to '削除', sound_video_sources_path(video_source.sound, video_source), class: 'btn btn-outline-info back_buttom', method: :delete,data: {"turbolinks" => false} %>
-	<% end %>
-<button id="btn-play" type="button"><i class="fas fa-play"></i></button>
+			<div class = "video-source">
+			<%= render 'video_source_form', sound: @sound, video_source: @video_source %>
+			</div>
 
-      <p><%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%></p>
-</div>
-</main>
+			<div class="video-source-play">
+				<%= render 'video_source', sound: @sound,video_sources: @video_sources %>
+
+				<button id= "sound_btn_play" type= "button"><i class="fas fa-play"></i></button>
+			</div>
+
+				<p><%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%></p>
+			</div>
+		</div>
+	</div>
+
+
+
+<script>
+//同時再生ボタン//
+	const video_source = document.querySelector("#video_source");       // <audio>
+	const sound_show = document.querySelector("#sound_show");       // <video>
+	const sound_btn  = document.querySelector("#sound_btn_play");   // <button>
+
+	sound_btn.addEventListener("click", ()=>{
+	// pausedがtrue=>停止, false=>再生中
+	if( ! video_source.paused ){
+		  sound_btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に切り替え
+		  video_source.pause();
+		  sound_show.pause();
+		}
+		else{
+		  sound_btn.innerHTML = '<i class="fas fa-pause"></i>';  // 「一時停止ボタン」に切り替え
+		  video_source.play();
+		  sound_show.play();
+		}
+		});
+	/**
+	* [event] 再生終了時に実行
+	*/
+		video_source.addEventListener("ended", ()=>{
+		  video_source.currentTime = 0;  // 再生位置を先頭に移動
+		  sound_btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に変更
+		});
+</script>
+
