@@ -5,13 +5,6 @@
         <h3 class="search-title">#<%= @hashtag.hashtag_word %>:  <%= @sounds.count %> 件 </h3>
             <%= render 'index', sounds: @sounds %>
         <%= paginate @sounds %>
-        <% @hashtags.sort.reverse.each do |count| %>
-                <% count[1].each do |hashtag| %>
-                <a><%= link_to  "##{hashtag.hashtag_word}","/sound/hashtag/#{hashtag.hashtag_word}",data: {"turbolinks" => false} %>
-                </a>
-                <% end %>
-        <% end %>
+        </div>
     </div>
-</div>
-</div>
 <% end %>

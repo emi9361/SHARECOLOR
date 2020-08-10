@@ -1,7 +1,7 @@
 <main class="user-main">
 <h1>MyPage</h1>
 	<% if @user == current_user %>
-		<p><%= link_to '編集', edit_user_path(current_user), class: 'btn btn-info profile-edit', data: {"turbolinks" => false} %></p>
+		<p><%= link_to '編集', edit_user_path(current_user), class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></p>
 	<% end %>
 		<div class="user-list">
 			<div class= "user-profile">
