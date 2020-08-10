@@ -8,11 +8,10 @@
 			<%= render 'search' %>
 			<%= link_to '投稿', new_sound_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %>
 		</div>
-  		<% @sounds.each do |sound| %>
-		<p><%= link_to "#{sound.hashbody}",sounds_hashtag_name_path(sound) %></p>
+		<% @sounds.each do |sound| %>
+			<%= render_sound_hashtags(sound.hashbody) %>
 		<% end %>
 	</div>
-
 		<div class="sound-back">
 			<div class="sound-write">
 				<%= render 'index', sounds: @sounds %>
@@ -29,3 +28,4 @@
   });
 });
 </script>
+

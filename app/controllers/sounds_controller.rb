@@ -6,7 +6,6 @@ class SoundsController < ApplicationController
 
         @sound_suggest = @sounds.map(&:title).concat(users.map(&:name)).to_json.html_safe
         @sound_search = Sound.search(params[:search])
-
         #videoとstageoの情報をmapで配列後k結合させる
         #オートコンプリートのリストに出したいもの,配列
     end
