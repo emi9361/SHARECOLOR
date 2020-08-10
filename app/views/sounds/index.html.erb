@@ -4,8 +4,8 @@
     <% end %>
 <h1>Sounds</h1>
 	<%= render 'search' %>
-	<% @hashtags.each do |hashtag| %>
-	<%= link_to "##{hashtag.hashtag_word}",sounds_hashtag_name_path(hashtag) %>
+	<% @sounds.each do |sound| %>
+	<%= link_to "#{sound.hashbody}",sounds_hashtag_name_path(sound) %>
 	<% end %>
 		<a><%= link_to '投稿', new_sound_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
 		<div class="sound-back">

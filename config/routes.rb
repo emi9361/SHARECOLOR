@@ -57,10 +57,10 @@ Rails.application.routes.draw do
   get '/sound/hashtag/:name', to: "sounds#hashtag",as: "sounds_hashtag_name"
   get '/sound/hashtag', to: "sounds#hashtag", as: "sounds_hashtag"
 
-  get '/video/hashtag/:name', to: "videos#hashtag"
-  get '/video/hashtag', to: "videos#hashtag"
+  get '/video/hashtag/:name', to: "videos#hashtag",as: "videos_hashtag_name"
+  get '/video/hashtag', to: "videos#hashtag",as: "videos_hashtag"
 
-  get '/stage/hashtag/:name', to: "stages#hashtag"
-  get '/stage/hashtag', to: "stages#hashtag"
+  get '/stage/hashtag/:name', to: "stages#hashtag",as: "stages_hashtag_name"
+  get '/stage/hashtag', to: "stages#hashtag",as: "stages_hashtag"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
