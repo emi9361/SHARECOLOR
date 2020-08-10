@@ -6,6 +6,7 @@ class SoundsController < ApplicationController
 
         @sound_suggest = @sounds.map(&:title).concat(users.map(&:name)).to_json.html_safe
         @sound_search = Sound.search(params[:search])
+
         #videoとstageoの情報をmapで配列後k結合させる
         #オートコンプリートのリストに出したいもの,配列
     end
@@ -17,7 +18,7 @@ class SoundsController < ApplicationController
     end
 
     def edit
-        @sound = Sound.find(params[:id]
+        @sound = Sound.find(params[:id])
     end
 
     def new
@@ -35,7 +36,13 @@ class SoundsController < ApplicationController
         @sound = Sound.find(params[:id])
         @sound.user_id = current_user.id
         Sound.update(sound_params)
-        redirect_to sounds_path,notice:'VideoUpdateできたお〜'
+        redirect_to sounds_path,notice:'SoundUpdateできたお〜'
+    end
+
+    def destroy
+        @sound = Sound.find(params[:id])
+        @sound.destroy
+        redirect_to sounds_path,notice:'Sound削除できたお〜'
     end
 
 
@@ -72,4 +79,4 @@ class SoundsController < ApplicationController
         params.require(:sound).permit(:file, :title, :bpm, :mood, :genre, :hashbody, :detail, hashtag_ids: [])
     end
 
-    end
+end

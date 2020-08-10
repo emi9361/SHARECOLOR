@@ -1,32 +1,17 @@
-        <% if params[:name] == nil %>
-        <% else %>
-             <div class="sound-back">
-                <div class="sound-write">
-                <h3 class="search-title">#<%= @hashtag.hashtag_word %>:  <%= @sounds.count %> 件 </h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>User</th>
-                            <th>Title</th>
-                            <th>BPM</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><%= render 'index', sounds: @sounds %>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <%= paginate @sounds %>
-                <% @hashtags.sort.reverse.each do |count| %>
-                        <% count[1].each do |hashtag| %>
-                        <a><%= link_to  "##{hashtag.hashtag_word}","/sound/hashtag/#{hashtag.hashtag_word}",data: {"turbolinks" => false} %>
-                        </a>
-                        <% end %>
+<% if params[:name] == nil %>
+<% else %>
+     <div class="sound-back">
+        <div class="sound-write">
+        <h3 class="search-title">#<%= @hashtag.hashtag_word %>:  <%= @sounds.count %> 件 </h3>
+            <%= render 'index', sounds: @sounds %>
+        <%= paginate @sounds %>
+        <% @hashtags.sort.reverse.each do |count| %>
+                <% count[1].each do |hashtag| %>
+                <a><%= link_to  "##{hashtag.hashtag_word}","/sound/hashtag/#{hashtag.hashtag_word}",data: {"turbolinks" => false} %>
+                </a>
                 <% end %>
-            </div>
-        </div>
+        <% end %>
     </div>
-    <% end %>
+</div>
+</div>
+<% end %>

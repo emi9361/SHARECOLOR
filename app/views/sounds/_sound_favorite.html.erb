@@ -1,23 +1,35 @@
-<th scope="col">User</th>
-	<th scope="col">Title</th>
-	<th scope="col">BPM</th>
-	<th scope="col"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-	<td><%= link_to sound.user.name, user_path(sound.user) %></td>
-	<td><%= sound.title %></td>
-	<td><%= sound.bpm %></td>
-	<td><%= audio_tag sound.file %></td>
-	<td>
-		<% if sound.favorited_by?(current_user) %>
-			<%= link_to sound_favorites_path(sound, redirect_id: 0), method: :delete , remote: true do %>
-			<i class="far fa-star" aria-hidden="true"></i>
+<table class="table table-borderless sound-table">
+	<thead>
+		<tr class= "sound_<%= @sound.id %>">
+			<th>User</th>
+			<th>Title</th>
+			<th>BPM</th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td><%= link_to sound.user.name, user_path(sound.user) %></td>
+			<td><%= sound.title %></td>
+			<td><%= sound.bpm %></td>
+			<td><%= audio_tag sound.file, id: 'sound_show' %></td>
+			<% unless user.id == current_user.id %>
+			<td><% if sound.favorited_by?(current_user) %>
+					<%= link_to sound_favorites_path(sound, redirect_id: 0), method: :delete , remote: true do %>
+					<i class="far fa-star" aria-hidden="true"></i>
+					<% end %>
+				<% else %>
+					<%= link_to sound_favorites_path(sound, redirect_id: 0), method: :post,remote: true do %>
+					<i class="fas fa-star" aria-hidden="true" style="color: blue;"></i>
+					<% end %>
+				<% end %>
+			</td>
+
+			<% else %>
+			<td><%= link_to '削除', sound_path(sound), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></td>
+			<td>
 			<% end %>
-		<% else %>
-			<%= link_to sound_favorites_path(sound, redirect_id: 0), method: :post,remote: true do %>
-			<i class="fas fa-star" aria-hidden="true" style="color: blue;"></i>
-			<% end %>
-		<% end %>
-	</td>
+		</tr>
+	</tbody>
+</table>

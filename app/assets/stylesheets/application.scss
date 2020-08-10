@@ -238,7 +238,7 @@ main h1 {
     text-align: center;
 }
 
-main strong {
+main .current_user_name {
 font-weight: bolder;
     position: absolute;
     left: 78%;
@@ -248,13 +248,13 @@ font-weight: bolder;
 }
 
 @media screen and (max-width:1024px) {
-  main strong {
+  main .current_user_name {
     color: green;
   }
 }
 
 @media screen and (max-width:768px) {
-  main strong {
+  main .current_user_name {
     color: red;
     position: absolute;
     top: 7rem;
@@ -263,7 +263,7 @@ font-weight: bolder;
 }
 
 @media screen and (max-width:425px) {
-  main strong {
+  main .current_user_name {
     color: blue;
     position: absolute;
     top: 7rem;
@@ -292,4 +292,19 @@ body {
 }
 
 
+/*============
+search / hashtag
+=============*/
+
+.search-form{
+    position: absolute;
+    right: 3rem;
+    top: 1rem;
+}
+
+.alert-secondary{
+    width: 80%;
+    margin: 0 auto ;
+
+}
 
