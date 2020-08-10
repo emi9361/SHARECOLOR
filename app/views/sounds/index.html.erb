@@ -9,8 +9,8 @@
 			<%= link_to '投稿', new_sound_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %>
 		</div>
   		<% @sounds.each do |sound| %>
-		<p><%= link_to "#{sound.hashbody}",sounds_hashtag_name_path(sound) %>
-		<% end %></p>
+		<p><%= link_to "#{sound.hashbody}",sounds_hashtag_name_path(sound) %></p>
+		<% end %>
 	</div>
 
 		<div class="sound-back">
