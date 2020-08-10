@@ -4,19 +4,19 @@ class AudioFileUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  include CarrierWave::Audio
-  # storage :fog
+    storage :file
+    include CarrierWave::Audio
+    # storage :fog
 
-  # Override the directory where uploaded files will be stored.
-  # This is a sensible default for uploaders that are meant to be mounted:
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
+    # Override the directory where uploaded files will be stored.
+    # This is a sensible default for uploaders that are meant to be mounted:
+    def store_dir
+        "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    end
 
-  def size_range
-    0..2.megabytes
-  end
+    def size_range
+        0..2.megabytes
+    end
 #mp3に変換
   # version :mp3 do
   #   process :convert => [{output_format: :mp3}]
