@@ -1,11 +1,11 @@
 <main class="sound-main">
-<h1>Sounds Edit</h1>
-	<div class="sound-list">
-		<a><%= link_to '戻る', sounds_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
-		<div class="sound-back">
-			<div class="sound-write">
-				<%= render 'form', sound: @sound %>
+	<h1>Sounds Edit</h1>
+		<div class="sound-list">
+			<a><%= link_to '戻る', sounds_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
+			<div class="sound-back">
+				<div class="sound-write">
+					<%= render 'form', sound: @sound %>
+				</div>
 			</div>
 		</div>
-	</div>
 </main>

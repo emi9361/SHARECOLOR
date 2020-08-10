@@ -1,4 +1,4 @@
 <% sound.video_sources.each do |video_source| %>
 	<%= video_tag video_source.file, :controls => true, id: 'video_source'%>
-	<%= link_to '削除', sound_video_sources_path(video_source.sound, video_source), class: 'btn btn-outline-info back_buttom', method: :delete,data: {"turbolinks" => false} %>
+	<%= link_to '削除', sound_video_sources_path(video_source.sound, video_source), class: 'btn btn-outline-info', method: :delete,data: {"turbolinks" => false} %>
 <% end %>

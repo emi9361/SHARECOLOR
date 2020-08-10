@@ -1,10 +1,10 @@
 <main class="sound-main">
 <h1>Sound</h1>
 <a><%= link_to '編集', edit_sound_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
-<a><%= link_to 'Back', sounds_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
+<a><%= link_to '戻る', sounds_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
 	<div class="sound-back">
 		<div class="sound-write">
-			<p class= 'btn btn-outline-info newpost_buttom' >
+			<p class= 'btn btn-outline-info' >
 			<%= render_sound_hashtags(@sound.hashbody) %></p>
 			<%= render 'sound_favorite', sound: @sound, user: current_user %>
 
