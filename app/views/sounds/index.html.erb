@@ -13,20 +13,21 @@
 			<p><%= render_sound_hashtags(sound.hashbody) %></p>
 		<% end %>
 	</div>
-		<div class="sound-back">
-			<div class="sound-write">
-				<%= render 'index', sounds: @sounds %>
-			</div>
+
+	<div class="sound-back">
+		<div class="sound-write">
+			<%= render 'index', sounds: @sounds %>
 		</div>
+	</div>
 </main>
 
 <script>
-	$( function() {
-  $( '#suggest' ).autocomplete({
-    autoFocus: true, //テキストフィールドの値をフォーカスされたアイテムの値で置き換える
-    source: <%= @sound_suggest %>,//サジェストのデータを呼び出す
-    minLength: 1  //オートコンプリートが動作する文字数を指定
-  });
+$( function() {
+	$( '#suggest' ).autocomplete({
+	autoFocus: true, //テキストフィールドの値をフォーカスされたアイテムの値で置き換える
+	source: <%= @sound_suggest %>,//サジェストのデータを呼び出す
+	minLength: 1  //オートコンプリートが動作する文字数を指定
+	});
 });
 </script>
 

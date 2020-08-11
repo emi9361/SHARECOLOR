@@ -14,7 +14,9 @@
 			<td><%= sound.title %></td>
 			<td><%= sound.bpm %></td>
 			<td><%= audio_tag sound.file, id: 'sound_show' %></td>
+
 			<% unless user.id == current_user.id %>
+			<!-- いいね機能 -->
 			<td><% if sound.favorited_by?(current_user) %>
 					<%= link_to sound_favorites_path(sound, redirect_id: 0), method: :delete , remote: true do %>
 					<i class="far fa-star" aria-hidden="true"></i>
@@ -25,7 +27,7 @@
 					<% end %>
 				<% end %>
 			</td>
-
+			<!-- いいね機能 -->
 			<% else %>
 			<td><%= link_to '削除', sound_path(sound), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info', data: {"turbolinks" => false} %></td>
 			<td>

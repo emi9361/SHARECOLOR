@@ -1,8 +1,5 @@
 <main class="user-main">
-<h1>MyPage</h1>
-	<% if @user == current_user %>
-		<p><%= link_to '編集', edit_user_path(current_user), class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></p>
-	<% end %>
+<h1>User Profile</h1>
 		<div class="user-list">
 			<div class= "user-profile">
 				<p><%= attachment_image_tag @user, :profile_image, format: 'jpeg' , style:"width:40%;" %></p></br>

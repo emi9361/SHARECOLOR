@@ -1,9 +1,6 @@
-
-<% @sounds.each do |sound|%>
-	<tr>
-		<td><%= link_to sound.user.name, user_path(sound.user) %></td>
-		<td><%= link_to sound.title, sound_path(sound),data: {"turbolinks" => false}  %></td>
-		<td><%= sound.bpm %></td>
-		<td><%= audio_tag asset_path sound.file %></td>
-</tr>
-<% end %>
+<div class="sound-back">
+	<div class="sound-write">
+		<%= render 'index', sounds: @sounds %>
+			<p><%= link_to 'SoundTop', sounds_path, class: 'btn btn-info', style: "text-alian:center;" %></p>
+	</div>
+</div>

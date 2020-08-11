@@ -1,37 +1,32 @@
 <main class="video-main">
 	<% if flash[:notice] %>
-    <p class="text-guest"><%= flash[:notice] %></p>
-    <% end %>
-<h1>Videos</h1>
-	<%= render 'search' %>
-	<% @videos.each do |video| %>
-	<%= link_to "#{video.hashbody}",videos_hashtag_name_path(video) %>
+		<p class="text-guest"><%= flash[:notice] %></p>
 	<% end %>
-		<p><%= link_to '投稿', new_video_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></p>
-			<div class="video-list">
-				<div class="sound-write">
-					<table class="table table-borderless sound-table">
-						<thead>
-							<tr>
-								<th scope="col">User</th>
-								<th scope="col">Title</th>
-								<th scope="col">Video</th>
-							</tr>
-						</thead>
-						<tbody>
-							<%= render 'index' , videos: @videos %>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</main>
+
+	<h1>Videos</h1>
+	<div class="alert alert-secondary" role="alert">
+		<div class="search-form">
+			<%= render 'search' %>
+			<%= link_to '投稿', new_video_path, class: 'btn btn-info', data: {"turbolinks" => false} %>
+		</div>
+			<% @videos.each do |video| %>
+				<p><%= render_video_hashtags(video.hashbody) %></p>
+			<% end %>
+		</div>
+
+	<div class="video-list">
+		<div class="sound-write">
+			<%= render 'index' , videos: @videos %>
+		</div>
+	</div>
+</main>
 
 <script>
-	$( function() {
-  $( '#suggest' ).autocomplete({
-    autoFocus: true, //テキストフィールドの値をフォーカスされたアイテムの値で置き換える
-    source: <%= @video_suggest %>,//サジェストのデータを呼び出す
-    minLength: 1  //オートコンプリートが動作する文字数を指定
-  });
+$( function() {
+	$( '#suggest' ).autocomplete({
+	autoFocus: true, //テキストフィールドの値をフォーカスされたアイテムの値で置き換える
+	source: <%= @video_suggest %>,//サジェストのデータを呼び出す
+	minLength: 1  //オートコンプリートが動作する文字数を指定
+	});
 });
 </script>

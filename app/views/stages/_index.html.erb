@@ -1,7 +1,19 @@
-<% stages.each do |stage|%>
-	<tr>
-		<td><%= link_to stage.user.name, user_path(stage.user) %></td>
-		<td><%= link_to stage.title, stage_path(stage) %></td>
-		<td><%= attachment_image_tag stage, :image, :fill, 200, 200, format: 'jpeg' %></td>
-	</tr>
-<% end %>
+<table class="table table-borderless sound-table">
+	<thead>
+		<tr>
+			<th scope="col">User</th>
+			<th scope="col">Title</th>
+			<th scope="col">Video</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% stages.each do |stage|%>
+			<tr>
+				<td><%= link_to stage.user.name, user_path(stage.user) %></td>
+				<td><%= link_to stage.title, stage_path(stage) %></td>
+				<td><%= attachment_image_tag stage, :image, :fill, 200, 200, format: 'jpeg' %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

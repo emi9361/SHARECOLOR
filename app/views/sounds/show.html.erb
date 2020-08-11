@@ -1,23 +1,23 @@
 <main class="sound-main">
-<h1>Sound</h1>
-<a><%= link_to '編集', edit_sound_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
-<a><%= link_to '戻る', sounds_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
+	<h1>Sound</h1>
+	<a><%= link_to '編集', edit_sound_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
+	<a><%= link_to '戻る', sounds_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
+
 	<div class="sound-back">
 		<div class="sound-write">
-			<p class= 'btn btn-outline-info' >
-			<%= render_sound_hashtags(@sound.hashbody) %></p>
+
+			<%= render_sound_hashtags(@sound.hashbody) %>
 			<%= render 'sound_favorite', sound: @sound, user: current_user %>
 
 			<div class="alert alert-info" role="alert">
 			<strong>組み合わせたいVideoをアップしよう！</strong>
 
 			<div class = "video-source">
-			<%= render 'video_source_form', sound: @sound, video_source: @video_source %>
+				<%= render 'video_source_form', sound: @sound, video_source: @video_source %>
 			</div>
 
 			<div class="video-source-play">
 				<%= render 'video_source', sound: @sound,video_sources: @video_sources %>
-
 				<button id= "sound_btn_play" type= "button"><i class="fas fa-play"></i></button>
 			</div>
 
@@ -25,6 +25,8 @@
 			</div>
 		</div>
 	</div>
+</main>
+
 
 
 
