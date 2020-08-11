@@ -1,6 +1,6 @@
 <main class="stage-main">
 	<% if flash[:notice] %>
-		<p class="text-guest"><%= flash[:notice] %></p>
+		<p class="index-text-sound"><%= flash[:notice] %></p>
 	<% end %>
 
 	<h1>Stages</h1>
@@ -10,15 +10,15 @@
 			<%= link_to '投稿', new_stage_path, class: 'btn btn-info',data: {"turbolinks" => false}, style: "text-alian:center;" %>
 		</div>
 		<% @stages.each do |stage| %>
-			<p><%= render_stage_hashtags(stage.hashbody) %></p>
+			<p class="index-text"><%= render_stage_hashtags(stage.hashbody) %></p>
 		<% end %>
 	</div>
 
-	<div class="stage-list", style="margin-top: 10%;">
-		
-	</style>>
+	<div class="stage-list", style="margin-top: 5%;">
+	</style>
 		<div class="sound-write">
 			<%= render 'index', stages: @stages %>
+			<%= paginate @stages %>
 		</div>
 	</div>
 </main>

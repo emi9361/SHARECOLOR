@@ -1,7 +1,7 @@
 class StagesController < ApplicationController
 
     def index
-        @stages = Stage.all
+        @stages = Stage.page(params[:page]).per(10).reverse_order
         users = User.all
 
         @stage_suggest = @stages.map(&:title).concat(users.map(&:name)).to_json.html_safe

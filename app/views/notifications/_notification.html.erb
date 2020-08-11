@@ -1,29 +1,25 @@
-
 <% notifications.each do |notification| %>
 
     <div class="col-md-6.mx-auto">
-      <div class="form-inline">
-        <span>
-          <%= link_to user_path(notification.visitor) do %>
-          
-          <% end %>
-        </span>
+        <div class="form-inline">
+            <span><%= link_to user_path(notification.visitor) do %>
+            <% end %>
+            </span>
 
-      <strong><%= notification.visitor.name %></strong>さんが
-      <% case notification.action %>
-          <% when 'follow' then %>
-          <%= 'あなたをフォローしました'%>
-          <% when 'like' then %>
-          <%= link_to 'あなたの投稿', notification.sound, style: "font-weight: bold;"%>
-          <%= link_to 'あなたの投稿', notification.video, style: "font-weight: bold;"%>
-          <%= link_to 'あなたの投稿', notification.stage, style: "font-weight: bold;"%>
-          <%= 'にライクしました' %>
-      <% end %>
+    <strong><%= notification.visitor.name %></strong>さんが
+    <% case notification.action %>
+    <% when 'follow' then %>
+        <%= 'あなたをフォローしました'%>
+    <% when 'like' then %>
+        <%= link_to 'あなたの投稿', notification.sound, style: "font-weight: bold;"%>
+        <%= link_to 'あなたの投稿', notification.video, style: "font-weight: bold;"%>
+        <%= link_to 'あなたの投稿', notification.stage, style: "font-weight: bold;"%>
+        <%= 'をお気に入りにしました' %>
+    <% end %>
 
-      <p class = "text-muted.mb-0"></p>
-      <p class= "small.text-muted.text-right">
-      <%= time_ago_in_words(notification.created_at).upcase%>
-      </p>
-      </div>
+    <p class = "text-muted.mb-0"></p>
+    <p class= "small.text-muted.text-right">
+    <%= time_ago_in_words(notification.created_at).upcase%></p>
+        </div>
     </div>
 <% end %>

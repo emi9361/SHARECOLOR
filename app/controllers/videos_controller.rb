@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
 
     def index
-        @videos = Video.all
+        @videos = Video.page(params[:page]).per(10).reverse_order
         users = User.all
 
         @video_suggest = @videos.map(&:title).concat(users.map(&:name)).to_json.html_safe

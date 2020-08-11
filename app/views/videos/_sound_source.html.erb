@@ -1,6 +1,10 @@
-<% @video.sound_sources.each do |sound_source| %>
+<% if flash[:notice] %>
+		<p class="text-guest"><%= flash[:notice] %></p>
+<% end %>
+
+<% sound_sources.each do |sound_source| %>
 	<%= audio_tag sound_source.file, id: 'bgm1' %>
-	<%= link_to video_sound_sources_path(sound_source.video, sound_source), class: 'btn btn-outline-info back_buttom', method: :delete, data: {"turbolinks" => false} do %>
+	<%= link_to video_sound_source_path(sound_source.video, sound_source), class: 'btn btn-outline-info', method: :delete, data: {"turbolinks" => false} do %>
 		<i class="fas fa-trash"></i>
 		<% end %>
 <% end %>

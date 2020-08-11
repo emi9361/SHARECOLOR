@@ -1,3 +1,6 @@
+
+<%= render 'layouts/error_messages', model: video_source %>
+
 <%= form_for [@sound, @video_source] do |f| %>
 	<%= f.file_field :file, class: 'video-source' %>
 	<%= f.submit "読み込む", class: 'btn btn-outline-info'%><br />

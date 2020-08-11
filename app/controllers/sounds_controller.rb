@@ -1,7 +1,7 @@
 class SoundsController < ApplicationController
 
     def index
-        @sounds = Sound.all
+        @sounds = Sound.page(params[:page]).per(10).reverse_order
         users = User.all
 
         @sound_suggest = @sounds.map(&:title).concat(users.map(&:name)).to_json.html_safe

@@ -1,6 +1,6 @@
 <main class="video-main">
 	<% if flash[:notice] %>
-		<p class="text-guest"><%= flash[:notice] %></p>
+		<p class="index-text-sound"><%= flash[:notice] %></p>
 	<% end %>
 
 	<h1>Videos</h1>
@@ -17,6 +17,7 @@
 	<div class="video-list">
 		<div class="sound-write">
 			<%= render 'index' , videos: @videos %>
+			<%= paginate @videos %>
 		</div>
 	</div>
 </main>

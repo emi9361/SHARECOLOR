@@ -1,8 +1,10 @@
+
+<%= render 'layouts/error_messages', model: video %>
+
 <%= form_for video do |f| %>
-	<%= f.label :Video %>
-		<p>※制限120mb以下</p>
-		<i class="fas fa-video"></i>
+	<%= f.label :＊Video %><i class="fas fa-video"></i>
 	<%= f.file_field :file, :accept => 'video/*' %><br />
+		<p class= 'index-text-sound'>＊制限120mb以下</p>
 	<%= f.label :サムネイル %>
 		<i class="fas fa-image"></i>
 	<%= f.attachment_field :image %><br />
@@ -10,9 +12,8 @@
 	<%= f.text_field :title %>
 	<%= f.label :Genre %>
 	<%= f.select :genre, [["Ambient","Ambient"],["Classical","classical"],["EDM","EDM"],["Disco","Disco"],["Drum & Bass","Drum & Bass"],["Electronic","Electronic"],["Hip-Hop & R&B","Hip-Hop & R&B"],["House","House"],["Jazz & Blues","Jazz & Blues"],["Rock","Rock"],["Techno","Techno"],["Trance","Trance"],["Dubstep","Dubstep"],["Other","Other"]] %><br />
-	<%= f.label :ハッシュタグ %>
-	<p class= 'index-text'>[#]つけてね！</p>
-	<%= f.text_field :hashbody, placeholder: "#mood..cute..etc" %>
+	<%= f.label :ハッシュタグ %><span><%= f.text_field :hashbody, placeholder: "#mood..#cute..etc" %></span>
+	<p class= 'index-text-sound'>[#]つけてね！</p>
 	<%= f.label :Detail %>
 	<%= f.text_area :detail %><br />
 	<%= f.submit "アップロード", class: 'btn btn-outline-info'%><br />

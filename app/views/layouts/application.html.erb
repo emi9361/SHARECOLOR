@@ -19,7 +19,7 @@
         <% if user_signed_in? %>
             <div class="inner">
               <ul>
-                <p>Hi!<%= current_user.name %></p>
+                <p class="index-text">Hi!<%= current_user.name %></p>
                 <li><%= link_to 'Top',root_path, data: {"turbolinks" => false} %></li>
                 <li><%= link_to 'News',notifications_path, data: {"turbolinks" => false} %></li>
                 <li><%= link_to 'Sound',sounds_path, data: {"turbolinks" => false} %></li>

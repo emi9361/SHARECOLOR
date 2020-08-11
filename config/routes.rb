@@ -45,7 +45,8 @@ Rails.application.routes.draw do
   post '/favorites', to: 'favorites#video_create'
   delete '/favorites', to: 'favorites#video_destroy'
   resource :hashtag, only:[:create, :destroy]
-  resource :sound_sources, only: [:create, :destroy]
+  resources :sound_sources, only: [:create, :destroy]
+
   collection do
     get "auto_complete"
   end

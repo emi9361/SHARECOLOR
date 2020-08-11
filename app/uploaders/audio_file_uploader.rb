@@ -15,7 +15,7 @@ class AudioFileUploader < CarrierWave::Uploader::Base
     end
 
     def size_range
-        0..2.megabytes
+        0..5.megabytes
     end
 #mp3に変換
   # version :mp3 do
