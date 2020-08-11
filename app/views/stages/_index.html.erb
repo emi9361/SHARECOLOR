@@ -10,9 +10,11 @@
 	<tbody>
 		<% stages.each do |stage|%>
 			<tr>
-				<td><%= link_to stage.user.name, user_path(stage.user) %></td>
-				<td><%= link_to stage.title, stage_path(stage) %></td>
-				<td><%= attachment_image_tag stage, :image, :fill, 200, 200, format: 'jpeg' %></td>
+				<td><%= link_to stage.user.name, user_path(stage.user),class: 'index-text' %></td>
+				<td><%= link_to stage.title, stage_path(stage),class: 'index-text' %></td>
+				<td><%= link_to stage_path(stage) do %><%= attachment_image_tag stage, :image, :fill, 200, 200, format: 'jpeg' ,fallback:"logo.jpeg" %>
+					<% end %>
+				</td>
 			</tr>
 		<% end %>
 	</tbody>

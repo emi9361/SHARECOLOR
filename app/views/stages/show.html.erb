@@ -4,15 +4,8 @@
 		<a><%= link_to '編集', edit_stage_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
 		<div class="stage-list">
 			<div class="sound-write">
-				<table class="table table-borderless sound-table">
-					<thead>
-						<tr>
-						<%= render 'stage_favorite', stage: @stage %>
-						<%= render_stage_hashtags(@stage.hashbody) %>
-						</tr>
-						<p><%= video_tag @stage.file,  class:"stage-sample", :controls => true %></p>
-						</tbody>
-				</table>
+				<%= render 'stage_favorite', stage: @stage %>
+				<%= render_stage_hashtags(@stage.hashbody) %>
 			</div>
 			<%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%>
 		</div>

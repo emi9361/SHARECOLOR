@@ -5,8 +5,8 @@
 
 	<div class="video-list">
 		<div class="sound-write">
-
-			<%= render_video_hashtags(@video.hashbody) %>
+			<p class= 'index-text'>
+			<%= render_video_hashtags(@video.hashbody) %></p>
 			<%= render 'video_favorite', video: @video, user: current_user %>
 
 			<div class="alert alert-success" role="alert">

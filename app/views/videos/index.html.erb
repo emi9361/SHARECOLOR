@@ -10,7 +10,7 @@
 			<%= link_to '投稿', new_video_path, class: 'btn btn-info', data: {"turbolinks" => false} %>
 		</div>
 			<% @videos.each do |video| %>
-				<p><%= render_video_hashtags(video.hashbody) %></p>
+				<p class= 'index-text'><%= render_video_hashtags(video.hashbody) %></p>
 			<% end %>
 		</div>
 

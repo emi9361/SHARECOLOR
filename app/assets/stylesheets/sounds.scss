@@ -37,66 +37,26 @@
 	margin: 0 auto;
 	}
 
+.sound-main h1 {
+	text-alian: center;
+}
 
 @media screen and (max-width:768px) {
- .sound-back{
-	background-image: image-url("left_top_link_bg.jpg");
-	background-size: cover;
-	height: 1500px;
+.sound-back{
 	width: auto;
-	border-radius: 10px;
-	margin: auto;
-	text-align: center;
-	opacity: 0.8;
-}
-
-.sound-write {
-	background-color: rgba(255,255,255,0.8);
-	margin: auto;
-	width: 90%;
-	height: 100%;
-}
-
-.sound-newpost{
-	position:absolute;
-	top: 10rem;
-	right: 1rem;
-	}
-	.audiojs {
-	margin: 0 auto;
 	}
 }
 
 @media screen and (max-width:425px) {
 
 .sound-back{
-	background-image: image-url("left_top_link_bg.jpg");
-	background-size: cover;
 	height: 1500px;
-	border-radius: 10px;
-	margin: auto;
-	opacity: 0.8;
 }
 
 .sound-write {
-	background-color: rgba(255,255,255,0.8);
-	margin: auto;
-	text-align: center;
-	width: 90%;
-	height: 100%;
 }
 
 .sound-newpost{
-	position:absolute;
-	top: 10rem;
-	right: 1rem;
 	}
-
-.sound-table{
-	margin: auto;
 }
 
-.sound-main h1 {
-	text-alian: center;
-}
-}

@@ -5,8 +5,8 @@
 
 	<div class="sound-back">
 		<div class="sound-write">
-
-			<%= render_sound_hashtags(@sound.hashbody) %>
+			<p class= 'index-text'>
+			<%= render_sound_hashtags(@sound.hashbody) %></p>
 			<%= render 'sound_favorite', sound: @sound, user: current_user %>
 
 			<div class="alert alert-info" role="alert">
@@ -17,7 +17,7 @@
 			</div>
 
 			<div class="video-source-play">
-				<%= render 'video_source', sound: @sound,video_sources: @video_sources %>
+				<%= render 'video_source',video_sources: @video_sources %>
 				<button id= "sound_btn_play" type= "button"><i class="fas fa-play"></i></button>
 			</div>
 

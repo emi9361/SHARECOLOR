@@ -2,9 +2,8 @@
 <h1>Video NewPost</h1>
 <a><%= link_to '戻る', videos_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
 	<div class="video-list">
-		<main class="sound-main">
 			<div class="sound-write">
-				<%= render 'videos/form', video: @video %>
+				<%= render 'form', video: @video %>
 				<p><%= link_to 'VideoTop', videos_path, class: 'btn btn-info', style: "text-alian:center;" %></p>
 			</div>
 		</div>

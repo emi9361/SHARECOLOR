@@ -4,15 +4,17 @@
 			<th>User</th>
 			<th>Title</th>
 			<th>BPM</th>
+			<th>Genre</th>
 			<th></th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<tr>
-			<td><%= link_to sound.user.name, user_path(sound.user) %></td>
-			<td><%= sound.title %></td>
-			<td><%= sound.bpm %></td>
+			<td><%= link_to sound.user.name, user_path(sound.user), class: 'index-text-sound' %></td>
+			<td class= 'index-text-sound'><%= sound.title %></td>
+			<td class= 'index-text-sound'><%= sound.bpm %></td>
+			<td class= 'index-text-sound'><%= sound.genre %></td>
 			<td><%= audio_tag sound.file, id: 'sound_show' %></td>
 
 			<% unless user.id == current_user.id %>
@@ -29,7 +31,10 @@
 			</td>
 			<!-- いいね機能 -->
 			<% else %>
-			<td><%= link_to '削除', sound_path(sound), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info', data: {"turbolinks" => false} %></td>
+			<td><%= link_to sound_path(sound), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info', data: {"turbolinks" => false} do %>
+				<i class="fas fa-trash"></i>
+				<% end %>
+			</td>
 			<td>
 			<% end %>
 		</tr>

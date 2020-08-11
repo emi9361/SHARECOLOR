@@ -1,4 +1,6 @@
 <% @video.sound_sources.each do |sound_source| %>
 	<%= audio_tag sound_source.file, id: 'bgm1' %>
-	<%= link_to '削除', video_sound_sources_path(sound_source.video, sound_source), class: 'btn btn-outline-info back_buttom', method: :delete, data: {"turbolinks" => false} %>
+	<%= link_to video_sound_sources_path(sound_source.video, sound_source), class: 'btn btn-outline-info back_buttom', method: :delete, data: {"turbolinks" => false} do %>
+		<i class="fas fa-trash"></i>
+		<% end %>
 <% end %>

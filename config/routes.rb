@@ -30,7 +30,8 @@ Rails.application.routes.draw do
   resource :genres, only:[:create, :destroy]
   resource :moods, only:[:create, :destroy]
   resource :hashtag, only:[:create, :destroy]
-  resource :video_sources, only: [:create, :destroy]
+  resources :video_sources, only: [:create, :destroy]
+
   collection do
     get "auto_complete"
   end
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
   get 'sound_for'
   end
   end
+  delete '/add' => 'likes#destroy'
 
   resources :videos do
   post '/favorites', to: 'favorites#video_create'
