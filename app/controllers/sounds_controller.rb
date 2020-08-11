@@ -13,7 +13,7 @@ class SoundsController < ApplicationController
     def show
         @sound = Sound.find(params[:id])
         @video_source = VideoSource.new
-        @video_sources = current_user.video_sources.all
+        @video_sources = current_user.video_sources.order(updated_at: :desc).limit(1)
     end
 
     def edit
@@ -27,15 +27,21 @@ class SoundsController < ApplicationController
     def create
         @sound = Sound.new(sound_params)
         @sound.user_id = current_user.id
-        @sound.save
+        if @sound.save
         redirect_to sounds_path,notice:'SoundUpできたお〜'
+        else
+        render 'new'
+        end
     end
 
     def update
         @sound = Sound.find(params[:id])
         @sound.user_id = current_user.id
-        Sound.update(sound_params)
+        if Sound.update(sound_params)
         redirect_to sounds_path,notice:'SoundUpdateできたお〜'
+        else
+        render 'edit'
+        end
     end
 
     def destroy

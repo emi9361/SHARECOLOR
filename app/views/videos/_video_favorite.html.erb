@@ -1,12 +1,19 @@
-<th scope="col">User</th>
-<th scope="col">Title</th>
-<th scope="col"></th>
+<table class="table table-borderless sound-table">
+	<thead>
+		<tr class= "video_<%= @video.id %>">
+		<th scope="col">User</th>
+		<th scope="col">Title</th>
+		<th scope="col"></th>
 	</thead>
-			<tbody>
-			<tr>
-				<td><%= link_to video.user.name, user_path(video.user) %></td>
-				<td><%= video.title %></td>
-				<td><% if video.favorited_by?(current_user) %>
+
+	<tbody>
+		<tr>
+			<td><%= link_to video.user.name, user_path(video.user), class: 'index-text' %></td>
+			<td class= 'index-text'><%= video.title %></td>
+
+			<% unless user.id == current_user.id %>
+			<!-- お気に入り機能 -->
+			<td><% if video.favorited_by?(current_user) %>
 					<%= link_to video_favorites_path(video,redirect_id: 0), method: :delete ,remote: true do %>
 					<span class="far fa-star" aria-hidden="true"></span>
 					<% end %>
@@ -15,5 +22,16 @@
 					<span class="fas fa-star" aria-hidden="true" style="color: blue;"></span>
 					<% end %>
 				<% end %>
+			</td>
+			<!-- お気に入り機能 -->
+			<% else %>
+			<td><%= link_to video_path(video), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info', data: {"turbolinks" => false} do %>
+				<i class="fas fa-trash"></i>
+				<% end %>
+			</td>
+			<% end %>
+		</tr>
+	</tbody>
+</table>
 
-				</td>
+	<p><%= video_tag @video.file,  id: "video-show", :controls => true ,:muted => true %></p>

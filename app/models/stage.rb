@@ -22,7 +22,7 @@ class Stage < ApplicationRecord
 		tag = Hashtag.find_or_create_by(hashtag_word: hashtag.downcase.delete('#'))
 		stage.hashtags << tag
 		end
-end
+	end
 
 	before_update do
 		stage = Stage.find_by(id: id)

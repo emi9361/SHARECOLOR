@@ -1,32 +1,10 @@
 <% if params[:name] == nil %>
-        <% else %>
-             <div class="sound-back">
-                <div class="sound-write">
-                <h3 class="search-title">#<%= @hashtag.hashtag_word %>: <%= @videos.count %> 件 </h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col">User</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Video</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <%= render 'index', videos: @videos %>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <%= paginate @videos %>
-                <% @hashtags.sort.reverse.each do |count| %>
-                        <% count[1].each do |hashtag| %>
-                        <a><%= link_to  "##{hashtag.hashtag_word}","/video/hashtag/#{hashtag.hashtag_word}",data: {"turbolinks" => false} %>
-                        </a>
-                        <% end %>
-                <% end %>
-            </div>
-        </div>
+<% else %>
+	<div class="video-list">
+		<div class="sound-write">
+			<h3 class="search-title">#<%= @hashtag.hashtag_word %>: <%= @videos.count %> 件 </h3>
+			<%= render 'index', videos: @videos %>
+			<%= paginate @videos %>
+		</div>
+	</div>
 <% end %>

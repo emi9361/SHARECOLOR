@@ -1,14 +1,17 @@
-<%= form_for sound do |f| %>
-	<%= f.file_field :file, class: 'sound-source' %><br />
-	<%= f.label :Title %>
-	<%= f.text_field :title, class: 'sound-source' %><br />
-	<%= f.label :BPM %>
-	<%= f.select :bpm, [["60 〜 70","60~70"],["71 〜 80","71~80"],["81 〜 90","80~90"],["91 〜 100","91~100"],["101 〜 110","101~110"],["111 〜 120","111~120"],["121 〜 130","121~130"],["131 〜 140","131~140"],["141 〜 150","141~150"]],class: 'sound-source' %><br />
-	<%= f.label :Genre %>
-	<%= f.text_field :genre, class: 'sound-source' %><br />
-	<%= f.label :Hashtag %>
-	<%= f.text_area :hashbody, class: 'sound-source',size:"55x5",placeholder: "#・・"%><br />
-	<%= f.label :Detail %>
-	<%= f.text_field :detail, class: 'sound-source'%><br />
-	<%= f.submit "アップロード", class: 'btn btn-outline-info'%><br />
-<% end %>
+<%= render 'layouts/error_messages', model: sound %>
+	<%= form_for sound do |f| %>
+		<p>※制限150mb以下</p>
+		<%= f.file_field :file %><br />
+		<%= f.label :タイトル %>
+		<%= f.text_field :title %>
+		<%= f.label :BPM %>
+		<%= f.select :bpm, [["","0"],["60 〜 70","60~70"],["71 〜 80","71~80"],["81 〜 90","80~90"],["91 〜 100","91~100"],["101 〜 110","101~110"],["111 〜 120","111~120"],["121 〜 130","121~130"],["131 〜 140","131~140"],["141 〜 150","141~150"]],class: 'sound-source' %><br />
+		<%= f.label :Genre %>
+		<%= f.select :genre, [["Ambient","Ambient"],["Classical","classical"],["EDM","EDM"],["Disco","Disco"],["Drum & Bass","Drum & Bass"],["Electronic","Electronic"],["Hip-Hop & R&B","Hip-Hop & R&B"],["House","House"],["Jazz & Blues","Jazz & Blues"],["Rock","Rock"],["Techno","Techno"],["Trance","Trance"],["Dubstep","Dubstep"],["Other","Other"]] %><br />
+		<%= f.label :Hashtag %>
+		<p class= 'index-text'>[#]つけてね！</p>
+		<%= f.text_field :hashbody, placeholder: "#mood..cute..etc" %>
+		<%= f.label :Detail %>
+		<%= f.text_field :detail %><br />
+		<%= f.submit "アップロード", class: 'btn btn-outline-info'%><br />
+	<% end %>

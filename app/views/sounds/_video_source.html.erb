@@ -1,4 +1,10 @@
-<% sound.video_sources.each do |video_source| %>
+<% if flash[:notice] %>
+		<p class="text-guest"><%= flash[:notice] %></p>
+<% end %>
+
+<% video_sources.each do |video_source| %>
 	<%= video_tag video_source.file, :controls => true, id: 'video_source'%>
-	<%= link_to '削除', sound_video_sources_path(video_source.sound, video_source), class: 'btn btn-outline-info', method: :delete,data: {"turbolinks" => false} %>
+	<%= link_to sound_video_source_path(video_source.sound, video_source), class: 'btn btn-outline-info', method: :delete,data: {"turbolinks" => false} do %>
+		<i class="fas fa-trash"></i>
+	<% end %>
 <% end %>

@@ -1,65 +1,60 @@
 <main class="video-main">
-<h1>Video</h1>
-<a><%= link_to '戻る', videos_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
-<a><%= link_to '編集', edit_video_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
+	<h1>Video</h1>
+	<a><%= link_to '編集', edit_video_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
+	<a><%= link_to '戻る', videos_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
+
 	<div class="video-list">
 		<div class="sound-write">
-			<table class="table table-borderless sound-table">
-					<thead>
-						<tr class= "video_<%= @video.id %>">
-							<%= render 'video_favorite', video: @video %>
-							<%= render_video_hashtags(@video.hashbody) %>
-						</tr>
-					</thead>
-			</table>
-				<p><%= video_tag @video.file,  id: "video-show", :controls => true ,:muted => true %></p>
+			<p class= 'index-text'>
+			<%= render_video_hashtags(@video.hashbody) %></p>
+			<%= render 'video_favorite', video: @video, user: current_user %>
 
-			<strong>Sound:</strong>
+			<div class="alert alert-success" role="alert">
+			<strong>組み合わせたいSoundをアップしよう！</strong>
+
 			<div class = "sound-source">
-				<%= form_for [@video, @sound_source] do |f| %>
-				<%= f.file_field :file, class: 'sound-source' %>
-				<%= f.submit "読み込む", class: 'btn btn-info'%><br />
-				<% end %>
+				<%= render 'sound_source_form', video: @video, sound_source: @sound_source %>
+			</div>
 
-				<div class="sound-source-play">
-				<% @video.sound_sources.each do |sound_source| %>
-				<%= audio_tag sound_source.file, id: 'bgm1' %>
-				<%= link_to '削除', video_sound_sources_path(sound_source.video, sound_source), class: 'btn btn-outline-info back_buttom', method: :delete, data: {"turbolinks" => false} %>
-				<% end %>
-
-			<button id="btn-play" type="button"><i class="fas fa-play"></i></button>
-
-			<script>
-//クリックされた曲をロードして再生
-
-				const bgm1 = document.querySelector("#bgm1");       // <audio>
-				const bgm2 = document.querySelector("#video-show");       // <video>
-				const btn  = document.querySelector("#btn-play");   // <button>
-
-				btn.addEventListener("click", ()=>{
-				// pausedがtrue=>停止, false=>再生中
-				if( ! bgm1.paused ){
-					  btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に切り替え
-					  bgm1.pause();
-					  bgm2.pause();
-					}
-					else{
-					  btn.innerHTML = '<i class="fas fa-pause"></i>';  // 「一時停止ボタン」に切り替え
-					  bgm1.play();
-					  bgm2.play();
-					}
-					});
-				/**
-				* [event] 再生終了時に実行
-				*/
-					bgm1.addEventListener("ended", ()=>{
-					  bgm1.currentTime = 0;  // 再生位置を先頭に移動
-					  btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に変更
-					});
-			</script>
+			<div class="sound-source-play">
+				<%= render 'sound_source', video: @video, sound_sources: @sound_sources %>
+				<button id="btn-play" type="button"><i class="fas fa-play"></i></button>
+			</div>
 
 			<p><%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%></p>
 		</div>
 	</div>
 </main>
+
+
+
+<script>
+//クリックされた曲をロードして再生
+
+	const bgm1 = document.querySelector("#bgm1");       // <audio>
+	const bgm2 = document.querySelector("#video-show");       // <video>
+	const btn  = document.querySelector("#btn-play");   // <button>
+
+	btn.addEventListener("click", ()=>{
+// pausedがtrue=>停止, false=>再生中
+	if( ! bgm1.paused ){
+		btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に切り替え
+		bgm1.pause();
+		bgm2.pause();
+	}
+	else{
+		btn.innerHTML = '<i class="fas fa-pause"></i>';  // 「一時停止ボタン」に切り替え
+		bgm1.play();
+		bgm2.play();
+		}
+		});
+/**
+* [event] 再生終了時に実行
+*/
+		bgm1.addEventListener("ended", ()=>{
+		  bgm1.currentTime = 0;  // 再生位置を先頭に移動
+		  btn.innerHTML = '<i class="fas fa-play"></i>';  // 「再生ボタン」に変更
+		});
+</script>
+
 

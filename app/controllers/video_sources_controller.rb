@@ -4,8 +4,11 @@ class VideoSourcesController < ApplicationController
         sound = Sound.find(params[:sound_id])
         video_source = current_user.video_sources.new(video_source_params)
         video_source.sound_id = sound.id
-        video_source.save
+        if video_source.save
         redirect_to sound_path(sound)
+        else
+        render 'show',notice:'ファイルを確認してください！'
+        end
     end
 
     def destroy

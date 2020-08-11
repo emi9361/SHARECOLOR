@@ -1,38 +1,34 @@
 <main class="stage-main">
 	<% if flash[:notice] %>
-    <p class="text-guest"><%= flash[:notice] %></p>
-    <% end %>
-<h1>Stages </h1>
-	<%= render 'search' %>
-	<% @stages.each do |stage| %>
-	<%= link_to "#{stage.hashbody}",stages_hashtag_name_path(stage) %>
+		<p class="text-guest"><%= flash[:notice] %></p>
 	<% end %>
-		<a><%= link_to '投稿', new_stage_path, class: 'btn btn-info newpost_buttom', style: "text-alian:center;" %></a>
-		<div class="stage-list">
-			<div class="sound-write">
-				<table class="table table-borderless sound-table">
-					<thead>
-						<tr>
-							<th scope="col">User</th>
-							<th scope="col">Title</th>
-							<th scope="col">Mood</th>
-						</tr>
-					</thead>
-					<tbody>
-						<%= render 'index', stages: @stages %>
-						</tbody>
-				</table>
-			</div>
+
+	<h1>Stages</h1>
+	<div class="alert alert-secondary" role="alert">
+		<div class="search-form">
+			<%= render 'search' %>
+			<%= link_to '投稿', new_stage_path, class: 'btn btn-info',data: {"turbolinks" => false}, style: "text-alian:center;" %>
 		</div>
-	</main>
+		<% @stages.each do |stage| %>
+			<p><%= render_stage_hashtags(stage.hashbody) %></p>
+		<% end %>
+	</div>
+
+	<div class="stage-list", style="margin-top: 10%;">
+		
+	</style>>
+		<div class="sound-write">
+			<%= render 'index', stages: @stages %>
 		</div>
+	</div>
+</main>
 
 <script>
-	$( function() {
-  $( '#suggest' ).autocomplete({
-    autoFocus: true, //テキストフィールドの値をフォーカスされたアイテムの値で置き換える
-    source: <%= @stage_suggest %>,//サジェストのデータを呼び出す
-    minLength: 1  //オートコンプリートが動作する文字数を指定
-  });
+$( function() {
+	$( '#suggest' ).autocomplete({
+	autoFocus: true, //テキストフィールドの値をフォーカスされたアイテムの値で置き換える
+	source: <%= @stage_suggest %>,//サジェストのデータを呼び出す
+	minLength: 1  //オートコンプリートが動作する文字数を指定
+	});
 });
 </script>

@@ -4,15 +4,17 @@
 			<th scope="col">User :</th>
 			<th scope="col">Title : </th>
 			<th scope="col">BPM : </th>
+			<th scope="col">Genre</th>
 			<th scope="col"></th>
 		</tr>
 	</thead>
 	<tbody>
 		<% sounds.each do |sound|%>
 			<tr>
-				<td><%= link_to sound.user.name, user_path(sound.user) %></td>
-				<td><%= link_to sound.title, sound_path(sound),data: {"turbolinks" => false}  %></td>
-				<td><%= sound.bpm %></td>
+				<td><%= link_to sound.user.name, user_path(sound.user),class: 'index-text' %></td>
+				<td><%= link_to sound.title, sound_path(sound),data: {"turbolinks" => false}, class: 'index-text' %></td>
+				<td class= 'index-text'><%= sound.bpm %></td>
+				<td class= 'index-text'><%= sound.genre %></td>
 				<td><%= audio_tag asset_path sound.file %></td>
 			</tr>
 		<% end %>

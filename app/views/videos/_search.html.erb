@@ -1,7 +1,4 @@
-<% if user_signed_in? %>
-	<div class="search-form" style="margin-top: 70px; text-align: center;">
-	<%= form_tag(search_video_path, :method => 'get') do %>
-    <%= text_field_tag :search,'', id:'suggest' %>
-    <%= submit_tag 'Search' %>
-	<% end %>
+<%= form_tag(search_video_path, :method => 'get') do %>
+	<%= text_field_tag :search,'', id:'suggest' %>
+	<%= submit_tag 'Search' %>
 <% end %>
