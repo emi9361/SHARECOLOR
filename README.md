@@ -1,24 +1,18 @@
-# README
+アプリ名「SHARECOLOR」
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+概要：自作した映像・音源を投稿・シェアしクリエイター同士での新たな出会いを提供するプラットフォームです。
+サウンド(音源) / ビデオ(映像) のカテゴリから自分の作品を投稿することができます。 
+また組み合わせたいサウンド・ビデオを選択し同時再生可能。 
+ステージカテゴリには、新たに生まれたサウンド+ビデオや自身の作品をへシェアすることも可能です。 
+ここでしか出会えない最高の作品と最高のクリエイターとコラボしませんか！？
 
-Things you may want to cover:
+ターゲット：
+サウンドクリエイター 映像クリエイター
+音楽・映像好きなサポーター
 
-* Ruby version
+主な利用シーン：
+音楽・映像の素材を探したい時(商用目的を除く)
+楽曲・動画クリエイター:制作した作品を投稿したい時
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+チャレンジ一覧
+https://docs.google.com/spreadsheets/d/1T3VIhbJ8owwBc09UjcSw8wHcXcotIJk9vCDRck-DfmY/edit
