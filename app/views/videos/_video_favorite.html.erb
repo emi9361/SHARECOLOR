@@ -12,16 +12,19 @@
 			<td class= 'index-text'><%= video.title %></td>
 
 			<!-- お気に入り機能 -->
-			<td><div id= "video_<%= @video.id %>">
-				<%= render 'favorites/video_favorite', video: video %>
-				</div></td>
-			<!-- お気に入り機能 -->
-			<td><%= link_to video_path(video), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info', data: {"turbolinks" => false} do %>
-				<i class="fas fa-trash"></i>
-				<% end %>
-			</td>
-		</tr>
-	</tbody>
-</table>
+			<% unless user.id == current_user.id %>
+				<td><div id= "video_<%= @video.id %>">
+					<%= render 'favorites/video_favorite', video: video %>
+					</div></td>
+				<!-- お気に入り機能 -->
+			<% else %>
+				<td><%= link_to video_path(video), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info', data: {"turbolinks" => false} do %>
+					<i class="fas fa-trash"></i>
+					<% end %>
+				</td>
+			<% end %>
+			</tr>
+		</tbody>
+	</table>
 
-	<p><%= video_tag @video.file,  id: "video-show", :controls => true ,:muted => true %></p>
+		<p><%= video_tag @video.file,  id: "video-show", :controls => true ,:muted => true %></p>

@@ -4,14 +4,14 @@
 <%= form_for video do |f| %>
 	<%= f.label :＊Video %><i class="fas fa-video"></i>
 	<%= f.file_field :file, :accept => 'video/*' %><br />
-		<p class= 'index-text-sound'>＊MP4対応: 制限100mb以下</p>
+		<p class= 'index-text-sound'>＊MP4対応: 制限100MB以下</p>
 	<%= f.label :サムネイル %>
 		<i class="fas fa-image"></i>
 	<%= f.attachment_field :image %><br />
 	<%= f.label :タイトル %>
 	<%= f.text_field :title %>
 	<%= f.label :Genre %><br />
-	<%= f.label :ハッシュタグ %><span><%= f.text_field :hashbody, placeholder: "#mood..#cute..etc" %></span>
+	<%= f.label :ハッシュタグ %><i class="fas fa-hashtag"></i><span><%= f.text_field :hashbody, placeholder: "#mood..#cute..etc" %></span>
 	<p class= 'index-text-sound'>「#」つけてね！</p>
 	<%= f.label :Detail %>
 	<%= f.text_area :detail %><br />
