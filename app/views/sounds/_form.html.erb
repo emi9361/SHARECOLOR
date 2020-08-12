@@ -3,14 +3,14 @@
 
 	<%= form_for sound do |f| %>
 		<%= f.label :＊Sound %><span><%= f.file_field :file %></span>
-		<p class= 'index-text-sound'>※制限5MB以下</p>
+		<p class= 'index-text-sound'>＊MP3対応: 制限5MB以下</p>
 		<%= f.label :＊タイトル %><span><%= f.text_field :title %></span>
 		<%= f.label :BPM %>
 		<%= f.select :bpm, [["",""],["60 〜 70","60~70"],["71 〜 80","71~80"],["81 〜 90","80~90"],["91 〜 100","91~100"],["101 〜 110","101~110"],["111 〜 120","111~120"],["121 〜 130","121~130"],["131 〜 140","131~140"],["141 〜 150","141~150"]],class: 'sound-source' %><br />
 		<%= f.label :Genre %>
 		<%= f.select :genre, [["Ambient","Ambient"],["Classical","classical"],["EDM","EDM"],["Disco","Disco"],["Drum & Bass","Drum & Bass"],["Electronic","Electronic"],["Hip-Hop & R&B","Hip-Hop & R&B"],["House","House"],["Jazz & Blues","Jazz & Blues"],["Rock","Rock"],["Techno","Techno"],["Trance","Trance"],["Dubstep","Dubstep"],["Other","Other"]] %><br />
 		<%= f.label :Hashtag %><span><%= f.text_field :hashbody, placeholder: "#mood..cute..etc" %></span>
-		<p class= 'index-text-sound'>[#]つけてね！</p>
+		<p class= 'index-text-sound'>「#」つけてね！</p>
 		<%= f.label :Detail %>
 		<%= f.text_field :detail %><br />
 		<%= f.submit "アップロード", class: 'btn btn-outline-info'%><br />

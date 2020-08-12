@@ -45,7 +45,7 @@ class StagesController < ApplicationController
     end
 
     def search
-        @stages = Stage.all
+        @stages = Stage.page(params[:page]).per(10).reverse_order
     end
 
     private

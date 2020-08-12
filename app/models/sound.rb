@@ -4,6 +4,7 @@ class Sound < ApplicationRecord
 	mount_uploader :file, AudioFileUploader
 	validates :title, presence: true
 	validates :file, presence: true
+	validate :sound_size
 	has_many :hashtag_sounds, dependent: :destroy
 	has_many :hashtags, through: :hashtag_sounds
 	has_many :notifications, dependent: :destroy
@@ -11,6 +12,13 @@ class Sound < ApplicationRecord
 
 	def favorited_by?(user)
 		favorites.where(user_id: user.id).exists?
+	end
+
+	#動画容量制限
+	def sound_size
+		if file.size > 5.megabytes
+		errors.add(:file, "should be less than 5MB")
+		end
 	end
 
 	after_create do

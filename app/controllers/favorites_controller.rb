@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
 
     def sound_create
         @sound = Sound.find(params[:sound_id])
-        favorite = @sound.favorites.new(user_id: current_user.id)
+        favorite = current_user.favorites.new(sound_id: @sound.id)
         favorite.save
         @sound.create_notification_like!(current_user)
         respond_to :js
@@ -16,8 +16,10 @@ class FavoritesController < ApplicationController
 
     def video_create
         @video = Video.find(params[:video_id])
-        favorite = @video.favorites.new(user_id: current_user.id)
+        favorite = current_user.favorites.new(video_id: @video.id)
         favorite.save
+        @video.create_notification_like!(current_user)
+        respond_to :js
     end
 
     def video_destroy
@@ -28,8 +30,10 @@ class FavoritesController < ApplicationController
 
     def stage_create
         @stage = Stage.find(params[:stage_id])
-        favorite = @stage.favorites.new(user_id: current_user.id)
+        favorite = current_user.favorites.new(stage_id: @stage.id)
         favorite.save
+        @video.create_notification_like!(current_user)
+        respond_to :js
     end
 
     def stage_destroy

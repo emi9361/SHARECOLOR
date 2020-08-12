@@ -65,7 +65,7 @@ class SoundsController < ApplicationController
 
     def search
     #Viewのformで取得したパラメータをモデルに渡す
-        @sounds = Sound.all
+        @sounds = Sound.page(params[:page]).per(10).reverse_order
     end
 
     def auto_complete
@@ -81,7 +81,7 @@ class SoundsController < ApplicationController
 
     def sound_params
     #複数一括で登録するからhashtag_ids: []と記載
-        params.require(:sound).permit(:file, :title, :bpm, :mood, :genre, :hashbody, :detail, hashtag_ids: [])
+        params.require(:sound).permit(:file, :title, :bpm, :genre, :hashbody, :detail, hashtag_ids: [])
     end
 
 end

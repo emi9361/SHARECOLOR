@@ -1,3 +1,3 @@
 //違うフォルダだからここれlocation.pathnameで定義,複数フォルダの指定をしたいときは↓を使うと良い
 //classは[.]idは[＃]
-  $(".video_<%= @video.id %>").html('<%= j(render "videos/video_favorite", video: @video ) %>');
+  $("#video_<%= @video.id %>").html('<%= j(render "favorites/video_favorite", video: @video ) %>');
