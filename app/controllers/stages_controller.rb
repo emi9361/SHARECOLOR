@@ -11,6 +11,7 @@ class StagesController < ApplicationController
     end
 
     def show
+        @user = current_user
         @stage = Stage.find(params[:id])
     end
 

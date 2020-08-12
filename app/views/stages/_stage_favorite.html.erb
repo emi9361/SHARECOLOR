@@ -8,10 +8,9 @@
 
 	<tbody>
 		<tr>
-			<td><%= link_to stage.user.name, user_path(stage.user),class= 'index-text' %></td>
+			<td><%= link_to stage.user.name, user_path(stage.user),class: 'index-text' %></td>
 			<td class= 'index-text'><%= stage.title %></td>
 
-			<% unless user.id == current_user.id %>
 			<!-- お気に入り機能 -->
 			<td><% if stage.favorited_by?(current_user) %>
 					<%= link_to stage_favorites_path(stage, redirect_id: 0), method: :delete, remote: true do %>
@@ -24,12 +23,13 @@
 				<% end %>
 			</td>
 			<!-- お気に入り機能 -->
-			<% else %>
-			<td><%= link_to stage_path(stage), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info', data: {"turbolinks" => false} do %>
+			<td>
+				<% if user.id == current_user.id %>
+				<%= link_to stage_path(stage), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info', data: {"turbolinks" => false} do %>
 				<i class="fas fa-trash"></i>
 				<% end %>
+				<% end %>
 			</td>
-			<% end %>
 		</tr>
 	</tbody>
 </table>

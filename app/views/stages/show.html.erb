@@ -1,10 +1,12 @@
 <main class="stage-main">
 <h1>Stage</h1>
-		<a><%= link_to '戻る', stages_path, class: 'btn btn-info newpost_buttom', style: "text-alian:center;" ,data: {"turbolinks" => false} %></a>
-		<a><%= link_to '編集', edit_stage_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
+	<% if @user.id == current_user.id %>
+			<a><%= link_to '編集', edit_stage_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
+	<% end %>
+			<a><%= link_to '戻る', stages_path, class: 'btn btn-info newpost_buttom', style: "text-alian:center;" ,data: {"turbolinks" => false} %></a>
 		<div class="stage-list">
 			<div class="sound-write">
-				<%= render 'stage_favorite', stage: @stage %>
+				<%= render 'stage_favorite', stage: @stage, user: current_user  %>
 				<%= render_stage_hashtags(@stage.hashbody) %>
 			</div>
 			<%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%>

@@ -11,6 +11,7 @@ class SoundsController < ApplicationController
     end
 
     def show
+        @user = current_user
         @sound = Sound.find(params[:id])
         @video_source = VideoSource.new
         @video_sources = current_user.video_sources.order(updated_at: :desc).limit(1)

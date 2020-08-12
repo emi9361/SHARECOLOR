@@ -7,29 +7,31 @@
 	<div class="alert alert-secondary" role="alert">
 		<div class="search-form">
 			<%= render 'search' %>
-			<%= link_to '投稿', new_sound_path, class: 'btn btn-info ', data: {"turbolinks" => false} %>
+			<% if user_signed_in? %>
+				<%= link_to '投稿', new_sound_path, class: 'btn btn-info ', data: {"turbolinks" => false} %>
+			<% end %>
 		</div>
-		<% @sounds.each do |sound| %>
-			<p class="index-text"><%= render_sound_hashtags(sound.hashbody) %></p>
-		<% end %>
+			<% @sounds.each do |sound| %>
+				<p class="index-text"><%= render_sound_hashtags(sound.hashbody) %></p>
+			<% end %>
 	</div>
 
-	<div class="sound-back">
-		<div class="sound-write">
-			<%= render 'index', sounds: @sounds %>
-			<%= paginate @sounds %>
+		<div class="sound-back">
+			<div class="sound-write">
+				<%= render 'index', sounds: @sounds %>
+				<%= paginate @sounds %>
+			</div>
 		</div>
-	</div>
-</main>
+	</main>
 
-<script>
-$( function() {
-	$( '#suggest' ).autocomplete({
-	autoFocus: true, //テキストフィールドの値をフォーカスされたアイテムの値で置き換える
-	source: <%= @sound_suggest %>,//サジェストのデータを呼び出す
-	minLength: 1  //オートコンプリートが動作する文字数を指定
+	<script>
+	$( function() {
+		$( '#suggest' ).autocomplete({
+		autoFocus: true, //テキストフィールドの値をフォーカスされたアイテムの値で置き換える
+		source: <%= @sound_suggest %>,//サジェストのデータを呼び出す
+		minLength: 1  //オートコンプリートが動作する文字数を指定
+		});
 	});
-});
-</script>
+	</script>
 
 
