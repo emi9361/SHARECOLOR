@@ -28,12 +28,6 @@ ActiveRecord::Schema.define(version: 2020_08_07_050641) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "genres", force: :cascade do |t|
-    t.string "genre_word"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "hashtag_sounds", force: :cascade do |t|
     t.integer "sound_id"
     t.integer "hashtag_id"
@@ -66,12 +60,6 @@ ActiveRecord::Schema.define(version: 2020_08_07_050641) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["hashtag_word"], name: "index_hashtags_on_hashtag_word", unique: true
-  end
-
-  create_table "moods", force: :cascade do |t|
-    t.string "mood_word"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "notifications", force: :cascade do |t|

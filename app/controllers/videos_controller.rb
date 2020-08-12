@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
 
     def index
-        @videos = Video.all
+        @videos = Video.page(params[:page]).per(10).reverse_order
         users = User.all
 
         @video_suggest = @videos.map(&:title).concat(users.map(&:name)).to_json.html_safe
@@ -11,7 +11,7 @@ class VideosController < ApplicationController
     def show
         @video = Video.find(params[:id])
         @sound_source = SoundSource.new
-        @sound_sources = SoundSource.all
+        @sound_sources = current_user.sound_sources.order(updated_at: :desc).limit(1)
     end
 
     def edit
@@ -25,15 +25,27 @@ class VideosController < ApplicationController
     def create
         @video = Video.new(video_params)
         @video.user_id = current_user.id
-        @video.save
+        if @video.save
         redirect_to videos_path,notice:'VideoUpできたお〜'
+        else
+        render :new
+        end
     end
 
     def update
         @video = Video.find(params[:id])
         @video.user_id = current_user.id
-        Video.update(video_params)&& @video.file.recreate_versions!
+        if Video.update(video_params)&& @video.file.recreate_versions!
         redirect_to videos_path,notice:'VideoUpdateできたお〜'
+        else
+        render :edit
+        end
+    end
+
+    def destroy
+        @video = Video.find(params[:id])
+        @video.destroy
+        redirect_to videos_path,notice:'Sound削除できたお〜'
     end
 
     def hashtag
@@ -52,7 +64,7 @@ class VideosController < ApplicationController
     end
 
     def search
-        @videos = Video.all
+        @videos = Video.page(params[:page]).per(10).reverse_order
     end
 
     private

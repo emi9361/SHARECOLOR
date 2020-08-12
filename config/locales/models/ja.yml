@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      sound:
+    attributes:
+      sound:
+        file: ファイル
+        title: タイトル
+      video:
+        file: ファイル
+        title: タイトル
+      stage:
+        file: ファイル
+        title: タイトル

@@ -1,8 +1,15 @@
+<main class="user-main">
+	<div class="user-list">
+		<div class= "user-profile">
+
 <!--自分のいいねは通知しない-->
-<% notifications = @notifications.where.not(visitor_id: current_user.id)%>
-	<% if @notifications.exists? %>
-		<%= render 'notification', notifications: @notifications%>
-		<%= paginate notifications %>
-	<% else %>
-	  <p>通知なし</p>
-	<% end %>
+		<% notifications = @notifications.where.not(visitor_id: current_user.id)%>
+			<% if @notifications.exists? %>
+				<%= render 'notification', notifications: @notifications%>
+				<%= paginate notifications %>
+			<% else %>
+				<p>通知なし</p>
+			<% end %>
+		</div>
+	</div>
+</main>

@@ -4,14 +4,15 @@ class SoundSourcesController < ApplicationController
         video = Video.find(params[:video_id])
         sound_source = current_user.sound_sources.new(sound_source_params)
         sound_source.video_id = video.id
-        sound_source.save
+        if sound_source.save
         redirect_to video_path(video)
+        else
+        render 'show',notice:'ファイルを確認してください！'
+        end
     end
 
     def destroy
-        sound_source = SoundSource.find_by(id: params[:id], video_id: params[:video_id])
-        binding.pry
-        sound_source.destroy
+        SoundSource.find_by(id: params[:id], video_id: params[:video_id]).destroy
         redirect_to video_path(params[:video_id])
     end
 
