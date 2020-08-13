@@ -1,2 +1,2 @@
 
-  $(".sound_<%= @sound.id %>").html("<%= j(render 'sounds/sound_favorite',  sound: @sound ) %>")
+  $("#sound_<%= @sound.id %>").html("<%= j(render 'favorites/sound_favorite',  sound: @sound ) %>")

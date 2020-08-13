@@ -38,7 +38,7 @@ class Stage < ApplicationRecord
 		hashtags = hashbody.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
 		#map繰り返しで複数のhashtagがsoundに保存される
 		hashtags.uniq.map do |hashtag|
-		tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
+		tag = Hashtag.find_or_create_by(hashtag_word: hashtag.downcase.delete('#'))
 		stage.hashtags << tag
 	    end
 	end

@@ -1,37 +1,34 @@
 <table class="table table-borderless sound-table">
 	<thead>
-		<tr class= "stage_<%= @stage.id %>">
-		<th scope="col">User</th>
-		<th scope="col">Title</th>
-		<th scope="col"></th>
+		<tr>
+			<th>User</th>
+			<th>Title</th>
+			<th></th>
+			<th>お気に入り</th>
+		</tr>
 	</thead>
 
 	<tbody>
 		<tr>
 			<td><%= link_to stage.user.name, user_path(stage.user),class: 'index-text' %></td>
 			<td class= 'index-text'><%= stage.title %></td>
+			<td></td>
 
 			<!-- お気に入り機能 -->
-			<td><% if stage.favorited_by?(current_user) %>
-					<%= link_to stage_favorites_path(stage, redirect_id: 0), method: :delete, remote: true do %>
-					<i class="far fa-star" aria-hidden="true"></i>
+			<% unless stage.user.id == current_user.id %>
+				<td><div id= "stage_<%= @stage.id %>">
+					<%= render 'favorites/stage_favorite', stage: @stage %></div>
+				</td>
+				<!-- お気に入り機能 -->
+			<% else %>
+				<td>
+					<%= link_to stage_path(stage), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info', data: {"turbolinks" => false} do %>
+					<i class="fas fa-trash"></i>
 					<% end %>
-				<% else %>
-					<%= link_to stage_favorites_path(stage, redirect_id: 0), method: :post, remote: true do %>
-					<i class="fas fa-star" aria-hidden="true" style="color: blue;" ></i>
-					<% end %>
-				<% end %>
-			</td>
-			<!-- お気に入り機能 -->
-			<td>
-				<% if user.id == current_user.id %>
-				<%= link_to stage_path(stage), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info', data: {"turbolinks" => false} do %>
-				<i class="fas fa-trash"></i>
-				<% end %>
-				<% end %>
-			</td>
+				</td>
+			<% end %>
 		</tr>
 	</tbody>
 </table>
 
-	<p><%= video_tag @stage.file,  class: "stage-sample", :controls => true %></p>
+	<p><%= video_tag @stage.file,  class: "stage-show", :controls => true %></p>

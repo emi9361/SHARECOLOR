@@ -1,6 +1,6 @@
 <main class="video-main">
 	<h1>Video</h1>
-	<% if @user.id == current_user.id %>
+	<% if @video.user_id == current_user.id %>
 		<a><%= link_to '編集', edit_video_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
 	<% end %>
 		<a><%= link_to '戻る', videos_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
@@ -8,20 +8,20 @@
 		<div class="sound-write">
 			<span class= 'index-text'>
 			<%= render_video_hashtags(@video.hashbody) %></span>
-			<%= render 'video_favorite', video: @video, user: current_user %>
+			<%= render 'videos/video_favorite', video: @video, user: current_user %>
 
-			<div class="alert alert-success" role="alert">
-			<strong>組み合わせたいSoundをアップしよう！</strong>
+				<div class="alert alert-success" role="alert">
+				<strong>組み合わせたいSoundをアップしよう！</strong>
 
-			<div class = "sound-source">
-				<%= render 'sound_source_form', video: @video, sound_source: @sound_source %>
-			</div>
+				<div class = "sound-source">
+					<%= render 'videos/sound_source_form', sound_source: @sound_source %>
+				</div>
 
-			<div class="sound-source-play">
-				<%= render 'sound_source', sound_sources: @sound_sources %>
-				<p id= "btn-play" type= "button"><i class="far fa-play-circle">同時再生</i></p>
-			</div>
-
+				<div class="sound-source-play">
+					<%= render 'videos/sound_source', sound_sources: @sound_sources %>
+					<p id= "btn-play" type= "button"><i class="far fa-play-circle">同時再生</i></p>
+				</div>
+			<% end %>
 			<p><%= link_to 'Tweet',"https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button" , :data_show_count => "false"%></p>
 		</div>
 	</div>

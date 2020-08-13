@@ -32,7 +32,7 @@ class FavoritesController < ApplicationController
         @stage = Stage.find(params[:stage_id])
         favorite = current_user.favorites.new(stage_id: @stage.id)
         favorite.save
-        @video.create_notification_like!(current_user)
+        @stage.create_notification_like!(current_user)
         respond_to :js
     end
 

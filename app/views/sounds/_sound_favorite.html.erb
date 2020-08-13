@@ -1,10 +1,10 @@
 <table class="table table-borderless sound-table">
 	<thead>
-		<tr class= "sound_<%= @sound.id %>">
+		<tr>
 			<th>User</th>
 			<th>Title</th>
 			<th>BPM</th>
-			<th>Genre</th>
+			<th></th>
 			<th></th>
 		</tr>
 	</thead>
@@ -14,28 +14,32 @@
 			<td><%= link_to sound.user.name, user_path(sound.user), class: 'index-text-sound' %></td>
 			<td class= 'index-text-sound'><%= sound.title %></td>
 			<td class= 'index-text-sound'><%= sound.bpm %></td>
+		</tr>
+	</tbody>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Genre</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td></td>
 			<td class= 'index-text-sound'><%= sound.genre %></td>
 			<td><%= audio_tag sound.file, id: 'sound_show' %></td>
-
-			<% unless user.id == current_user.id %>
-			<!-- いいね機能 -->
-			<td><% if sound.favorited_by?(current_user) %>
-					<%= link_to sound_favorites_path(sound, redirect_id: 0), method: :delete , remote: true do %>
-					<i class="far fa-star" aria-hidden="true"></i>
-					<% end %>
-				<% else %>
-					<%= link_to sound_favorites_path(sound, redirect_id: 0), method: :post,remote: true do %>
-					<i class="fas fa-star" aria-hidden="true" style="color: blue;"></i>
-					<% end %>
-				<% end %>
-			</td>
-			<!-- いいね機能 -->
+			<!-- お気に入り機能 -->
+			<% unless sound.user.id == current_user.id %>
+				<td><div id= "sound_<%= @sound.id %>">
+				<%= render 'favorites/sound_favorite', sound: sound %></div></td>
+			<!-- お気に入り機能 -->
 			<% else %>
 			<td><%= link_to sound_path(sound), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info', data: {"turbolinks" => false} do %>
-				<i class="fas fa-trash"></i>
+					<i class="fas fa-trash"></i>
 				<% end %>
 			</td>
-			<td>
 			<% end %>
 		</tr>
 	</tbody>

@@ -1,24 +1,27 @@
 <table class="table table-borderless sound-table">
 	<thead>
 		<tr>
-		<th scope="col">User</th>
-		<th scope="col">Title</th>
-		<th scope="col"></th>
+		<th>User</th>
+		<th>Title</th>
+		<th></th>
+		<th></th>
 	</thead>
 
 	<tbody>
 		<tr>
 			<td><%= link_to video.user.name, user_path(video.user), class: 'index-text' %></td>
 			<td class= 'index-text'><%= video.title %></td>
+			<td></td>
 
 			<!-- お気に入り機能 -->
-			<% unless user.id == current_user.id %>
+			<% unless video.user.id == current_user.id %>
 				<td><div id= "video_<%= @video.id %>">
-					<%= render 'favorites/video_favorite', video: video %>
-					</div></td>
+					<%= render 'favorites/video_favorite', video: video %></div>
+				</td>
 				<!-- お気に入り機能 -->
 			<% else %>
-				<td><%= link_to video_path(video), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info', data: {"turbolinks" => false} do %>
+				<td>
+					<%= link_to video_path(video), method: :delete , data: {confirm: "削除しますか？"},class: 'btn btn-outline-info', data: {"turbolinks" => false} do %>
 					<i class="fas fa-trash"></i>
 					<% end %>
 				</td>
