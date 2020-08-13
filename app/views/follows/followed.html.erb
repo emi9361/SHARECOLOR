@@ -1,0 +1,15 @@
+
+<h1>フォロワー</h1>
+
+<% @users.each do |user| %>
+  <hr>
+  <p><span>Name: </span><%= link_to user.name, user_path(user.id) %>
+  	<%= attachment_image_tag user, :profile_image, format: 'jpeg' ,fallback:"logo.jpeg" %>
+    <% if current_user != user %>
+        <% if user.following?(user)%>
+            <%=link_to "フォローする", user_followses_path(user), method: :post, class: "btn btn-info index-text-sound" %>
+        <% else %>
+            <%=link_to "フォロー外す", user_followses_path(user), method: :delete,class: "btn btn-info index-text-sound" %></p>
+        <% end %>
+    <% end %>
+<% end %>

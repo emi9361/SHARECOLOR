@@ -9,6 +9,7 @@
 h1{
 
 }
+
 .user-main {
 	background-color: #fff;
 	opacity: 0.8;
@@ -25,37 +26,29 @@ h1{
 	margin-top: 7%;
 	filter: grayscale(30%);
 }
-.profile-edit{
-	font-size: 30px;
-	text-align: right;
-	margin-right: 120px;
-}
-.user-profile p{
-	font-size:25px;
-}
 
 .profile_image{
-	width: 200px;
 	height: 250px;
 	border-radius: 5px;
-	float: left;
-	margin: 2em 1em 1em 3em;
 
 }
 
-.profile-space{
-	margin-left: 50px;
+.profile-form{
+	position: absolute;
+	top: 5rem;
+	left: 20rem;
+	list-style: none;
+
 }
+
+.profile-form li {
+	padding-top: 3rem;
+}
+
 
 @media screen and (max-width:768px) {
 .user-list{
 	width: auto;
-	}
-
-.profile-edit{
-	position:absolute;
-	top: 13rem;
-	right: 1rem;
 	}
 }
 

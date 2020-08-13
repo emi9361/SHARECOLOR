@@ -1,12 +1,15 @@
 <main class="user-main">
 	<div class="user-list">
-		<div class= "user-profile">
-
+		<div class="sound-write">
+			<h1>News</h1>
 <!--自分のいいねは通知しない-->
 		<% notifications = @notifications.where.not(visitor_id: current_user.id)%>
 			<% if @notifications.exists? %>
-				<%= render 'notification', notifications: @notifications%>
-				<%= paginate notifications %>
+				<div class="notification-index">
+					<%= render 'notification', notifications: @notifications%>
+					<%= paginate notifications %>
+					<%= link_to "通知削除", notification_path(notifications), method: :delete ,class: "fas fa-trash" %>
+				</div>
 			<% else %>
 				<p>通知なし</p>
 			<% end %>

@@ -334,15 +334,21 @@ search / hashtag
     font-size:18px;
 }
 
-.alert-error, #error_explanation{
+
+#error_explanation,
+.alert-error {
 
     color:#262626;
     background:#FFEBE8;
     text-align: center;
     border:2px solid #990000;
     padding:12px; font-weight:850;
+}
+
+#error_explanation li{
     list-style: none;
 }
+
 
 /*============
 
@@ -350,4 +356,10 @@ search / hashtag
 
 .favorite-mark{
     padding-left:5%;
+}
+
+.searchpage-form{
+    position: absolute;
+    top: 13rem;
+    right:5rem;
 }

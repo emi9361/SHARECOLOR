@@ -1,25 +1,30 @@
-<% notifications.each do |notification| %>
 
-    <div class="col-md-6.mx-auto">
-        <div class="form-inline">
-            <span><%= link_to user_path(notification.visitor) do %>
+<table class="table table-hover sound-table">
+    <% notifications.each do |notification| %>
+        <tbody>
+            <td><%= link_to user_path(notification.visitor) do %>
+                <% end %>
+            </td>
+
+            <td><strong><%= notification.visitor.name %></strong>さんが
+            <% case notification.action %>
+            <% when 'follow' then %>
+                <%= 'あなたをフォローしました'%>
+            <% when 'like' then %>
+                <% if notification.sound_id != nil %>
+                    <%= link_to 'あなたの投稿', notification.sound, style: "font-weight: bold;"%>
+                    <%= 'をお気に入りにしました' %>
+                <% elsif notification.video_id != nil %>
+                    <%= link_to 'あなたの投稿', notification.video, style: "font-weight: bold;"%>
+                    <%= 'をお気に入りにしました' %>
+                <% elsif notification.stage_id != nil %>
+                    <%= link_to 'あなたの投稿', notification.stage, style: "font-weight: bold;"%>
+                    <%= 'をお気に入りにしました' %>
+                <% end %>
             <% end %>
-            </span>
+            </td>
 
-    <strong><%= notification.visitor.name %></strong>さんが
-    <% case notification.action %>
-    <% when 'follow' then %>
-        <%= 'あなたをフォローしました'%>
-    <% when 'like' then %>
-        <%= link_to 'あなたの投稿', notification.sound, style: "font-weight: bold;"%>
-        <%= link_to 'あなたの投稿', notification.video, style: "font-weight: bold;"%>
-        <%= link_to 'あなたの投稿', notification.stage, style: "font-weight: bold;"%>
-        <%= 'をお気に入りにしました' %>
-    <% end %>
-
-    <p class = "text-muted.mb-0"></p>
-    <p class= "small.text-muted.text-right">
-    <%= time_ago_in_words(notification.created_at).upcase%></p>
-        </div>
-    </div>
-<% end %>
+            <td><strong><%= " (#{time_ago_in_words(notification.created_at)}前)" %></strong></td>
+        <% end %>
+    </tbody>
+</table>

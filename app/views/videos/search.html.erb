@@ -1,6 +1,10 @@
-<div class="video-list">
-	<div class="sound-write">
-		<%= render 'index', videos: @videos %>
-		<%= paginate @videos %>
-	</div>
+
+<div class= "search-form">
+	<%= render 'search' %>
 </div>
+		<div class="video-list">
+			<div class="sound-write">
+				<%= render 'index', videos: @videos %>
+				<%= paginate @videos %>
+			</div>
+		</div>

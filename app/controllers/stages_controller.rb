@@ -26,8 +26,11 @@ class StagesController < ApplicationController
     def create
         @stage = Stage.new(stage_params)
         @stage.user_id = current_user.id
-        @stage.save
+        if @stage.save
         redirect_to stages_path, notice:'StageにUpできたお〜'
+        else
+        render :new
+        end
     end
 
     def update

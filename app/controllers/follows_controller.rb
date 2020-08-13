@@ -14,11 +14,13 @@ class FollowsController < ApplicationController
 
 	def follower
 		user = User.find(params[:user_id])
+		# 自分がフォローしている人
 		@users = user.following_user
 	end
 
 	def followed
 		user = User.find(params[:user_id])
+		# 自分をフォローしている人
 		@users = user.follower_user
 	end
 end
