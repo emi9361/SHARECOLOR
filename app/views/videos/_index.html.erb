@@ -1,17 +1,24 @@
 <table class="table table-table-hover sound-table">
 	<thead>
 		<tr>
-			<th scope="col">User</th>
-			<th scope="col">Title</th>
-			<th scope="col">Video</th>
+			<th>User</th>
+			<th>Title</th>
+			<th>Video</th>
 		</tr>
 	</thead>
 	<tbody>
 		<% videos.each do |video|%>
 			<tr class = "index-list">
 				<td><%= link_to video.user.name, user_path(video.user), class: 'index-text' %></td>
-				<td><%= link_to video.title, video_path(video),data: {"turbolinks" => false}  , class: 'index-text' %></td>
-				<td><%= link_to video_path(video) do %><%= attachment_image_tag video, :image, :fill, 200, 200, format: 'jpeg', fallback:"logo.jpeg" %>
+				<td class= 'index-text'>
+					<% unless user_signed_in? %>
+						<%= video.title %></td>
+				<td><%= video_tag video.file,  style: "width:70%;", :controls => true ,:muted => true %></td>
+				<td>
+					<% else %>
+						<%= link_to video.title, video_path(video),data: {"turbolinks" => false}  , class: 'index-text' %>
+						<%= link_to video_path(video) do %><%= attachment_image_tag video, :image, :fill, 200, 200, format: 'jpeg', fallback:"logo.jpeg" %>
+						<% end %>
 					<% end %>
 				</td>
 			</tr>

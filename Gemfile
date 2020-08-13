@@ -94,6 +94,3 @@ gem 'bcrypt_pbkdf'
 #suggest
 gem 'jquery-ui-rails'
 gem 'jquery-rails'
-
-#エラーメッセージ日本語化
-gem 'rails-i18n'

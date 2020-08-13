@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   resources :stages do
   post '/favorites', to: 'favorites#stage_create'
   delete '/favorites', to: 'favorites#stage_destroy'
-  resource :genres, only:[:create, :destroy]
   resource :hashtag, only:[:create, :destroy]
   collection do
     get "auto_complete"
@@ -28,7 +27,6 @@ Rails.application.routes.draw do
   post '/favorites', to: 'favorites#sound_create'
   delete '/favorites', to: 'favorites#sound_destroy'
   resource :genres, only:[:create, :destroy]
-  resource :moods, only:[:create, :destroy]
   resource :hashtag, only:[:create, :destroy]
   resources :video_sources, only: [:create, :destroy]
 

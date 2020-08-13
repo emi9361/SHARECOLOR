@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+	<% if sound.favorited_by?(current_user) %>
+		<%= link_to sound_favorites_path(sound), method: :delete , remote: true do %>
+			お気に入り<i class="fas fa-bookmark favorite-mark" aria-hidden="true" style="color: blue;"></i></span>
+			<% end %>
+	<% else %>
+		<%= link_to sound_favorites_path(sound), method: :post,remote: true do %>
+			お気に入り<span><i class="far fa-bookmark" aria-hidden="true" ></i>
+			<% end %>
+	<% end %>
+<% end %>

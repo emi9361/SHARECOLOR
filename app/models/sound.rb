@@ -14,7 +14,7 @@ class Sound < ApplicationRecord
 		favorites.where(user_id: user.id).exists?
 	end
 
-	#動画容量制限
+	#音声容量制限
 	def sound_size
 		if file.size > 5.megabytes
 		errors.add(:file, "should be less than 5MB")
@@ -40,7 +40,7 @@ class Sound < ApplicationRecord
 		hashtags = hashbody.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
 		#map繰り返しで複数のhashtagがsoundに保存される
 		hashtags.uniq.map do |hashtag|
-		tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
+		tag = Hashtag.find_or_create_by(hashtag_word: hashtag.downcase.delete('#'))
     	sound.hashtags << tag
 		end
   	end

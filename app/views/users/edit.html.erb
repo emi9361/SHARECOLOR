@@ -2,8 +2,8 @@
 <h1>MyPage</h1>
 <p><%= link_to 'Back', @user_path, class: 'btn btn-outline-info mypage-back_buttom', data: {"turbolinks" => false} %></p>
 	<div class="user-list">
+			<div class="sound-write">
 		<%= form_for(@user) do |f| %>
-		<div class= "user-profile">
 			<p><%= f.label :Name %>
 			<%= f.text_field :name %></p>
 

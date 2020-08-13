@@ -1,24 +1,24 @@
 <main class="sound-main">
 	<h1>Sound</h1>
-	<% if @user.id == current_user.id %>
-		<a><%= link_to '編集', edit_sound_path, class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></a>
+	<% if @sound.user_id == current_user.id %>
+		<p><%= link_to '編集', edit_sound_path(@sound), class: 'btn btn-info newpost_buttom', data: {"turbolinks" => false} %></p>
 	<% end %>
 		<a><%= link_to '戻る', sounds_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></a>
 	<div class="sound-back">
 		<div class="sound-write">
 			<p class= 'index-text'>
 			<%= render_sound_hashtags(@sound.hashbody) %></p>
-			<%= render 'sound_favorite', sound: @sound, user: current_user %>
+			<%= render 'sounds/sound_favorite', sound: @sound, user: current_user %>
 
 			<div class="alert alert-info" role="alert">
 			<strong>組み合わせたいVideoをアップしよう！</strong>
 
 			<div class = "video-source">
-				<%= render 'video_source_form', sound: @sound, video_source: @video_source %>
+				<%= render 'sounds/video_source_form', video_source: @video_source %>
 			</div>
 
 			<div class="video-source-play">
-				<%= render 'video_source',video_sources: @video_sources %>
+				<%= render 'sounds/video_source',video_sources: @video_sources %>
 				<p id= "sound_btn_play" type= "button"><i class="far fa-play-circle">同時再生</i></p>
 			</div>
 

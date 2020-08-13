@@ -27,7 +27,22 @@ class StagesController < ApplicationController
         @stage = Stage.new(stage_params)
         @stage.user_id = current_user.id
         @stage.save
-        redirect_to stages_path, notice:'Upできたお〜'
+        redirect_to stages_path, notice:'StageにUpできたお〜'
+    end
+
+    def update
+        @stage = Stage.find(params[:id])
+        if @stage.update(stage_params)&& @stage.file.recreate_versions!
+        redirect_to stages_path,notice:'StageUpdateできたお〜'
+        else
+        render :edit
+        end
+    end
+
+    def destroy
+        @stage = Stage.find(params[:id])
+        @stage.destroy
+        redirect_to stages_path,notice:'Stage削除できたお〜'
     end
 
     def hashtag

@@ -266,22 +266,14 @@ font-weight: bolder;
   main .current_user_name {
     color: blue;
     position: absolute;
-    top: 7rem;
-    left: 27rem;
+    top: 9rem;
+    left: 14rem;
   }
-}
-
-.logo {
-
-    margin-left: 70px;
-    width: 200px;
-    height: 200px;
+  .logo img {
+    position: absolute;
+    left: 6rem;
     }
-    .devise_format{
-    text-align: center;
-
 }
-
 
 /*============
 body
@@ -295,6 +287,17 @@ body {
 /*============
 search / hashtag
 =============*/
+
+.logo {
+
+    margin-left: 70px;
+    width: 200px;
+    height: 200px;
+    }
+    .devise_format{
+    text-align: center;
+
+}
 
 .search-form{
     position: absolute;
@@ -342,6 +345,9 @@ search / hashtag
 }
 
 /*============
-form
+
 =============*/
 
+.favorite-mark{
+    padding-left:5%;
+}

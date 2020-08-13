@@ -9,7 +9,6 @@ class VideosController < ApplicationController
     end
 
     def show
-        @user = current_user
         @video = Video.find(params[:id])
         @sound_source = SoundSource.new
         @sound_sources = current_user.sound_sources.order(updated_at: :desc).limit(1)
@@ -27,7 +26,7 @@ class VideosController < ApplicationController
         @video = Video.new(video_params)
         @video.user_id = current_user.id
         if @video.save
-        redirect_to videos_path,notice:'VideoUpできたお〜'
+        redirect_to videos_path, notice:'VideoUpできたお〜'
         else
         render :new
         end
@@ -35,8 +34,7 @@ class VideosController < ApplicationController
 
     def update
         @video = Video.find(params[:id])
-        @video.user_id = current_user.id
-        if Video.update(video_params)&& @video.file.recreate_versions!
+        if @video.update(video_params)&& @video.file.recreate_versions!
         redirect_to videos_path,notice:'VideoUpdateできたお〜'
         else
         render :edit

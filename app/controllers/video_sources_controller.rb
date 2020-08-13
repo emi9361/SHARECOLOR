@@ -7,7 +7,8 @@ class VideoSourcesController < ApplicationController
         if video_source.save
         redirect_to sound_path(sound)
         else
-        render 'show',notice:'ファイルを確認してください！'
+        @sound = Sound.find(params[:sound_id])
+        render :'sounds/show'
         end
     end
 
