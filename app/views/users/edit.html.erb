@@ -1,21 +1,5 @@
 <main class="user-main">
-<h1>MyPage</h1>
-<p><%= link_to 'Back', @user_path, class: 'btn btn-outline-info mypage-back_buttom', data: {"turbolinks" => false} %></p>
-	<div class="user-list">
-			<div class="sound-write">
-		<%= form_for(@user) do |f| %>
-			<p><%= f.label :Name %>
-			<%= f.text_field :name %></p>
-
-			<p><%= f.attachment_field :profile_image %></p>
-
-			<p><%= f.label :Location %>
-			<%= f.text_field :location %></p>
-
-			<p><%= f.label :Introduction %>
-			<%= f.text_area :introduction %></p>
-			<p><%= f.submit 'OK', class: 'btn btn-info profile-edit'%></p>
-		</div>
-		<% end %>
-	</div>
+	<h1>MyPage</h1>
+		<p><%= link_to 'Back', @user_path, class: 'btn btn-outline-info back_buttom', data: {"turbolinks" => false} %></p>
+		<%= render 'profile_form', user: @user %>
 </main>

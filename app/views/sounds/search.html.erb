@@ -1,7 +1,11 @@
-<div class="sound-back">
-	<div class="sound-write">
-		<%= render 'index', sounds: @sounds %>
-			<p><%= link_to 'SoundTop', sounds_path, class: 'btn btn-info', style: "text-alian:center;" %></p>
-			<%= paginate @sounds %>
-	</div>
+
+<div class= "search-form">
+	<%= render 'search' %>
 </div>
+		<div class="sound-back">
+			<div class="sound-write">
+				<%= render 'index', sounds: @sounds %>
+					<p><%= link_to 'SoundTop', sounds_path, class: 'btn btn-info', style: "text-alian:center;" %></p>
+					<%= paginate @sounds %>
+			</div>
+		</div>

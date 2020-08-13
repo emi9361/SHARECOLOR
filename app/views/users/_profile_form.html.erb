@@ -1,0 +1,19 @@
+<div class="user-list">
+	<div class="sound-write">
+		<ul class="profile-form">
+			<%= form_for(@user) do |f| %>
+				<li class= "index-text-sound"><%= f.label :Name %>
+				<%= f.text_field :name %></li>
+
+				<li class= "index-text-sound"><%= f.attachment_field :profile_image %></li>
+
+				<li class= "index-text-sound"><%= f.label :Location %>
+				<%= f.text_field :location %></li>
+
+				<li class= "index-text-sound"><%= f.label :Introduction %>
+				<%= f.text_area :introduction %></li>
+				<li class= "index-text-sound"><%= f.submit 'OK', class: 'btn btn-info'%></li>
+			<% end %>
+		</ul>
+	</div>
+</div>

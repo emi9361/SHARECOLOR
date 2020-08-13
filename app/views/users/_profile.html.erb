@@ -1,0 +1,22 @@
+<div class="user-list">
+	<div class="sound-write">
+		<ul class="profile-form">
+			<li><%= attachment_image_tag user, :profile_image, format: 'jpeg' ,fallback:"logo.jpeg" %></li>
+			<li class= "index-text">Name : <%= user.name %></li>
+			<li class= "index-text">Location : <%= user.location %></li>
+			<li class= "index-text">Introduction : <%= user.introduction %></li>
+
+			<% if user_signed_in? %>
+				<% if current_user != user %>
+					<% if current_user.following?(user) %>
+						<li><%= link_to 'フォロー外す',user_followses_path(user), method: :delete, class: "btn btn-info index-text-sound" %>
+					<% else %>
+						<li><%= link_to 'フォローする',user_followses_path(user), method: :post, class: "btn btn-outline-info index-text-sound" %>
+					<% end %>
+				<% else %>
+						<li class = "index-text">フォロー数：<%= link_to '#{@user.follower.count}', user_followses_path(user) %></li>
+        				<li class = "index-text">フォロワー数：<%= link_to '#{@user.followed.count}', user_followers_path(user) %></li>
+				<% end %>
+			<% end %>
+		</div>
+	</div>

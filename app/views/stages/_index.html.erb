@@ -1,9 +1,10 @@
 <table class="table table-borderless sound-table">
 	<thead>
 		<tr>
-			<th scope="col">User</th>
-			<th scope="col">Title</th>
-			<th scope="col">Video</th>
+			<th>User</th>
+			<th></th>
+			<th>Title</th>
+			<th>Video</th>
 		</tr>
 	</thead>
 
@@ -11,8 +12,14 @@
 		<% stages.each do |stage|%>
 			<tr>
 				<td><%= link_to stage.user.name, user_path(stage.user),class: 'index-text' %></td>
-				<td><%= link_to stage.title, stage_path(stage),class: 'index-text' %></td>
-				<td><%= link_to stage_path(stage) do %><%= attachment_image_tag stage, :image, :fill, 200, 200, format: 'jpeg' ,fallback:"logo.jpeg" %>
+				<td class= 'index-text'>
+					<% unless user_signed_in? %>
+						<%= stage.title %></td>
+					<td><%= video_tag stage.file,  style: "width:70%;", :controls => true ,:muted => true %></td>
+				<% else %>
+					<td><%= link_to stage.title, stage_path(stage),data: {"turbolinks" => false}  , class: 'index-text' %></td>
+					<td><%= link_to stage_path(stage) do %><%= attachment_image_tag stage, :image, :fill, 200, 200, format: 'jpeg', fallback:"logo.jpeg" %></td>
+						<% end %>
 					<% end %>
 				</td>
 			</tr>

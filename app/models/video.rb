@@ -17,7 +17,7 @@ class Video < ApplicationRecord
 
 	#動画容量制限
 	def video_size
-		if file.size > 100.megabytes
+		if file.size > 50.megabytes
 		errors.add(:file, "should be less than 100MB")
 		end
 	end
@@ -65,7 +65,7 @@ class Video < ApplicationRecord
   end
 
   def Video.search(search)
-       Video.where(['title LIKE ?', "%#{search}%"])
+       Video.where(['title LIKE ?', "%#{search}%"],)
   end
 
 end
