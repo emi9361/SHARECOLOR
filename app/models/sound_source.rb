@@ -3,7 +3,7 @@ class SoundSource < ApplicationRecord
 	belongs_to :video
 	mount_uploader :file, AudioFileUploader
 	validates :file, presence: true
-	validate :sound_size
+	validate :sound_size,
 
 		#音声容量制限
 	def sound_size

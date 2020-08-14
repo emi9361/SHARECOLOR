@@ -1,6 +1,4 @@
-<% if flash[:notice] %>
-		<p class="text-guest"><%= flash[:notice] %></p>
-<% end %>
+
 
 <% video_sources.each do |video_source| %>
 	<%= video_tag video_source.file, id: 'video_source',:loop => true,  :controls => true, :muted => true %>
