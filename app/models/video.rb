@@ -18,7 +18,7 @@ class Video < ApplicationRecord
 	#動画容量制限
 	def video_size
 		if file.size > 50.megabytes
-		errors.add(:file, "should be less than 100MB")
+		errors.add(:file, "should be less than 50MB")
 		end
 	end
 

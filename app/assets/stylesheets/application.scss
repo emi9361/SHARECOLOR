@@ -345,7 +345,8 @@ search / hashtag
     padding:12px; font-weight:850;
 }
 
-#error_explanation li{
+#error_explanation li,
+.alert-error li {
     list-style: none;
 }
 
