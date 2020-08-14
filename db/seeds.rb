@@ -5,6 +5,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+require "csv"
+
+CSV.foreach('db/demo_user.csv') do |row|
+  User.create!(
+    name: row[0],
+    email:row[1],
+    location: row[2],
+    introduction: row[3],
+    password: row[4] )
+end
+
 Sound.create!(
   [
     {
@@ -159,6 +171,5 @@ Sound.create!(
       file: File.open('./app/assets/audios/sample01.mp3')
     }
   ])
-
 
 
