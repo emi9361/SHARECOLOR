@@ -1,20 +1,20 @@
 <main class="sound-main">
-	<% if flash[:up_data] %>
-		<p class="index-text-sound"><%= flash[:up_data] %></p>
+	<% if flash[:success] %>
+		<p class="index-text-sound"><%= flash[:success].html_safe %></p>
 	<% end %>
 
 	<h1>Sounds</h1>
-	<div class="alert alert-secondary" role="alert">
 		<div class="search-form">
 			<%= render 'search' %>
 			<% if user_signed_in? %>
 				<%= link_to '投稿', new_sound_path, class: 'btn btn-info ', data: {"turbolinks" => false} %>
 			<% end %>
 		</div>
+		<div class="alert alert-secondary" role="alert">
 			<% @sounds.each do |sound| %>
-				<div class="index-text"><%= render_sound_hashtags(sound.hashbody) %></div>
+				<span class="index-text"><%= render_sound_hashtags(sound.hashbody) %></span>
 			<% end %>
-	</div>
+		</div>
 
 		<div class="sound-back">
 			<div class="sound-write">

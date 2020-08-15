@@ -80,7 +80,7 @@ gem 'carrierwave'
 gem 'carrierwave-audio'
 
 #pagenation
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari'
 
 gem 'dotenv-rails'
 group :production do

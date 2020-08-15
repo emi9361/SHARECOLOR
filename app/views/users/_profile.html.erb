@@ -9,15 +9,16 @@
 			<% if user_signed_in? %>
 				<% if current_user != user %>
 					<% if current_user.following?(user) %>
-						<li><%= link_to 'フォロー外す',user_followses_path(user), method: :delete, class: "btn btn-info index-text-sound" %>
+						<li><%= link_to 'フォロー外す',user_followses_path(user), method: :delete, class: "btn btn-info index-text-sound" %></li>
 					<% else %>
-						<li><%= link_to 'フォローする',user_followses_path(user), method: :post, class: "btn btn-outline-info index-text-sound" %>
+						<li><%= link_to 'フォローする',user_followses_path(user), method: :post, class: "btn btn-outline-info index-text-sound" %></li>
 					<% end %>
 				<% else %>
 						<li class = "index-text">フォロー数：<%= link_to "#{user.follower.count}人", user_followses_path(user) %></li>
         				<li class = "index-text">フォロワー数：<%= link_to "#{user.followed.count}人", user_followers_path(user) %></li>
 				<% end %>
 			<% end %>
+			</ul>
 		</div>
 	</div>
 

@@ -1,7 +1,8 @@
 class VideosController < ApplicationController
+    before_action :set_video, only: [:show, :edit, :update, :destroy]
 
     def index
-        @videos = Video.page(params[:page]).per(50).reverse_order
+        @videos = Video.order(updated_at: :desc).page(params[:page]).per(5)
         users = User.all
 
         @video_suggest = @videos.map(&:title).concat(users.map(&:name)).to_json.html_safe
@@ -9,13 +10,11 @@ class VideosController < ApplicationController
     end
 
     def show
-        @video = Video.find(params[:id])
         @sound_source = SoundSource.new
         @sound_sources = current_user.sound_sources.order(updated_at: :desc).limit(1)
     end
 
     def edit
-        @video = Video.find(params[:id])
     end
 
     def new
@@ -26,23 +25,22 @@ class VideosController < ApplicationController
         @video = Video.new(video_params)
         @video.user_id = current_user.id
         if @video.save
-        redirect_to videos_path, up_data:'VideoUpできたお〜'
+            flash[:success] = 'VideoUpできたお〜'
+            redirect_to videos_path
         else
-        render :new
+            render :new
         end
     end
 
     def update
-        @video = Video.find(params[:id])
         if @video.update(video_params)&& @video.file.recreate_versions!
-        redirect_to videos_path,up_data:'VideoUpdateできたお〜'
+            redirect_to videos_path,up_data:'VideoUpdateできたお〜'
         else
-        render :edit
+            render :edit
         end
     end
 
     def destroy
-        @video = Video.find(params[:id])
         @video.destroy
         redirect_to videos_path,up_data:'Sound削除できたお〜'
     end
@@ -63,7 +61,7 @@ class VideosController < ApplicationController
     end
 
     def search
-        @videos = Video.page(params[:page]).per(10).reverse_order
+        @videos = Video.order(updated_at: :desc).page(params[:page]).per(5)
     end
 
     private
@@ -71,4 +69,8 @@ class VideosController < ApplicationController
         params.require(:video).permit(:file, :title, :genre, :hashbody, :image, :detail,hashtag_ids: [])
     end
 
+    def set_video
+        @video = Video.find(params[:id])
     end
+
+end

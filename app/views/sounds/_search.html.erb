@@ -1,5 +1,5 @@
 <%= form_tag(search_sound_path, :method => 'get') do %>
-	<%= text_field_tag :search,'', id:'suggest' %>
+	<%= text_field_tag :search,'', id:'suggest', placeholder: "Title/User/BPMを検索" %>
 	<%= submit_tag 'Search' %>
 <% end %>
 
