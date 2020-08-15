@@ -4,12 +4,20 @@
 body {
 }
 
-div.top-page{
+div.top-category,{
+    margin-top: 10%;
+}
+
+div.top-page,
+div.middle-page {
     display: flex;
     justify-content: space-between;
     width: 100%;
     margin: 0 auto;
   }
+div.top-third-page{
+    margin-top:10%;
+}
 
 p{
     font-family: Meiryo, "Hiragino Kaku Gothic Pro W3", Courier New, sans-serif;
@@ -21,33 +29,53 @@ p{
 }
 
 .content-text,
-.content-text2{
+.content-text-stage,
+.content-text-detail,
+.content-text-detail-source,
+.notice{
     font-family: Meiryo, "Hiragino Kaku Gothic Pro W3", Courier New, sans-serif;
     font-size: 100px;
     color: #999999;
 }
 
-.content-text2{
-    padding-right: 700px;
-}
-
 section.content-sound a p.content-text {
     position: absolute;
-    top: 23rem;
+    top: 33rem;
     left: 3rem;
   }
 
 section.content-video a p.content-text {
     position: absolute;
-    top: 23rem;
+    top: 33rem;
     right:18rem;
 }
 
-section.content-stage a p.content-text2 {
+section.content-stage a p.content-text-stage {
+    position: absolute;
+    top: 65rem;
+    left: 1rem;
+
+}
+
+section.content-stage a p.content-text-detail {
     position: absolute;
     top: 48rem;
-    right:16rem;
+    left:0rem;
+    font-size: 40px;
+}
 
+.content-text-detail-source {
+    position: absolute;
+    top: 15rem;
+    left:1rem;
+    font-size: 40px;
+}
+
+.notice{
+    position: absolute;
+    top: 12rem;
+    left:1rem;
+    font-size: 30px;
 }
 
 section.content-sound:hover,

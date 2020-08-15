@@ -1,15 +1,8 @@
-
-<h1>フォロー</h1>
-
-<% @users.each do |user| %>
-  <hr>
-  <p><span>Name: </span><%= link_to user.name, user_path(user.id) %>
-  	<%= attachment_image_tag user, :profile_image, format: 'jpeg' ,fallback:"logo.jpeg" %>
-    <% if current_user != user %>
-        <% if user.following?(user)%>
-            <%=link_to "フォローする", user_followses_path(user), method: :post, class: "btn btn-info index-text-sound" %>
-        <% else %>
-            <%=link_to "フォロー外す", user_followses_path(user), method: :delete,class: "btn btn-info index-text-sound" %></p>
-        <% end %>
-    <% end %>
-<% end %>
+<main class="user-main">
+    <div class="sound-write">
+        <div class="user-list">
+            <h1>フォロー</h1>
+              <%= render 'follow', users: @users %>
+        </div>
+    </div>
+</main>

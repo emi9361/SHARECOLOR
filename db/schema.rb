@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(version: 2020_08_07_050641) do
   create_table "sounds", force: :cascade do |t|
     t.integer "user_id"
     t.string "genre"
-    t.string "mood"
     t.text "hashbody"
     t.string "file"
     t.string "bpm"

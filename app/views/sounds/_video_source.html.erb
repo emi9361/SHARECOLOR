@@ -1,5 +1,4 @@
 
-
 <% video_sources.each do |video_source| %>
 	<%= video_tag video_source.file, id: 'video_source',:loop => true,  :controls => true, :muted => true %>
 	<%= link_to sound_video_source_path(video_source.sound, video_source), class: 'btn btn-outline-info', method: :delete,data: {"turbolinks" => false} do %>

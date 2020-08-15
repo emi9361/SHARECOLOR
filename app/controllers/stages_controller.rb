@@ -1,7 +1,7 @@
 class StagesController < ApplicationController
 
     def index
-        @stages = Stage.page(params[:page]).per(10).reverse_order
+        @stages = Stage.page(params[:page]).per(50).reverse_order
         users = User.all
 
         @stage_suggest = @stages.map(&:title).concat(users.map(&:name)).to_json.html_safe
@@ -27,7 +27,7 @@ class StagesController < ApplicationController
         @stage = Stage.new(stage_params)
         @stage.user_id = current_user.id
         if @stage.save
-        redirect_to stages_path, notice:'StageにUpできたお〜'
+        redirect_to stages_path, up_data: 'StageにUpできたお〜'
         else
         render :new
         end
@@ -36,7 +36,7 @@ class StagesController < ApplicationController
     def update
         @stage = Stage.find(params[:id])
         if @stage.update(stage_params)&& @stage.file.recreate_versions!
-        redirect_to stages_path,notice:'StageUpdateできたお〜'
+        redirect_to stages_path, up_data: 'StageUpdateできたお〜'
         else
         render :edit
         end
@@ -45,7 +45,7 @@ class StagesController < ApplicationController
     def destroy
         @stage = Stage.find(params[:id])
         @stage.destroy
-        redirect_to stages_path,notice:'Stage削除できたお〜'
+        redirect_to stages_path, up_data: 'Stage削除できたお〜'
     end
 
     def hashtag

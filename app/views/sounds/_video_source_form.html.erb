@@ -4,5 +4,6 @@
 <%= form_for [sound, video_source] do |f| %>
 	<%= f.file_field :file, class: 'video-source' %>
 	<p class= 'index-text-sound'>＊MP4対応: 制限50MB以下</p>
+	<%= f.hidden_field :video_source_id, value: video_source.id %>
 	<%= f.submit "読み込む", class: 'btn btn-outline-info'%><br />
 <% end %>
