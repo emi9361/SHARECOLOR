@@ -1,6 +1,6 @@
 <main class="stage-main">
-	<% if flash[:notice] %>
-		<p class="index-text-sound"><%= flash[:notice] %></p>
+	<% if flash[:up_data] %>
+		<p class="index-text-sound"><%= flash[:up_data] %></p>
 	<% end %>
 
 	<h1>Stages</h1>
@@ -12,7 +12,7 @@
 			<% end %>
 		</div>
 			<% @stages.each do |stage| %>
-				<p class="index-text"><%= render_stage_hashtags(stage.hashbody) %></p>
+				<div class="index-text"><%= render_stage_hashtags(stage.hashbody) %></div>
 			<% end %>
 	</div>
 

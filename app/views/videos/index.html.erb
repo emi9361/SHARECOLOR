@@ -1,6 +1,6 @@
 <main class="video-main">
-	<% if flash[:notice] %>
-		<p class="index-text-sound"><%= flash[:notice] %></p>
+	<% if flash[:up_data] %>
+		<p class="index-text-sound"><%= flash[:up_data] %></p>
 	<% end %>
 
 	<h1>Videos</h1>
@@ -12,16 +12,16 @@
 			<% end %>
 		</div>
 			<% @videos.each do |video| %>
-				<p class= 'index-text'><%= render_video_hashtags(video.hashbody) %></p>
+				<div class= 'index-text'><%= render_video_hashtags(video.hashbody) %></div>
 			<% end %>
 	</div>
 
 	<div class="video-list">
 		<div class="sound-write">
 			<%= render 'index' , videos: @videos %>
-			<%= paginate @videos %>
 		</div>
 	</div>
+	<%= paginate @videos %>
 </main>
 
 <script>

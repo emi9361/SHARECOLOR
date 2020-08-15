@@ -1,7 +1,7 @@
 class SoundsController < ApplicationController
 
     def index
-        @sounds = Sound.page(params[:page]).per(10).reverse_order
+        @sounds = Sound.page(params[:page]).per(50).reverse_order
         users = User.all
 
         @sound_suggest = @sounds.map(&:title).concat(users.map(&:name)).to_json.html_safe
@@ -28,7 +28,7 @@ class SoundsController < ApplicationController
         @sound = Sound.new(sound_params)
         @sound.user_id = current_user.id
         if @sound.save
-        redirect_to sounds_path,notice:'SoundUpできたお〜'
+        redirect_to sounds_path,up_data:'SoundUpできたお〜'
         else
         render 'new'
         end
@@ -37,7 +37,7 @@ class SoundsController < ApplicationController
     def update
         @sound = Sound.find_by(id: params[:id])
         if @sound.update(sound_params)
-        redirect_to sounds_path,notice:'SoundUpdateできたお〜'
+        redirect_to sounds_path,up_data:'SoundUpdateできたお〜'
         else
         render 'edit'
         end
@@ -46,7 +46,7 @@ class SoundsController < ApplicationController
     def destroy
         @sound = Sound.find(params[:id])
         @sound.destroy
-        redirect_to sounds_path,notice:'Sound削除できたお〜'
+        redirect_to sounds_path,up_data:'Sound削除できたお〜'
     end
 
 

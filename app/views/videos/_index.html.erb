@@ -14,7 +14,7 @@
 				<td class= 'index-text'>
 					<% unless user_signed_in? %>
 						<%= video.title %></td>
-				<td><%= video_tag video.file,  style: "width:70%;", :controls => true ,:muted => true %></td>
+				<td><%= video_tag video.file,  style: "width:60%;", :loop => true, :controls => true ,:muted => true %></td>
 				<td>
 					<% else %>
 				<td><%= link_to video.title, video_path(video),data: {"turbolinks" => false}  , class: 'index-text' %></td>

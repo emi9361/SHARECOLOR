@@ -22,7 +22,12 @@ class User < ApplicationRecord
     has_many :sound_sources, dependent: :destroy
 
     def self.guest
-        find_or_create_by!(name: 'guest_user', email: 'guest@example.com', location: 'Tokyo', introduction: 'Guest_userです', encrypted_password: 'guest1111') do |user|
+        find_or_create_by!(
+            name: 'guest_user',
+            email: 'guest@example.com',
+            location: 'Tokyo',
+            introduction: 'Guest_userです',
+           ) do |user|
         user.password = SecureRandom.urlsafe_base64
         end
     end

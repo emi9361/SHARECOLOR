@@ -6,29 +6,37 @@
     <script src="./application.js" charset="UTF-8"></script>
   </head>
    <body>
-		<div class="top-page">
-			<section class="content-sound" >
-				<a href="sounds">
-					<%= image_tag asset_path("left_top_link_bg.jpg")%>
-					<p class="content-text">Sound</p>
-				</a>
-			</section>
-		</div>
-		<div class="top-middle-page">
-			<section class="content-video">
-				<a href="videos">
-					<%= image_tag asset_path("right_top_link_bg.jpg")%>
-					<p class="content-text">Video</p>
-				</a>
-			</section>
-		</div>
-		<div class="top-third-page">
-			<section class="content-stage">
-				<a href="stages">
-					<%= image_tag asset_path("bottom_link_bg.jpg")%>
-					<p class="content-text2">Stage</p>
-				</a>
-			</section>
+
+   	<% if flash[:notice] %>
+		<p class="notice"><%= flash[:notice] %></p>
+	<% end %>
+		<p class="content-text-detail-source">素材探しはSound / VideoをCHECK</p>
+		<div class= "top-category">
+			<div class="top-page">
+				<section class="content-sound" >
+					<a href="sounds">
+						<%= image_tag asset_path("left_top_link_bg.jpg")%>
+						<p class="content-text">Sound</p>
+					</a>
+				</section>
+				<div class="top-middle-page">
+					<section class="content-video">
+						<a href="videos">
+							<%= image_tag asset_path("right_top_link_bg.jpg")%>
+							<p class="content-text">Video</p>
+						</a>
+					</section>
+				</div>
+			</div>
+			<div class="top-third-page">
+				<section class="content-stage">
+					<a href="stages">
+						<%= image_tag asset_path("bottom_link_bg.jpg")%>
+						<p class="content-text-stage">Stage</p>
+						<p class="content-text-detail">クリエイターたちの作品をCHECK</p>
+					</a>
+				</section>
+			</div>
 		</div>
 	</body>
 </html>
