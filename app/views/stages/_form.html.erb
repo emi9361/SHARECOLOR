@@ -14,5 +14,5 @@
 	<p class= 'index-text-sound'>「#」つけてね！</p>
 	<%= f.label :Detail %>
 	<%= f.text_area :detail %><br />
-	<%= f.submit "アップロード", class: 'btn btn-outline-info'%><br />
+	<%= f.submit "アップロード", class: 'btn btn-outline-info', data: {confirm: "Aboutページの注意事項を確認しましたか？"} %><br />
 <% end %>

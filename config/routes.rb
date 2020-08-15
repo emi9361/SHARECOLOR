@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
     root 'home#top'
+    get '/home/about', to: "home#about"
 
     resources :users do
         resource :follows, only: [:create, :destroy]
