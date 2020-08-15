@@ -6,10 +6,10 @@ class VideoSourcesController < ApplicationController
         @video_sources = current_user.video_sources.order(updated_at: :desc).limit(1)
         @video_source.sound_id = sound.id
         if @video_source.save
-        redirect_to sound_path(sound)
+            redirect_to sound_path(sound)
         else
-        @sound = Sound.find(params[:sound_id])
-        render :'sounds/show'
+            @sound = Sound.find(params[:sound_id])
+            render :'sounds/show'
         end
     end
 

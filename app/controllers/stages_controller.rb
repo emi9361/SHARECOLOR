@@ -1,7 +1,8 @@
 class StagesController < ApplicationController
+    before_action :set_stage, only: [:show, :edit, :update, :destroy]
 
     def index
-        @stages = Stage.page(params[:page]).per(50).reverse_order
+        @stages = Stage.order(updated_at: :desc).page(params[:page]).per(5)
         users = User.all
 
         @stage_suggest = @stages.map(&:title).concat(users.map(&:name)).to_json.html_safe
@@ -11,12 +12,9 @@ class StagesController < ApplicationController
     end
 
     def show
-        @user = current_user
-        @stage = Stage.find(params[:id])
     end
 
     def edit
-        @stage = Stage.find(params[:id])
     end
 
     def new
@@ -27,23 +25,21 @@ class StagesController < ApplicationController
         @stage = Stage.new(stage_params)
         @stage.user_id = current_user.id
         if @stage.save
-        redirect_to stages_path, up_data: 'StageにUpできたお〜'
+            redirect_to stages_path, up_data: 'StageにUpできたお〜'
         else
-        render :new
+            render :new
         end
     end
 
     def update
-        @stage = Stage.find(params[:id])
         if @stage.update(stage_params)&& @stage.file.recreate_versions!
-        redirect_to stages_path, up_data: 'StageUpdateできたお〜'
+            redirect_to stages_path, up_data: 'StageUpdateできたお〜'
         else
-        render :edit
+            render :edit
         end
     end
 
     def destroy
-        @stage = Stage.find(params[:id])
         @stage.destroy
         redirect_to stages_path, up_data: 'Stage削除できたお〜'
     end
@@ -64,11 +60,15 @@ class StagesController < ApplicationController
     end
 
     def search
-        @stages = Stage.page(params[:page]).per(10).reverse_order
+        @stages = Stage.order(updated_at: :desc).page(params[:page]).per(5)
     end
 
     private
     def stage_params
         params.require(:stage).permit(:file, :title, :image, :genre, :hashbody, :detail, hashtag_ids:[])
+    end
+
+    def set_stage
+        @stage = Stage.find(params[:id])
     end
 end

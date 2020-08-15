@@ -1,5 +1,4 @@
 class FavoritesController < ApplicationController
-
     def sound_create
         @sound = Sound.find(params[:sound_id])
         favorite = current_user.favorites.new(sound_id: @sound.id)

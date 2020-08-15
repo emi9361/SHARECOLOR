@@ -1,9 +1,9 @@
 <% if params[:name] == nil %>
 <% else %>
-     <div class="sound-back">
-        <div class="sound-write">
-        <h3 class="search-title">#<%= @hashtag.hashtag_word %>:  <%= @sounds.count %> 件 </h3>
-            <%= render 'index', sounds: @sounds %>
-        </div>
-    </div>
+	<div class="sound-back">
+		<div class="sound-write">
+		<h3 class="search-title">#<%= @hashtag.hashtag_word %>:  <%= @sounds.count %> 件 </h3>
+			<%= render 'index', sounds: @sounds %>
+		</div>
+	</div>
 <% end %>

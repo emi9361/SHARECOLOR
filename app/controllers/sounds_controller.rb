@@ -1,7 +1,8 @@
 class SoundsController < ApplicationController
+    before_action :set_sound, only: [:show, :edit, :update, :destroy]
 
     def index
-        @sounds = Sound.page(params[:page]).per(50).reverse_order
+        @sounds = Sound.order(updated_at: :desc).page(params[:page]).per(5)
         users = User.all
 
         @sound_suggest = @sounds.map(&:title).concat(users.map(&:name)).to_json.html_safe
@@ -11,13 +12,11 @@ class SoundsController < ApplicationController
     end
 
     def show
-        @sound = Sound.find(params[:id])
         @video_source = VideoSource.new
         @video_sources = current_user.video_sources.order(updated_at: :desc).limit(1)
     end
 
     def edit
-        @sound = Sound.find(params[:id])
     end
 
     def new
@@ -28,23 +27,21 @@ class SoundsController < ApplicationController
         @sound = Sound.new(sound_params)
         @sound.user_id = current_user.id
         if @sound.save
-        redirect_to sounds_path,up_data:'SoundUpできたお〜'
+            redirect_to sounds_path,up_data:'SoundUpできたお〜'
         else
-        render 'new'
+            render 'new'
         end
     end
 
     def update
-        @sound = Sound.find_by(id: params[:id])
         if @sound.update(sound_params)
-        redirect_to sounds_path,up_data:'SoundUpdateできたお〜'
+            redirect_to sounds_path,up_data:'SoundUpdateできたお〜'
         else
-        render 'edit'
+            render 'edit'
         end
     end
 
     def destroy
-        @sound = Sound.find(params[:id])
         @sound.destroy
         redirect_to sounds_path,up_data:'Sound削除できたお〜'
     end
@@ -64,7 +61,7 @@ class SoundsController < ApplicationController
 
     def search
     #Viewのformで取得したパラメータをモデルに渡す
-        @sounds = Sound.page(params[:page]).per(10).reverse_order
+        @sounds = Sound.all.page(params[:page]).per(5)
     end
 
     def auto_complete
@@ -83,4 +80,7 @@ class SoundsController < ApplicationController
         params.require(:sound).permit(:file, :title, :bpm, :genre, :hashbody, :detail, hashtag_ids: [])
     end
 
+    def set_sound
+        @sound = Sound.find(params[:id])
+    end
 end

@@ -8,7 +8,7 @@
 				<div class="notification-index">
 					<%= render 'notification', notifications: @notifications%>
 					<%= paginate notifications %>
-					<%= link_to "通知削除", notification_path(notifications), method: :delete ,class: "fas fa-trash" %>
+					<%= link_to "通知削除", notification_path(notifications), method: :delete ,data: {confirm: "ここにある全ての通知をOFFにします。"}, class: "fas fa-trash" %>
 				</div>
 			<% else %>
 				<p>通知なし</p>

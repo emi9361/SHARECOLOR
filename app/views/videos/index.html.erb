@@ -4,24 +4,24 @@
 	<% end %>
 
 	<h1>Videos</h1>
-	<div class="alert alert-secondary" role="alert">
 		<div class="search-form">
 			<%= render 'search' %>
 			<% if user_signed_in? %>
 			<%= link_to '投稿', new_video_path, class: 'btn btn-info', data: {"turbolinks" => false} %>
 			<% end %>
 		</div>
+		<div class="alert alert-secondary" role="alert">
 			<% @videos.each do |video| %>
-				<div class= 'index-text'><%= render_video_hashtags(video.hashbody) %></div>
+				<span class= 'index-text'><%= render_video_hashtags(video.hashbody) %></span>
 			<% end %>
-	</div>
+		</div>
 
 	<div class="video-list">
 		<div class="sound-write">
 			<%= render 'index' , videos: @videos %>
+			<%= paginate @videos %>
 		</div>
 	</div>
-	<%= paginate @videos %>
 </main>
 
 <script>
