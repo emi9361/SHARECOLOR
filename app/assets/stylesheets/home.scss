@@ -1,8 +1,10 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-}
+
+/*============
+top
+=============*/
 
 div.top-category,{
     margin-top: 10%;
@@ -113,6 +115,22 @@ section.content-stage a {
     opacity: 1;
     transition: .5s;
     }
+
+/*============
+about
+=============*/
+.home-about-sharecolor{
+    height: 50%;
+}
+.home-about-sharecolor strong{
+    font-size:45px;
+    color: #999999;
+}
+.home-about-text{
+    margin-top: 10%;
+    font-size: 25px;
+    color: #999999;
+}
 
 
 

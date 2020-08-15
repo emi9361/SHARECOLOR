@@ -53,6 +53,9 @@
                     <%= link_to root_path , data: {"turbolinks" => false} do %>
                     <%= image_tag asset_path ("logo.jpeg") %>
                     <% end %>
+                     <p class= "home-about-bottom">
+                        <%= link_to home_about_path, data: {"turbolinks" => false} do %>
+                        <i class="far fa-question-circle"> <% end %></i>About<p>
                 </div>
                 <% if user_signed_in? %>
                     <p class= "current_user_name">Hi!<%= current_user.name %></p>
