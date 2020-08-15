@@ -2,7 +2,7 @@ class SoundsController < ApplicationController
     before_action :set_sound, only: [:show, :edit, :update, :destroy]
 
     def index
-        @sounds = Sound.order(updated_at: :desc).page(params[:page]).per(5)
+        @sounds = Sound.order(updated_at: :desc).page(params[:page]).per(7)
         users = User.all
 
         @sound_suggest = @sounds.map(&:title).concat(users.map(&:name)).to_json.html_safe
@@ -61,7 +61,7 @@ class SoundsController < ApplicationController
 
     def search
     #Viewのformで取得したパラメータをモデルに渡す
-        @sounds = Sound.all.page(params[:page]).per(5)
+        @sounds = Sound.all.page(params[:page]).per(7)
     end
 
     def auto_complete
