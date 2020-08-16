@@ -6,7 +6,7 @@
 		<% notifications = @notifications.where.not(visitor_id: current_user.id)%>
 			<% if @notifications.exists? %>
 				<div class="notification-index">
-					<%= render 'notification', notifications: @notifications%>
+					<%= render 'notification', notifications: @notifications , user: @user %>
 					<%= paginate notifications %>
 					<%= link_to "通知削除", notification_path(notifications), method: :delete ,data: {confirm: "ここにある全ての通知をOFFにします。"}, class: "fas fa-trash" %>
 				</div>

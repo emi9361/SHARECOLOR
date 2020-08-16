@@ -1,6 +1,7 @@
  <table class="table table-hover follow-table">
     <tbody>
         <% users.each do |user| %>
+        <tr>
             <td class = 'index-text'>
                 <span ><%= attachment_image_tag user, :profile_image , format: 'jpeg' , fallback:"logo.jpeg" %></span>
                 <span >Name:<%= link_to user.name, user_path(user.id) %></span>
@@ -11,6 +12,7 @@
                     <%=link_to "フォロー外す", user_followses_path(user), method: :delete,class: "btn btn-info index-text-sound", data: {confirm: "本当にフォローを外しますか？"} %></span></td>
                 <% end %>
             <% end %>
+        <tr>
         <% end %>
     </tbody>
 </table>

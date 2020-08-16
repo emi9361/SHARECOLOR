@@ -2,11 +2,7 @@
 <table class="table table-hover sound-table">
     <% notifications.each do |notification| %>
         <tbody>
-            <td><%= link_to user_path(notification.visitor) do %>
-                <% end %>
-            </td>
-
-            <td><strong><%= notification.visitor.name %></strong>さんが
+            <td><strong><%= link_to notification.visitor.name, user_path(notification.visitor) %></strong>さんが
             <% case notification.action %>
             <% when 'follow' then %>
                 <%= 'あなたをフォローしました'%>
