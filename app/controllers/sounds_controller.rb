@@ -55,7 +55,7 @@ class SoundsController < ApplicationController
     def hashtag
         @user = current_user
         @hashtag = Hashtag.find_by(hashtag_word: params[:name])
-        @sounds = @hashtag.sounds.page(params[:page]).per(10).reverse_order
+        @sounds = @hashtag.sounds.page(params[:page]).per(7).reverse_order
         @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.sounds.count}
     end
 
