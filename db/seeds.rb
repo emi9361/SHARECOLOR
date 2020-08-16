@@ -421,7 +421,7 @@ Stage.create!(
       genre: 'Other',
       hashbody: '#skull',
       detail: 'Skull',
-      file: File.open('./app/assets/videos/SKULL.mp4'),
+      file: File.open('./app/assets/videos/skull2.mp4'),
       image: File.open('./app/assets/images/skull.png')
     }
     ])
