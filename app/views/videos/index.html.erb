@@ -1,5 +1,5 @@
 <main class="video-main">
-	<% if flash[:up_data] %>
+	<% if flash[:succses] %>
 		<p class="index-text-sound"><%= flash[:up_data] %></p>
 	<% end %>
 
@@ -25,7 +25,7 @@
 </main>
 
 <script>
-$( function() {
+$( 'turbolinks:load', function() {
 	$( '#suggest' ).autocomplete({
 	autoFocus: true, //テキストフィールドの値をフォーカスされたアイテムの値で置き換える
 	source: <%= @video_suggest %>,//サジェストのデータを呼び出す

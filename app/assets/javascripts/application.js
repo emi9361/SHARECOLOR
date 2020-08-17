@@ -21,7 +21,7 @@
 //= require jquery-ui
 
 //nav//
-$(function() {
+$('turbolinks:load',function() {
     var $nav   = $('#navArea');
     var $btn   = $('.toggle_btn');
     var $mask  = $('#mask');

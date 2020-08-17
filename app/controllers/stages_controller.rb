@@ -47,7 +47,7 @@ class StagesController < ApplicationController
     def hashtag
         @user = current_user
         @hashtag = Hashtag.find_by(hashtag_word: params[:name])
-        @stages = @hashtag.stages.pages([:page]).per(10).reverse_order
+        @stages = @hashtag.stages.page(params[:page]).per(10).reverse_order
         @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.stages.count}
     end
 
