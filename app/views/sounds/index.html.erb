@@ -25,7 +25,7 @@
 	</main>
 
 	<script>
-	$( function() {
+	$( 'turbolinks:load', function() {
 		$( '#suggest' ).autocomplete({
 		autoFocus: true, //テキストフィールドの値をフォーカスされたアイテムの値で置き換える
 		source: <%= @sound_suggest %>,//サジェストのデータを呼び出す
