@@ -14,7 +14,7 @@
 					<td><%= link_to video.user.name, user_path(video.user), class: 'index-text' %></td>
 					<td class= 'index-text'>
 							<%= video.title %></td>
-					<td class= 'index-video-tag' ><%= video_tag video.file,  style: "width:65%;", :loop => true, :controls => true ,:muted => true ,:controlsList => "nodownload" %></td>
+					<td class= 'index-video-tag' ><%= video_tag video.file,  style: "width:65%;", :loop => true, :controls => true ,:muted => true ,:controlsList => "nodownload" , :oncontextmenu => "return false;" %></td>
 				</tr>
 			<% end %>
 		</tbody>

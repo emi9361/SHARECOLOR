@@ -31,4 +31,4 @@
 	</tbody>
 </table>
 
-	<p><%= video_tag @stage.file,  class: "stage-show", :controls => true, :loop => true, :controlsList => "nodownload" %></p>
+	<p><%= video_tag @stage.file,  class: "stage-show", :controls => true, :loop => true, :controlsList => "nodownload", :oncontextmenu => "return false;" %></p>
