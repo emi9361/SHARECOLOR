@@ -16,6 +16,7 @@
 #video-show,#video_source {
 	width: 70%;
 	border-radius: 5px;
+	pointer-events: none;
 }
 .video-list{
 	background-image: image-url("right_top_link_bg.jpg");
@@ -47,5 +48,6 @@
 @media screen and (max-width:425px) {
 .index-video-tag{
 	height: 70%;
+	pointer-events: none;
 }
 }
