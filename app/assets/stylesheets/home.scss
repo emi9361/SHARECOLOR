@@ -122,16 +122,29 @@ about
 .home-about-sharecolor{
     height: 40%;
 }
-.home-about-sharecolor strong{
+.home-about-sharecolor strong,
+.home-about-sharecolor-danger strong{
     font-size:45px;
     color: #999999;
 }
-.home-about-text{
+.home-about-text,
+.home-about-text-danger{
     margin-top: 10%;
     font-size: 25px;
     color: #999999;
 }
 
+.home-about-bottom{
+    position: absolute;
+    top:3rem;
+    right: 5rem;
+    font-size: 30px;
+    color: #999999;
+    text-decoration: none;
+}
+.home-about-bottom:hover {
+    color: pink;
+}
 
 
 @media screen and (max-width:768px) {
@@ -158,7 +171,7 @@ about
     }
 
     section.content-stage a img {
-    border-radius: 25px;
+    border-radius: 10px;
     height: 300px;
     width: 98%;
     opacity: 1;
@@ -169,7 +182,7 @@ about
 
     section.content-sound a p.content-text,
     section.content-video a p.content-text,
-    section.content-stage a p.content-text2 {
+    section.content-stage a p.content-text-stage {
         font-size: 80px;
     }
 
@@ -183,7 +196,7 @@ about
     top: 21rem;
     left: 26rem;
   }
-    section.content-stage a p.content-text2 {
+    section.content-stage a p.content-text-stage {
     position: absolute;
     top: 38rem;
     left:2rem;
@@ -199,22 +212,101 @@ about
     width:100%;
     }
 
+    section.content-sound a p.content-text {
+    position: absolute;
+    top: 24rem;
+    left: 2rem;
+     }
+
     section.content-video a p.content-text {
     position: absolute;
-    top: 36rem;
-    left: 1rem;
-    }
-    section.content-stage a p.content-text2 {
-    position: absolute;
-    top: 51rem;
-    left:1rem;
+    top: 43rem;
+    left: 2.5rem;
     }
 
+    section.content-stage a p.content-text-detail{
+    position: absolute;
+    top: 53rem;
+    left: 1rem;
+    font-size: 23px;
+    }
+
+    section.content-stage a p.content-text-stage {
+    position: absolute;
+    top: 64rem;
+    left: 1.5rem;
+}
     section.content-sound a img,
     section.content-video a img,
-    section.content-stage a img {
+     {
     margin: auto;
     width: 100%;
     }
 
+    .home-about-bottom {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 20px;
+    }
+
+    .content-text-detail-source {
+    position: absolute;
+    top: 14rem;
+    font-size: 23px;
+    }
+
+
+    section.content-sound a img {
+    position: absolute;
+    top:16rem;
+    }
+
+    section.content-video a img {
+    position: absolute;
+    top:35rem;
+    }
+
+    section.content-stage a img {
+    padding: 15px;
+    margin: auto;
+    position: absolute;
+    top: 54rem;
+    }
+
+
+/*============
+Aboutページ
+=============*/
+
+.home-about-sharecolor strong {
+    font-size: 30px;
+    position: absolute;
+    top: 1rem;
+    left: 6rem;
+}
+
+.home-about-sharecolor-danger strong{
+    font-size: 30px;
+    position: absolute;
+    top: 24rem;
+    left: 8rem;
+}
+
+
+.home-about-text {
+    font-size: 15px;
+    position: absolute;
+    top: 2rem;
+}
+.home-about-text-danger{
+    font-size: 15px;
+    position: absolute;
+    top: 25rem;
+}
+
+.home-about-text-danger br .mobile-br,
+.home-about-text br .mobile-br {
+    display: inline;
+  }
 }

@@ -30,4 +30,4 @@
 		</tbody>
 	</table>
 
-		<p><%= video_tag @video.file,  id: "video-show", :controls => true ,:muted => true, :loop => true %></p>
+		<p><%= video_tag @video.file,  id: "video-show", :controls => true ,:muted => true, :loop => true, :controlsList => "nodownload"  %></p>

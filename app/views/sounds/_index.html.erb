@@ -1,9 +1,9 @@
 <table class="table table-hover sound-table">
 	<thead>
 		<tr>
-			<th scope="col">User :</th>
-			<th scope="col">Title : </th>
-			<th scope="col">BPM : </th>
+			<th scope="col">User</th>
+			<th scope="col">Title</th>
+			<th scope="col">BPM</th>
 			<th scope="col">Genre</th>
 			<th scope="col"></th>
 		</tr>
@@ -21,7 +21,7 @@
 				</td>
 				<td class= 'index-text-sound'><%= sound.bpm %></td>
 				<td class= 'index-text-sound'><%= sound.genre %></td>
-				<td><%= audio_tag asset_path sound.file %></td>
+				<td class= 'index-audio-tag'> <%= audio_tag asset_path sound.file %></td>
 			</tr>
 		<% end %>
 	</tbody>
