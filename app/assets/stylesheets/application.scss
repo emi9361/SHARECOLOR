@@ -246,45 +246,7 @@ font-weight: bolder;
     font-size: 2rem;
     color: #999999;
 }
-.home-about-bottom{
-    position: absolute;
-    top:3rem;
-    right: 5rem;
-    font-size: 30px;
-    color: #999999;
-    text-decoration: none;
-}
-.home-about-bottom:hover {
-    color: pink;
-}
 
-@media screen and (max-width:1024px) {
-  main .current_user_name {
-    color: green;
-  }
-}
-
-@media screen and (max-width:768px) {
-  main .current_user_name {
-    color: red;
-    position: absolute;
-    top: 7rem;
-    left: 30rem;
-  }
-}
-
-@media screen and (max-width:425px) {
-  main .current_user_name {
-    color: blue;
-    position: absolute;
-    top: 9rem;
-    left: 14rem;
-  }
-  .logo img {
-    position: absolute;
-    left: 6rem;
-    }
-}
 
 /*============
 body
@@ -382,6 +344,7 @@ search / hashtag
 =============*/
 
 .pagination>li>a {
+
   border: none;
   color: #696969;
 }
@@ -395,4 +358,77 @@ search / hashtag
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {
   border-radius: 15px;
+}
+
+
+@media screen and (max-width:1024px) {
+  main .current_user_name {
+    color: green;
+  }
+}
+
+@media screen and (max-width:768px) {
+  main .current_user_name {
+    color: red;
+    position: absolute;
+    top: 7rem;
+    left: 30rem;
+  }
+}
+
+@media screen and (max-width:425px) {
+  main .current_user_name {
+    color: blue;
+    position: absolute;
+    top: 10rem;
+    left: 1rem;
+    font-size: 30px;
+}
+
+.logo img {
+    position: absolute;
+    left: 6.5rem;
+}
+.newpost_buttom {
+    position: absolute;
+    top: 15rem;
+    right: 2rem;
+}
+.inner .index-text{
+    font-size:30px;
+}
+
+/* 検索フォーム */
+
+  .search-form {
+    position: absolute;
+    right: 1rem;
+    top: 10rem;
+}
+  .search-btn {
+    font-size: 17px;
+    position: absolute;
+    right: 2rem;
+    top: 3.5rem;
+}
+
+.alert-secondary {
+    width: 90%;
+}
+
+.index-text{
+    font-size:18px;
+}
+
+/* sound/index/table */
+
+.index-audio-tag{
+    width:50px;
+}
+.table {
+  display: block;
+  overflow-x: scroll;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
 }

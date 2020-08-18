@@ -14,7 +14,7 @@
 					<td><%= link_to video.user.name, user_path(video.user), class: 'index-text' %></td>
 					<td class= 'index-text'>
 							<%= video.title %></td>
-					<td><%= video_tag video.file,  style: "width:65%;", :loop => true, :controls => true ,:muted => true %></td>
+					<td class= 'index-video-tag' ><%= video_tag video.file,  style: "width:65%;", :loop => true, :controls => true ,:muted => true ,:controlsList => "nodownload" %></td>
 				</tr>
 			<% end %>
 		</tbody>
@@ -36,7 +36,7 @@
 					<td><%= link_to video.user.name, user_path(video.user), class: 'index-text' %></td>
 					<td class= 'index-text'>
 					<td><%= link_to video.title, video_path(video),data: {"turbolinks" => false}  , class: 'index-text' %></td>
-					<td><%= link_to video_path(video) do %><%= attachment_image_tag video, :image, :fill, 200, 200, format: 'jpeg', fallback:"logo.jpeg" %></td>
+					<td><%= link_to video_path(video) do %><%= attachment_image_tag video, :image, :fill, 200, 200, format: 'jpeg', fallback:"logo.jpeg", class: 'index-video-tag' %></td>
 							<% end %>
 					</td>
 				</tr>

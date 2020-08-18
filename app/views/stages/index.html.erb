@@ -7,7 +7,7 @@
 		<div class="search-form">
 			<%= render 'search' %>
 			<% if user_signed_in? %>
-				<%= link_to '投稿', new_stage_path, class: 'btn btn-info',data: {"turbolinks" => false}, style: "text-alian:center;" %>
+				<%= link_to '投稿', new_stage_path, class: 'btn btn-info search-btn',data: {"turbolinks" => false}, style: "text-alian:center;" %>
 			<% end %>
 		</div>
 		<div class="alert alert-secondary" role="alert">

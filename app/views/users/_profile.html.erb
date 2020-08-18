@@ -1,7 +1,7 @@
 <div class="user-list">
 	<div class="sound-write">
+			<div><%= attachment_image_tag user, :profile_image, format: 'jpeg' ,fallback:"logo.jpeg" %></div>
 		<ul class="profile-form">
-			<li><%= attachment_image_tag user, :profile_image, format: 'jpeg' ,fallback:"logo.jpeg" %></li>
 			<li class= "index-text">Name : <%= user.name %></li>
 			<li class= "index-text">Location : <%= user.location %></li>
 			<li class= "index-text">Introduction : <%= user.introduction %></li>
