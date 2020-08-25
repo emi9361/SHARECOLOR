@@ -78,6 +78,8 @@ gem 'bootstrap', '~> 4.5.0'
 gem 'audiojs-rails'
 gem 'carrierwave'
 gem 'carrierwave-audio'
+#S3
+gem 'fog'
 
 #pagenation
 gem 'kaminari'
