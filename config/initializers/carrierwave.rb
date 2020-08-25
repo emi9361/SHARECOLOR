@@ -1,5 +1,6 @@
 unless Rails.env.development? || Rails.env.test?
     CarrierWave.configure do |config|
+        config.fog_provider = 'fog-aws'
         config.fog_credentials = {
             provider: 'AWS',
             aws_access_key_id: 'AKIAZBMOZJ7VIZNG3AQQ',
