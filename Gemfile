@@ -79,7 +79,7 @@ gem 'audiojs-rails'
 gem 'carrierwave'
 gem 'carrierwave-audio'
 #S3
-gem 'fog'
+gem 'fog-aws'
 
 #pagenation
 gem 'kaminari'
