@@ -32,3 +32,5 @@
 
 /.env
 /public/uploads/*
+
+/config/initializers/carrierwave.rb
