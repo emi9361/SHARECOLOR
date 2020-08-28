@@ -274,12 +274,12 @@ search / hashtag
 
 .search-form{
     position: absolute;
-    right: 3rem;
-    top: 1rem;
+    right: 5rem;
+    top: 28rem;
 }
 
 .alert-secondary{
-    width: 80%;
+    width: 90%;
     margin: 0 auto ;
 
 }
@@ -345,19 +345,29 @@ search / hashtag
 
 .pagination>li>a {
 
-  border: none;
+  border: solid 1px;
   color: #696969;
+  margin: 2px;
+  padding: 7px;
+  background-color: white;
+
+}
+
+.kaminari-pagenation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* 表示しているページ番号のデザイン */
 .pagination>.active>a {
   background: #93c9ff;
-  border-radius: 15px;
+  border-radius: 1px;
 }
 
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 
@@ -400,12 +410,7 @@ search / hashtag
 
 /* 検索フォーム */
 
-  .search-form {
-    position: absolute;
-    right: 1rem;
-    top: 10rem;
-}
-  .search-btn {
+.search-btn {
     font-size: 17px;
     position: absolute;
     right: 2rem;
