@@ -5,6 +5,9 @@
 		<div class="stage-list">
 			<div class="sound-write">
 				<%= render 'index', stages: @stages %>
-				<%= paginate @stages %>
 			</div>
+		</div>
+
+		<div class="kaminari-pagenation">
+			<%= paginate @sounds %>
 		</div>

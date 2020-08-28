@@ -6,6 +6,9 @@
 			<div class="sound-write">
 				<%= render 'index', sounds: @sounds %>
 					<p><%= link_to 'SoundTop', sounds_path, class: 'btn btn-info', style: "text-alian:center;" %></p>
-					<%= paginate @sounds %>
 			</div>
+		</div>
+
+		<div class="kaminari-pagenation">
+			<%= paginate @sounds %>
 		</div>

@@ -23,35 +23,32 @@
 /*============
 nav
 =============*/
-nav {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: -300px;
-    bottom: 0;
-    width: 300px;
-    background: #ffffff;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    transition: .5s;
-    z-index: 3;
+
+#navArea{
+  display: flex;
+  justify-content: space-between;
+  background: #ddd;
+  padding: 20px;
 }
-.open nav {
-    left: 0;
+.nav-button {
+  display: none;
 }
-nav .inner {
-    padding: 25px;
-}
+
 nav .inner ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
+
+nav .inner p {
+    display: none;
+}
+
 nav .inner ul li {
     position: relative;
     margin: 0;
     border-bottom: 1px solid #333;
+    float: left;
 }
 nav .inner ul li a {
     display: block;
@@ -61,14 +58,35 @@ nav .inner ul li a {
     text-decoration: none;
     transition-duration: 0.2s;
 }
-nav .inner ul li a:hover {
-    background: #e4e4e4;
-}
+
 @media screen and (max-width: 767px) {
+
+#navArea{
+    display: contents;
+}
+
 nav {
     left: -240px;
     width: 240px;
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: .5s;
+    z-index: 3;
 }
+
+nav .inner ul li {
+    float: none;
+}
+.open nav {
+    left: 0;
+}
+
 }
 /*============
 @keyframes
@@ -147,7 +165,7 @@ nav {
 .toggle_btn
 =============*/
 .toggle_btn {
-    display: block;
+    display: none;
     position: fixed;
     top: 30px;
     left: 30px;
@@ -203,6 +221,9 @@ position: absolute;
     animation: unset;
 }
 @media screen and (max-width: 767px) {
+.toggle_btn {
+    display: block;
+}
 .open .toggle_btn {
     left: 260px;
 }

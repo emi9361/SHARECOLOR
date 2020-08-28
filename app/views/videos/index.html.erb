@@ -19,9 +19,13 @@
 	<div class="video-list">
 		<div class="sound-write">
 			<%= render 'index' , videos: @videos %>
-			<%= paginate @videos %>
 		</div>
 	</div>
+
+	<div class="kaminari-pagenation">
+		<%= paginate @videos %>
+	</div>
+
 </main>
 
 <script>
