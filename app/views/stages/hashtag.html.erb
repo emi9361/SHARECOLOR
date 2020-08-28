@@ -1,9 +1,12 @@
 <% if params[:name] == nil %>
 <% else %>
-    <div class="video-list">
-        <div class="sound-write">
-            <h3 class="search-title">#<%= @hashtag.hashtag_word %>:  <%= @stages.count %> 件 </h3>
-            <%= render 'index', stages: @stages %>
-        </div>
-    </div>
+	<div class="video-list">
+		<div class="sound-write">
+			<h3 class="search-title">#<%= @hashtag.hashtag_word %>:  <%= @stages.count %> 件 </h3>
+		</div>
+	</div>
+
+	<div class="kaminari-pagenation">
+		<%= paginate @sounds %>
+	</div>
 <% end %>
