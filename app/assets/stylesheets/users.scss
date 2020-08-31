@@ -28,21 +28,22 @@ h1{
 }
 
 .profile_image{
+	position: absolute;
+	top: 10rem;
+	left: 10rem;
 	height: 250px;
 	border-radius: 5px;
 
 }
 
 .profile-form{
-	position: absolute;
-	top: 5rem;
-	left: 13rem;
 	list-style: none;
 
 }
 
 .profile-form li {
 	padding-top: 3rem;
+	padding-left: 35%;
 }
 
 .follow-table span {
