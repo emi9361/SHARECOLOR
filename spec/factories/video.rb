@@ -1,4 +1,5 @@
+
 FactoryBot.define do
-  factory :sound do
+  factory :stage do
   end
 end
