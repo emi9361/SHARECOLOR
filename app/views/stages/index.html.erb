@@ -2,14 +2,14 @@
 	<% if flash[:succses] %>
 		<p class="index-text-sound"><%= flash[:up_data] %></p>
 	<% end %>
-
-	<h1>Stages</h1>
 		<div class="search-form">
 			<%= render 'search' %>
-			<% if user_signed_in? %>
-				<%= link_to '投稿', new_stage_path, class: 'btn btn-info search-btn',data: {"turbolinks" => false}, style: "text-alian:center;" %>
-			<% end %>
 		</div>
+		<% if user_signed_in? %>
+				<%= link_to '投稿', new_stage_path, class: 'btn btn-info search-btn',data: {"turbolinks" => false}, style: "text-alian:center;" %>
+		<% end %>
+
+		<h1>Stages</h1>
 		<div class="alert alert-secondary" role="alert">
 			<% @stages.each do |stage| %>
 				<span class="index-text"><%= render_stage_hashtags(stage.hashbody) %></span>
