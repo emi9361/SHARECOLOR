@@ -359,13 +359,6 @@ search / hashtag
     color:red;
 }
 
-@media screen and (max-width:425px) {
-.search-form{
-    position: absolute;
-    right: 0.5rem;
-    top: 1rem;
-}
-}
 
 /*============
 ページネーション
@@ -438,10 +431,16 @@ search / hashtag
 
 /* 検索フォーム */
 
+.search-form{
+    position: absolute;
+    right: 0.5rem;
+    top: 1rem;
+}
+
 .search-btn {
     font-size: 17px;
     position: absolute;
-    right: 2rem;
+    right: 0.5rem;
     top: 3.5rem;
 }
 
