@@ -359,6 +359,13 @@ search / hashtag
     color:red;
 }
 
+@media screen and (max-width:425px) {
+.search-form{
+    position: absolute;
+    right: 0.5rem;
+    top: 1rem;
+}
+}
 
 /*============
 ページネーション
