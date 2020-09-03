@@ -1,38 +1,47 @@
+require 'rails_helper'
+
 describe '投稿のテスト' do
 	let(:user) { create(:user) }
 	let!(:user2) { create(:user) }
-	let!(:book) { create(:book, user: user) }
-	let!(:book2) { create(:book, user: user2) }
+	let!(:sound) { create(:sound, user: user) }
+	let!(:sound2) { create(:sound, user: user2) }
 	before do
 		visit new_user_session_path
 		fill_in 'user[name]', with: user.name
 		fill_in 'user[password]', with: user.password
 		click_button 'Log in'
 	end
-	describe 'サイドバーのテスト' do
+	describe 'sound一覧ページのテスト' do
 		context '表示の確認' do
-		it 'New bookと表示される' do
-		expect(page).to have_content 'New book'
+		it 'Soundと表示される' do
+		expect(page).to have_content 'Stage'
 		end
-		it 'titleフォームが表示される' do
-		expect(page).to have_field 'book[title]'
+		it 'titleが表示される' do
+		expect(page).to have_field 'sound[Title]'
 		end
-		it 'opinionフォームが表示される' do
-		expect(page).to have_field 'book[body]'
+		it 'usernameが表示される' do
+		expect(page).to have_field 'sound[User]'
 		end
-		it 'Create Bookボタンが表示される' do
-		expect(page).to have_button 'Create Book'
+		it 'BPMが表示される' do
+		expect(page).to have_field 'sound[BPM]'
+		end
+		it 'genreが表示される' do
+		expect(page).to have_field 'sound[Genre]'
+		end
+		it 'mp3プレーヤーが表示される' do
+		expect(page).to have_button 'sound[file]'
 		end
 		it '投稿に成功する' do
-			fill_in 'book[title]', with: Faker::Lorem.characters(number:5)
-			fill_in 'book[body]', with: Faker::Lorem.characters(number:20)
-			click_button 'Create Book'
+			fill_in 'sound[title]', with: Faker::Lorem.characters(number:5)
+			fill_in 'sound[body]', with: Faker::Lorem.characters(number:20)
+			click_button 'アップロード'
 			expect(page).to have_content 'successfully'
 		end
 		it '投稿に失敗する' do
-			click_button 'Create Book'
+			click_button 'アップロード'
 			expect(page).to have_content 'error'
-			expect(current_path).to eq('/books')
+			expect(current_path).to eq('/sounds')
 		end
 	end
+end
 end
