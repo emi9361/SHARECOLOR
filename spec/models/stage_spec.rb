@@ -8,7 +8,7 @@ RSpec.describe 'Stageモデルのテスト', type: :model do
         stage = stage.new()
         stage.user_id = user.id
         stage.title = 'example title'
-        file_path = File.join(Rails.root, 'spec/files/rabbit-techno.mp3')
+        file_path = File.join(Rails.root, 'spec/files/hands.mp4')
         stage.file = Rack::Test::UploadedFile.new(file_path)
         expect(stage.valid?).to eq true
     end
@@ -17,7 +17,7 @@ RSpec.describe 'Stageモデルのテスト', type: :model do
 		stage = stage.new()
         stage.user_id = user.id
         stage.title = ''
-        file_path = File.join(Rails.root, 'spec/files/rabbit-techno.mp3')
+        file_path = File.join(Rails.root, 'spec/files/hands.mp4')
         stage.file = Rack::Test::UploadedFile.new(file_path)
 		expect(stage.valid?).to eq false
 	end

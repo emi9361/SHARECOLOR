@@ -1,5 +1,5 @@
 
 FactoryBot.define do
-  factory :stage do
+  factory :video do
   end
 end
