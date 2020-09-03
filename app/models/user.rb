@@ -20,6 +20,10 @@ class User < ApplicationRecord
 
     has_many :video_sources, dependent: :destroy
     has_many :sound_sources, dependent: :destroy
+    validates :name, presence: true
+    validates :password, presence: true
+    validates :email, presence: true
+    validates :email, uniqueness: true
 
     def self.guest
         find_or_create_by!(
