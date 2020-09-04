@@ -39,8 +39,8 @@ describe '投稿のテスト' do
 		it '投稿に失敗する' do
 			click_button 'アップロード'
 			expect(page).to have_content 'error'
-			expect(current_path).to eq('/sounds')
+			expect(current_path).to eq('/stages')
 		end
 	end
 end
-end
+
