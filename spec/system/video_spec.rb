@@ -43,20 +43,20 @@ describe '編集のテスト' do
 
 		context '自分の投稿の編集画面への遷移' do
 		it '遷移できる' do
-			visit edit_sound_path(sound)
-			expect(current_path).to eq('/sounds/' + sound.id.to_s + '/edit')
+			visit edit_sound_path(video)
+			expect(current_path).to eq('/videos/' + video.id.to_s + '/edit')
 		end
 	end
 		context '他人の投稿の編集画面への遷移' do
 		  it '遷移できない' do
-		    visit edit_sound_path(sound2)
-		    expect(current_path).to eq('/sounds')
+		    visit edit_video_path(video2)
+		    expect(current_path).to eq('/videos')
 		  end
 		end
 
 		context '表示の確認' do
 			before do
-				visit edit_sound_path(sound)
+				visit edit_video_path(video)
 			end
 			it 'Video Editと表示される' do
 				expect(page).to have_content('Video Edit')
