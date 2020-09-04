@@ -77,10 +77,13 @@ describe '編集のテスト' do
 				expect(page).to have_field 'sound[bpm]', with: sound.bpm
 			end
 			it 'Hashtagフォームが表示される' do
-				expect(page).to have_field 'sound[hashtag]', with: sound.bpm
+				expect(page).to have_field 'sound[hashtag]', with: sound.hashbody
 			end
 			it 'detailフォームが表示される' do
 				expect(page).to have_field 'sound[detail]', with: sound.detail
+			end
+			it 'Soundfileフォームが表示される' do
+				expect(page).to have_field 'sound[detail]', with: sound.file
 			end
 			it 'アップロードボタンが表示される' do
 				expect(page).to have_link 'アップロード', href: sounds_path
